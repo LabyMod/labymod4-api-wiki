@@ -1,0 +1,24 @@
+site_name: LabyMod4 API
+
+nav:
+  - Addon API:
+      - pages/addon
+
+plugins:
+  - search
+  - include_dir_to_nav
+
+theme:
+  name: material
+  favicon: 'assets/theme/images/favicon.ico'
+  logo: 'assets/theme/images/wolf.png'
+  palette:
+    scheme: slate
+  feature:
+    tabs: true
+  features:
+    - navigation.tabs
+    - navigation.expand
+
+extra_javascript: ['assets/theme/js/script.js']
+extra_css: ['assets/theme/css/main.css']
