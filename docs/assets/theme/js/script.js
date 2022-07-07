@@ -4,7 +4,7 @@ expandNavigation();
 function addCopyright() {
     let year = new Date().getFullYear();
 
-    let copyrightElement = document.getElementsByClassName("md-footer-copyright")[0];
+    let copyrightElement = document.getElementsByClassName("md-copyright")[0];
     copyrightElement.innerHTML = "";
 
     let copyrightText = document.createElement("span");
