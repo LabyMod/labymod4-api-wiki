@@ -16,3 +16,6 @@ Here are some of the changes with our new Addon API:
 <br>
 As of now you'll have to manually update your `build.gradle.kts` when we update your Gradle plugin or support a new Minecraft version. If you want to stay up to date at any time or if you have any questions regarting our Addon API please feel free to 
 <a href="https://labymod.net/dc/dev" target="_blank">join our development Discord</a>.
+
+Have you found something that is missing from this wiki and you find important or are you unsatisfied with something? Please fork our wiki repository, add/improve it and create a pull request 
+<a href="https://github.com/LabyMod/labymod4-api-wiki" target="_blank">here</a>.
