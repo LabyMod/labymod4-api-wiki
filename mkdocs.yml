@@ -2,11 +2,16 @@ site_name: LabyMod4 API
 
 nav:
   - Addon API:
-      - pages/addon
+    - Introduction: pages/addon/index.md
+    - Setup:
+      - First Steps: pages/addon/setup/first-steps.md
+      - Your first LabyMod 4 Addon: pages/addon/setup/setup.md
+    - Features:
+      - Creating a Configuration: pages/addon/features/config.md
+      
 
 plugins:
   - search
-  - include_dir_to_nav
 
 theme:
   name: material
