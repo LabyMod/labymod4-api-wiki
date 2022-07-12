@@ -62,5 +62,27 @@ Now navigate to the class `ExampleConfiguration`. You'll see that this class inh
 Looking at the class body you will find a field called `enabled` with the `SwitchSetting` annotation. 
 The annotation declares the widget that you'll find in your settings. In this case, the widget is a SwitchSettingWidget, which toggles a boolean between on and off.
 
-You can find more SettingWidgets that you can create via annotation 
+You can find more about configurations <a href="/pages/addon/features/config/#using-predefined-setting-widgets">here</a>.
+
+### The Listener
+
+Looking into the package `org.example.core.listener` you'll find the class ExampleGameTickListener, it does what it says. It listens to the GameTickListener event. A complete guide to our events can be found 
 <a href="#FINAL_LINK_HERE">here</a>.
+
+First we declared a field with our addon main class as type. Then we created a constructor with our main class instance as a parameter and added the `@Inject` annotation in order for <a href="#FINAL_LINK_HERE">Guice</a> to be able to find the constructor. 
+
+Basically what this class does is, as already mentioned, listen to the GameTickEvent, which is called twice every tick (first one with phase PRE & the second one with phase POST). In this case, we're only listening to the PRE phase, because we only want the rest called once.
+Inside of the event, we are accessing the field with our addon main instance. With this instance, we are gaining access to the logger we mentioned a few sections above and printing if the addon is enabled or disabled.
+
+### The Command
+
+With the LabyMod 4 API you have the option to add your own commands with a simple-to-use command system. More on how to create own commands <a href="#FINAL_LINK_HERE">here</a>.
+
+What we do in this class is as simple and basic as the command system in general. We are inheriting the class `Command`, creating the constructor of our class and calling the constructor of the superclass with the main prefix of the command (in our case `ping`) and the aliases (in this case just `pong`).
+
+Now to the `execute` method. It is called when, as the name says, the command is executed and we can handle it.
+
+
+FINISH AFTER COMMAND SYSTEM IS FINISHED
+
+ 

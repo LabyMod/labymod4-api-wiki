@@ -13,6 +13,14 @@ nav:
 plugins:
   - search
 
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+
 theme:
   name: material
   favicon: 'assets/theme/images/favicon.ico'
