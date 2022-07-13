@@ -1,6 +1,6 @@
 # Creating a Configuration
 
-From using our predefined setting widgets, over creating your own to a few things that didn't fit in with the rest. On this page we will show you everything there is to know about our configuration system.
+From using our predefined setting widgets, over creating your own to a few things that didn't fit in with the rest. On this page, we will show you everything there is to know about our configuration system.
 
 ## Using Predefined Setting Widgets
 
@@ -91,7 +91,7 @@ In order to display icons in front of your settings, you'll need to declare a sp
 
 ## Example of the Previous Sections
 
-These are the example files explaining the different functions mentioned before.
+These are some example files showing a few of the functions mentioned before.
 
 === ":octicons-file-code-16: ExampleConfiguration"
     ``` java

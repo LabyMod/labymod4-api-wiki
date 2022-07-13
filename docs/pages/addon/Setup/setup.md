@@ -82,7 +82,11 @@ What we do in this class is as simple and basic as the command system in general
 
 Now to the `execute` method. It is called when, as the name says, the command is executed and we can handle it.
 
-
 FINISH AFTER COMMAND SYSTEM IS FINISHED
 
+### The Internationalization File
+
+Go to the module called `core` and then navigate down to `src/main/resources/assets/example/i18n/` (the `example` folder has to be named after the namespace you set in your `build.gradle.kts`) and you should see a file with the name `en_us.json`. This is the default file for internationalization, as is English the default language. To dive deeper in the internationalization of LabyMod go to <a href="/pages/addon/features/internationalization/">this article</a>.
+
+First, we created a new Json Object called `settings`, which implies that the following lines are for the settings, after that we created another Json Object called `example`, this has to reflect the namespace that you set in your `build.gradle.kts`. In said Json Object we declared a String with the key `name`, this ends up being the name of the addon, which you'll see on the category button linking to the settings of your Addon in the LabyMod Settings. Now we created another Json Object with the key `enabled`, as this is the name of the field in our configuration, inside you will find another String with the key `name`. This is the name of the Setting Widget `enabled`.
  
