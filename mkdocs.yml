@@ -11,16 +11,18 @@ nav:
       - Internationalize your Addon: pages/addon/features/internationalization.md
       - Use and Create Events: pages/addon/features/events.md
       - Create Commands: pages/addon/features/commands.md
-      - What are Activities?: pages/addon/features/activity.md
-      - Use and Create Widgets: pages/addon/features/widgets.md
-      - Understand LSS: pages/addon/features/lss.md
+    - Activity System:
+      - What are Activities?: pages/addon/activities/activity.md
+      - Use and Create Widgets: pages/addon/activities/widgets.md
+      - Understand LSS: pages/addon/activities/lss.md
     - Additional Information: pages/addon/additional-infos.md
       
-
 plugins:
   - search
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
