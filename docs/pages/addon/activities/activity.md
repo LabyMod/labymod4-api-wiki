@@ -18,7 +18,7 @@ After we inherited the Activity superclass (or one of its extensions), we need t
 
 In this case, we want to render a text at the center of the screen, and as we are creating a bare Activity, we'll overwrite the `render` method. (please keep in mind that the super call has to be at the head of the method. Otherwise, our text will be rendered beneath the background). 
 
-All we have to do now is to get the bounds of the activity (the bounds represent the position and size of activities and widgets). More on that on the next page about widgets. Then we need get the `TextRenderer` by calling `this.labyAPI.renderPipeline().textRenderer()` as we will render our text with that renderer. 
+All we have to do now is to get the bounds of the activity by declaring `this.bounds()` as a local variable (the bounds represent the position and size of activities and widgets - more on that in the part about LSS). Then we need get the `TextRenderer` by calling `this.labyAPI.renderPipeline().textRenderer()` as we will render our text with that renderer. 
 
 Now to the rendering, apply your text to the renderer by using the setter `text`, our text is the String `"I am a bare rendered example text"`, so we use `textRenderer.text("I am a bare rendered example text")`, after that we set our position with the bounds we got before. As we want the text centered we need the `centerX` and `centerY` float and set them via `textRenderer.pos(bounds.getCenterX(), bounds.getCenterY())`. 
 
@@ -26,7 +26,7 @@ We could theoretically render it now but we want to adjust the renderer a bit. A
 
 Now as all is set as we want, we can call `textRenderer.render(stack)` and we are finished. 
 
-## Bare Activity Example
+### Bare Activity Result
 
 Looking back at what we just wrote, this is what the code and result would look like:
 
@@ -39,11 +39,14 @@ Looking back at what we just wrote, this is what the code and result would look 
       public void render(Stack stack, MutableMouse mouse, float partialTicks) {
         super.render(stack, mouse, partialTicks);
     
-        Bounds bounds = this.getBounds();
+        Bounds bounds = this.bounds();
         TextRenderer textRenderer = this.labyAPI.renderPipeline().textRenderer();
         textRenderer.text("I am a bare rendered example text")
             .pos(bounds.getCenterX(), bounds.getCenterY())
-            .centered(true).shadow(false).color(Color.ORANGE.getRGB()).render(stack);
+            .centered(true)
+            .shadow(false)
+            .color(Color.ORANGE.getRGB())
+            .render(stack);
       }
     
       @Override
