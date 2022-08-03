@@ -1,8 +1,4 @@
-# Introduction
-
-With LabyMod 4 we've improved the way to develop addons. You now have one project per addon, this allows you to write version-independent code besides version-dependent code without needing to copy & paste the version-independent code for every version.
-
-In addition to that, you now can publish your addon for all LabyMod Users to download without having to wait for us to review the addon. The only catch: users have to specifically search for your addon in our addon store and if they want to download it, they get served a warning. But you can also request a review so every LabyMod User can see your addon and download it without any warnings.
+With LabyMod 4 we've improved the way to develop addons. You now have one project per addon, this allows you to write version-independent code in the same project as version-dependent code without needing to copy & paste the version-independent code for every version.
 
 Here are some of the changes with our new Addon API:
 

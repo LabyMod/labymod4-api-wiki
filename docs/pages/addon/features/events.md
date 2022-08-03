@@ -1,5 +1,3 @@
-# Use and Create Events
-
 With LabyMod 4 we not only deliver more Events, but they are very similar to use like the events of Minecraft server software like Bukkit and BungeeCord.
 
 ## The Most Important Events
@@ -32,7 +30,7 @@ The `GameTickEvent` is fired twice every tick. Once with the phase `PRE` and onc
 
 ### Network Disconnect Event
 
-The `NetworkDisconnectEvent` will be fired if the user connection to a server closes (so either if the user disconnects or gets kicked).
+The `NetworkDisconnectEvent` will be fired if the connection to a server closes (so either if the user disconnects or gets kicked).
 
 ### Network Login Event
 
@@ -41,6 +39,10 @@ The `NetworkLoginEvent` will be fired as soon as the user connects to a server. 
 ### Network Server Switch Event
 
 The `NetworkServerSwitchEvent` is fired when the user is already connected to a server but switches a sub-server (for example when connected to a proxy and switching from the hub to survival games).
+
+### Json Config Loader Initialize Event
+
+The `JsonConfigLoaderInitializeEvent` is fired when the configuration loader is initialized. This event is used to create own type adapters for your configuration.
 
 ## Every Other Event
 

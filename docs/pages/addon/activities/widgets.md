@@ -1,5 +1,3 @@
-# Use and Create Widgets
-
 Widgets are a useful and easy way to customize your activities and they are the backbone of every themeable activity.
 
 ## Use Widgets in Activities
@@ -65,10 +63,6 @@ Like with the bare Activity, this is what the code we described above would look
 === ":octicons-file-media-24: Result"
     ![Config-Result](/assets/files/screenshots/widget-activity-example.png)
 
-## All Widgets
-
-todo: list all widgets
-
 ## Create Your Own Widget
 
 You not only can use the Widgets we created, but you can also create your very own ones. 
@@ -83,7 +77,13 @@ This widget will be applied in a vertical list with multiple entries.
 We start by creating a new class and inheriting `SimpleWidget`. `SimpleWidget` only does one thing, it inherits from `AbstractWidget` with the type `Widget`. The type on the `AbstractWidget` declares what type the children have to be. In this case, it's `Widget` and therefore you can add any widget you want as a child. But if you only want ComponentWidgets as children, you can inherit `AbstractWidget` and set the type parameter to `ComponentWidget`. This will only allow the children to be or inherit `ComponentWidget`.
 
 We'll continue by creating a constructor with a String as the parameter. This String will represent the name of the player. 
-Now we overwrite the `initialize` method and declare a new `HorizontalListWidget` as a local variable. The `HorizontalListWidget` does what it's named after, it's a horizontal list. The counterpart is the `VerticalListWidget`, but we'll use that one later.
+Now we overwrite the `initialize` method and declare a new `HorizontalListWidget` as a local variable. The `HorizontalListWidget` does what it's named after, it's a list that displays the entries horizontally. The counterpart is the `VerticalListWidget`, but we'll use that one later.
 The `HorizontalListWidget` allows us to list our widgets horizontally while setting the position of the children automatically. We could also inherit the `HorizontalListWidget` directly but let's assume there is a reason we're not.
 
 Now we create a new `IconWidget`...
+
+todo: write
+
+## All Widgets
+
+todo: list all widgets

@@ -1,5 +1,3 @@
-# Additional Information
-
 Here you can find some information about things that didn't really fit anywhere else.
 
 ## Why Is the Naming on Some of Our Methods So Weird?

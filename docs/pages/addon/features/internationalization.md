@@ -1,5 +1,3 @@
-# Internationalize your Addon
-
 All internationalization files have to be located in the module called `core` and then down the folder structure `src/main/resources/assets/NAMESPACE/i18n/` ("NAMESPACE" should be replaced with the namespace you set in your `build.gradle.kts`). The default file for internationalization is called `en_us.json`, as English is the default language. 
 
 ## Create Custom Translations

@@ -1,6 +1,31 @@
-# Creating a Configuration
-
 From using our predefined setting widgets, over creating your own to a few things that didn't fit in with the rest. On this page, we will show you everything there is to know about our configuration system.
+
+## Create a Basic Configuration
+
+You can create your configuration by creating a new class and inheriting `AddonConfig`. This superclass requires you to implement the `enabled` method, as we want to allow servers to disable every addon they want. 
+
+The only thing you always need to keep in mind while creating a configuration besides the type you need to inherit is, that you need to use the `ConfigProperty` type for your settings, but just for specific types that you might want to use. More on which types you can use by default <a href="#valid-setting-types">here</a>. For any other types, just use the bare type, without declaring it as an argument on `ConfigProperty`.
+
+To create a setting that represents if your addon is enabled or not, you need to create a new field with the type `ConfigProperty`. Now add the type of your setting, in this case, `Boolean` as boolean. Now instantiate this property by declaring a new ConfigProperty with the default value as argument, well use `true` as the default value.
+The result would look like this `ConfigProperty<Boolan> enabled = new ConfigProperty<>(true)`. Now if we want to use this property in an event, we'll get the property (preferably by its getter) and call `get()`. this will get us the value of the property.
+
+
+You can only use a variety of types for your `ConfigProperty` by default. <br>
+The current valid types are:
+
+ + String
+ + Character
+ + Boolean
+ + Integer
+ + Long
+ + Double
+ + Float
+ + Short
+ + Byte
+ + any Enum
+ + Key
+ + MouseButton
+ + ResourceLocation
 
 ## Using Predefined Setting Widgets
 
@@ -10,14 +35,14 @@ The following content lists all of our Setting Widgets, that will be served by u
 
 Annotation: `SwitchSetting` <br>
 Arguments: none <br>
-Compatible Type: `boolean` <br>
+Compatible Type: `Boolean` <br>
 Description: 
 
 ### Slider Widget
 
 Annotation: `SliderSetting` <br>
 Arguments: `min` - smallest value possible, `max` - biggest value possible, (`steps` - the amount of how much the value will increase/decrease on each move - default is 1) <br>
-Compatible Types: `int`, `float`, `double`, `short`, `byte`, `long` <br>
+Compatible Types: `Integer`, `Float`, `Double`, `Short`, `Byte`, `Long` <br>
 Description: 
 
 ### Text Field Widget
@@ -45,7 +70,7 @@ Description:
 
 Annotation: `ColorPickerSetting` <br>
 Arguments: (`alpha` - whether the user should be able to change the transparency - default is false) <br>
-Compatible Type: `int` <br>
+Compatible Type: `Integer` <br>
 Description: 
 
 ### Dropdown Widget
@@ -59,14 +84,14 @@ Description:
 
 Annotation: `ButtonSetting` <br>
 Arguments: (`text` - a String that will be displayed - default is ""), (`translation` - the key to a translation within your localization files, default is "") <br>
-Compatible Types: any public method <br>
+Compatible Types: any public method, <b>not ConfigProperty</b><br>
 Description: 
 
 ### Addon Activity Widget
 
 Annotation: `AddonActivityWidget` <br>
 Arguments: (`text` - a String that will be displayed - default is ""), (`translation` - the key to a translation within your localization files, default is "") <br>
-Compatible Types: any public method that returns an <a href="#FINAL_LINK_HERE">Activity</a> <br>
+Compatible Types: any public method that returns an <a href="#FINAL_LINK_HERE">Activity</a>, <b>not ConfigProperty</b><br>
 Description: 
 
 ## Further Customize the Settings
@@ -81,7 +106,7 @@ You can create sections in your settings, you just have to add the annotation `@
 
 ### Create Sub Settings
 
-If you want more structure in your settings but don't want to use Sections, you can create sub-settings that can be accessed via a button. Just create a new class, and let it inherit from `Config`. Add a field with the same type and create a new instance of said class.
+If you want more structure in your settings but don't want to use Sections, you can create sub-settings that can be accessed via a button. Just create a new class, and let it inherit from `Config`. Add a field with the same type in your configuration (just the type, not a `ConfigProperty`) and create a new instance of said class. As you might have noticed, you don't have to use the `AddonConfig` superclass for sub-settings. The `AddonConfig` class is required for your main configuration, but not for subsettings.
 
 If you want to display more than just the advanced-button (the button that lets you access the sub-settings), add the `@ParentSetting` annotation to the field of the most desirable setting.
 
@@ -97,16 +122,16 @@ These are some example files showing a few of the functions mentioned before.
     ``` java
     @ConfigName("settings")
     @SpriteTexture("example_sprite.png")
-    public class ExampleConfiguration extends Config {
+    public class ExampleConfiguration extends AddonConfig {
     
       @SpriteSlot(x = 1, y = 1)
       @SwitchSetting
-      private boolean enabled = true;
+      private ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
       @SettingSection("print")
       @SpriteSlot(x = 6)
       @TextFieldSetting
-      private String text = "Hi!";
+      private ConfigProperty<String> text = new ConfigProperty<>("Hello World!");
 
       @SettingSection("miscellaneous")
       @SpriteSlot(x = 1, y = 3)
@@ -114,7 +139,7 @@ These are some example files showing a few of the functions mentioned before.
 
       @SpriteSlot(y = 3)
       @DropdownSetting
-      private ExampleEnum type = ExampleEnum.SCALENE_TRIANGLE;
+      private ConfigProperty<ExampleEnum> type = new ConfigProperty<>(ExampleEnum.SCALENE_TRIANGLE);
 
       @MethodOrder(after = "text")
       @SpriteSlot(x = 2, y = 6)
@@ -123,25 +148,31 @@ These are some example files showing a few of the functions mentioned before.
         LabyGuice.getInstance(ExampleAddon.class).logger()
             .info(setting.getId() + " was clicked! " + this.text);
       }
+
+      @Override
+      public ConfigProperty<Boolean> enabled() {
+        return this.enabled;
+      }
     }
     ```
 
 === ":octicons-file-code-16: ExampleSubSetting"
     ``` java
     public class ExampleSubSettings extends Config {
-
+    
       @ParentSwitch
       @SpriteSlot(x = 7)
       @SwitchSetting
-      private boolean enabled = false;
+      private ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
       @SpriteSlot(x = 1, y = 6)
       @ColorPickerSetting
-      private int labyModColor = new Color(10, 85, 165).getRGB();
+      private ConfigProperty<Integer> labyModColor = new ConfigProperty<>(
+          new Color(10, 85, 165).getRGB());
 
       @SpriteSlot(x = 2)
       @KeyBindSetting
-      private Key keyBind = Key.F;
+      private ConfigProperty<Key> keyBind = new ConfigProperty<>(Key.F);
     }
     ```
 
@@ -155,8 +186,8 @@ These are some example files showing a few of the functions mentioned before.
 === ":octicons-file-code-16: en_us.json"
     ``` json
     {
-      "settings": {
-        "example": {
+      "example": {
+        "settings": {
           "name": "ExampleAddon",
           "enabled": {
             "name": "Enabled"
@@ -200,4 +231,12 @@ These are some example files showing a few of the functions mentioned before.
 === ":octicons-file-media-24: Result"
     ![Config-Result](/assets/files/screenshots/config-example.gif)
 
-## Create Custom Setting Widgets
+## Create Custom Settings
+
+### Register Your Own Setting Type
+
+todo: write, check chattime
+
+### Create Custom Setting Widgets
+
+todo: write, check chattime

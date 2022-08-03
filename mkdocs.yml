@@ -11,10 +11,15 @@ nav:
       - Internationalize your Addon: pages/addon/features/internationalization.md
       - Use and Create Events: pages/addon/features/events.md
       - Create Commands: pages/addon/features/commands.md
+      - Write Version Dependend Code: pages/addon/features/version-dependend.md
     - Activity System:
       - What are Activities?: pages/addon/activities/activity.md
       - Use and Create Widgets: pages/addon/activities/widgets.md
       - Understand LSS: pages/addon/activities/lss.md
+    - Publishing:
+      - Requirements: pages/addon/publishing/requirements.md
+      - Publish Your Addon: pages/addon/publishing/publish.md
+    - Troubleshoot: pages/addon/troubleshoot.md
     - Additional Information: pages/addon/additional-infos.md
       
 plugins:

@@ -1,5 +1,3 @@
-# Your first LabyMod 4 Addon
-
 Basically all you need to do to start your addon is done. You should be able to start your addon right after you imported the Gradle project, but are a few things left that you shouldn't forget.
 
 To name a few of them:
@@ -52,6 +50,9 @@ Now the final method we called here is `this.logger()`, which a logger to print 
 
 As already mentioned you can inherit the class `LabyAddon`, but you can also do it without it. 
 
+???+ warning "Important Note"
+
+    While this is possible, we highly recommend creating Addons with our LabyAddon class as it implements some things that just make creating addons easier, especially for beginners. 
 
 this stays empty for now, would take too long to describe it and we have an easier way.
 
