@@ -16,6 +16,7 @@ nav:
       - What are Activities?: pages/addon/activities/activity.md
       - Use and Create Widgets: pages/addon/activities/widgets.md
       - Understand LSS: pages/addon/activities/lss.md
+      - Theming: pages/addon/activities/themes.md
     - Publishing:
       - Requirements: pages/addon/publishing/requirements.md
       - Publish Your Addon: pages/addon/publishing/publish.md

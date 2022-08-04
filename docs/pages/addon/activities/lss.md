@@ -1,4 +1,6 @@
-If you've worked with CSS before, LSS shouldn't be all too new, both share a similar basic syntax. We have implemented LSS as a system to conveniently design and theme responsive GUIs (Screens). No more OpenGL hustle, just Activities, Widgets and LSS. 
+If you've worked with CSS before, LSS shouldn't be all too new, both share a similar basic syntax.
+We have implemented LSS as a system to conveniently design and theme responsive GUIs (Screens).
+No more OpenGL hustle, just Activities, Widgets and LSS. 
 
 ## LSS in a Nutshell
 
@@ -14,3 +16,77 @@ CSS and LSS have a very similar syntax, but here are some of their differences:
 
 ## Creating Activities with LSS
 
+Looking back at <a href="#FINAL-LINK-HERE">the last page</a>, we created an Activity with a ComponentWidget but without LSS. 
+We'll again be using the result from the last page to make it work with LSS.
+
+We start by deleting the `postStyleSheetLoad` method, which we used before to set the position of our widget. 
+As LSS is doing that now, we don't need this method anymore. 
+Now we head to our `resources` folder in the `core` module (`src/main/resources/`) and go to (or create) the following folder structure: `assets/example/themes/vanilla/lss/` (replace `example` with the namespace of your addon). 
+After doing that, create a new file called `example.lss`. 
+
+Now the magic part: as we didn't set an id, we'll use the type. 
+We have a `ComponentWidget` in our Activity so we're going to type `Component {` into the first line.
+As we want our component centered we'll be adding `left: 50%;` and `top: 50%;` to the following lines. 
+If we were just doing that, the component would start at 50% of the screen each, so we're adding `alignment-x: center;` and `alignment-y: center;` as the following lines. 
+This will adjust the anchor point of the widget to its center, so 50% from the left will be exactly at the center of the widget.
+The last thing we'll need to do here is close the block with `}` and we're done.
+
+All we have to do now is go back to our Activity that uses LSS, add the `Link` annotation above and add "example.lss" as the annotation's argument.
+Theoretically, we're done. But there are a few things left that we can do. 
+For once, we can remove the field `componentWidget`, as we don't need the Widget anywhere else anymore.
+We can also remove the argument `NamedTextColor.GOLD` from the ComponentWidget's constructor call and just add `text-color: gold;` to our LSS file.
+Now, there is one more thing we can do and that is to add an id to our widget. 
+We'll do this by just calling `componentWidget.addId("test-widget")` and replacing `Component` in our LSS StyleSheet with `.test-widget`. 
+This will be very important when creating complex Activities so that blocks for the same Widget don't overwrite each other.
+
+And we're done. You can debug your Activity by pressing `CTRL + D` and pressing `ARROW RIGHT` until you see the name of your Activity if ever something doesn't work like expected.
+
+### LSS Activity Result
+
+Like before, this is what the code we described above would look like:
+
+=== ":octicons-file-code-16: ExampleLssActivity"
+    ```java
+    @AutoActivity
+    @Link("example.lss")
+    public class ExampleLssActivity extends SimpleActivity {
+    
+      @Override
+      public void initialize(Parent parent) {
+        super.initialize(parent);
+    
+        ComponentWidget componentWidget = ComponentWidget.text(
+            "I am an example text rendered with a ComponentWidget set via LSS"
+        );
+        componentWidget.addId("test-widget");
+        this.document().addChild(componentWidget);
+      }
+    
+      @Override
+      public <T extends LabyScreen> @Nullable T renew() {
+        return (T) new ExampleLssActivity();
+      }
+    }
+    ```
+
+=== ":octicons-file-code-16: example.lss"
+    ```css
+    .test-widget {
+      left: 50%;
+      top: 50%;
+      alignment-x: center;
+      alignment-y: center;
+      text-color: gold;
+    }
+    ```
+
+=== ":octicons-file-media-24: Result"
+    ![Config-Result](/assets/files/screenshots/lss-activity-example.png)
+ 
+## Create Widgets With LSS
+
+todo: write
+
+## Injecting Blocks Into Other StyleSheets
+
+todo: write

@@ -10,7 +10,7 @@ To get the raw translation string you have to get the class `Internationalizatio
 
 As already mentioned, you can internationalize every text the user can see, even the widgets of our Activity system that display text. A list of all widgets delivered with our Addon API can be found <a href="#FINAL_LINK_HERE">here</a>. 
 
-## Support Multiple Languages at Once
+## Support Multiple Languages
 
 The language in LabyMod and thus the preferred internationalization file of every Addon will change when switching the language in Minecraft itself. The fallback language always stays `en_us`. That means if for example, a user selected German as the language in which Minecraft is displayed, we will search for a file called `de_de.json` in your addon. If that file won't be found, we will use the default file and thus the English translations.
 

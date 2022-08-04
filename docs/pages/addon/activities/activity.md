@@ -1,5 +1,3 @@
-# What are Activities?
-
 Activities are an easy way to create custom screens, and the best part: you don't need to know OpenGL to create most activities - only if you want to display something truly custom, knowing OpenGL could be beneficial but it still wouldn't be much of a problem, if you don't because you have many other possibilities to render anything that you want.
 
 In the following pages, we will explain how to create custom activities, create and use widgets in your activities and how to theme them with LSS. It can be a bit much to take in at first, but it's worth it.
