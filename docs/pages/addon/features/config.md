@@ -1,16 +1,16 @@
-From using our predefined setting widgets, over creating your own to a few things that didn't fit in with the rest. On this page, we will show you everything there is to know about our configuration system.
+From using our predefined setting widgets over creating your own, to a few things that didn't fit in with the rest. This page will show you everything there is to know about our configuration system.
 
 ## Create a Basic Configuration
 
 You can create your configuration by creating a new class and inheriting `AddonConfig`. This superclass requires you to implement the `enabled` method, as we want to allow servers to disable every addon they want. 
 
-The only thing you always need to keep in mind while creating a configuration besides the type you need to inherit is, that you need to use the `ConfigProperty` type for your settings, but just for specific types that you might want to use. More on which types you can use by default <a href="#valid-setting-types">here</a>. For any other types, just use the bare type, without declaring it as an argument on `ConfigProperty`.
+The only thing you always need to keep in mind while creating a configuration besides the type you need to inherit is that you need to use the `ConfigProperty` type for your settings, but just for specific types that you might want to use. More on which types you can use by default <a href="#valid-setting-types">here</a>. For any other types, use the type itself without declaring it as an argument on `ConfigProperty`.
 
-To create a setting that represents if your addon is enabled or not, you need to create a new field with the type `ConfigProperty`. Now add the type of your setting, in this case, `Boolean` as boolean. Now instantiate this property by declaring a new ConfigProperty with the default value as argument, well use `true` as the default value.
-The result would look like this `ConfigProperty<Boolan> enabled = new ConfigProperty<>(true)`. Now if we want to use this property in an event, we'll get the property (preferably by its getter) and call `get()`. this will get us the value of the property.
+To create a setting that represents if your addon is enabled or not, you need to create a new field with the type `ConfigProperty`. Now add the type of your setting, in this case, `Boolean` as boolean. Now instantiate this property by declaring a new ConfigProperty with the default value as the argument, well use `true` as the default value.
+The result would look like this `ConfigProperty<Boolan> enabled = new ConfigProperty<>(true)`. Now, if we want to use this property in an event, we'll get the property (preferably by its getter) and call `get()`. This will get us the value of the property.
 
 
-You can only use a variety of types for your `ConfigProperty` by default. <br>
+You can only use various types for your `ConfigProperty` by default. <br>
 The current valid types are:
 
  + String
@@ -29,7 +29,7 @@ The current valid types are:
 
 ## Using Predefined Setting Widgets
 
-The following content lists all of our Setting Widgets, that will be served by using the Addon API, with possible arguments (optional arguments are surrounded by brackets), compatible types and a short description, that you can create via an annotation:
+The following content lists all of our Setting Widgets that will be served by using the Addon API, with possible arguments (brackets surround optional arguments), compatible types, and a short description that you can create via an annotation:
 
 ### Switch Widget
 
@@ -97,22 +97,22 @@ Description:
 ## Further Customize the Settings
 
 In addition to using predefined widgets for your settings, you also have a few other options to customize them. <br>
-The following points are not very precisely explained but you can see everything from the following subsections and most of the subsections before in
+The following points are not very precisely explained, but you can see everything from the following subsections and most of the subsections before in
 <a href="#example-of-the-previous-sections">this section</a>.
 
 ### Create Sections
 
-You can create sections in your settings, you just have to add the annotation `@SettingSection` above the first field that you want to have in said section. Now all you have to do is set the identifier as the annotation's parameter and add it to your internationalization file. 
+You can create sections in your settings; you just have to add the annotation `@SettingSection` above the first field that you want to have in said section. Now all you have to do is set the identifier as the annotation's parameter and add it to your internationalization file. 
 
 ### Create Sub Settings
 
-If you want more structure in your settings but don't want to use Sections, you can create sub-settings that can be accessed via a button. Just create a new class, and let it inherit from `Config`. Add a field with the same type in your configuration (just the type, not a `ConfigProperty`) and create a new instance of said class. As you might have noticed, you don't have to use the `AddonConfig` superclass for sub-settings. The `AddonConfig` class is required for your main configuration, but not for subsettings.
+If you want more structure in your settings but don't want to use Sections, you can create sub-settings that can be accessed via a button. Just create a new class, and let it inherit from `Config`. Add a field with the same type in your configuration (just the type, not a `ConfigProperty`) and create a new instance of said class. You might have noticed that you don't have to use the `AddonConfig` superclass for sub-settings. The `AddonConfig` class is required for your main configuration but not for sub-settings.
 
-If you want to display more than just the advanced-button (the button that lets you access the sub-settings), add the `@ParentSetting` annotation to the field of the most desirable setting.
+If you want to display more than just the advanced button (the button that lets you access the sub-settings), add the `@ParentSetting` annotation to the field of the most desirable setting.
 
 ### Use Icons for Settings
 
-In order to display icons in front of your settings, you'll need to declare a sprite texture with the `@SpriteTexture` annotation. Set the name of your file as the value of the annotation (the base path is `assets/NAMESPACE/themes/THEME/textures/sprite`, while the namespace is the namespace you set in your `build.gradle.kts` and the theme to the current theme. If you want your icons to be visible in all themes, put the texture in the vanilla theme). More on sprite textures <a href="#FINAL_LINK_HERE">here</a>. 
+To display icons in front of your settings, you'll need to declare a sprite texture with the `@SpriteTexture` annotation. Set the name of your file as the value of the annotation (the base path is `assets/NAMESPACE/themes/THEME/textures/sprite`, while the namespace is the namespace you set in your `build.gradle.kts` and the theme to the current theme. If you want your icons to be visible in all themes, put the texture in the vanilla theme). More on sprite textures <a href="#FINAL_LINK_HERE">here</a>. 
 
 ## Example of the Previous Sections
 

@@ -1,41 +1,40 @@
-If you've worked with CSS before, LSS shouldn't be all too new, both share a similar basic syntax.
-We have implemented LSS as a system to conveniently design and theme responsive GUIs (Screens).
-No more OpenGL hustle, just Activities, Widgets and LSS. 
+If you've worked with CSS before, LSS shouldn't be all too new; both share a similar basic syntax.
+We have implemented LSS as a system to design and theme responsive GUIs (Screens) conveniently; no more OpenGL hustle, just Activities, Widgets, and LSS. 
 
 ## LSS in a Nutshell
 
-The main thing you need to know about LSS is, that while you add LSS StyleSheets to your Activity, you can't manipulate Activities directly, only the Widgets inside of that Activity. 
+The main thing you need to know about LSS is that while you add LSS StyleSheets to your Activity, you can't manipulate Activities directly, only the Widgets inside of that Activity. 
 A list of all Widgets delivered with the API can be found <a href="#FINAL-LINK-HERE">here</a>.
 
 CSS and LSS have a very similar syntax, but here are some of their differences:
 
- + CSS has classes, LSS has ids that can be added to Widgets directly in the Activities Java code.
- + In CSS you can just declare the type. You can do the same in LSS, there is one thing to keep in mind: if the name of a Widget ends with the suffix "Widget", the suffix gets removed (so for example `Component` instead of `ComponentWidget` or `Icon` instead of `IconWidget`).
- + LSS has no types like `p` for pixels, etc. LSS always works with relative pixels (1 = one pixel on GUI scale 1, four pixels on GUI scale 2 and 16 pixels on GUI scale 3)
+ + CSS has classes, and LSS has ids that can be added to Widgets directly in the Activities Java code.
+ + In CSS, you can declare the type. You can do the same in LSS; there is one thing to keep in mind: if the name of a Widget ends with the suffix "Widget", the suffix gets removed (so, for example, `Component` instead of `ComponentWidget` or `Icon` instead of `IconWidget`).
+ + LSS has no types like `p` for pixels, etc. LSS always works with relative pixels (1 = one pixel on GUI scale 1, four pixels on GUI scale 2, and 16 pixels on GUI scale 3)
 
 
 ## Creating Activities with LSS
 
 Looking back at <a href="#FINAL-LINK-HERE">the last page</a>, we created an Activity with a ComponentWidget but without LSS. 
-We'll again be using the result from the last page to make it work with LSS.
+We'll again use the last page's result to make it work with LSS.
 
-We start by deleting the `postStyleSheetLoad` method, which we used before to set the position of our widget. 
-As LSS is doing that now, we don't need this method anymore. 
+We start by deleting the `postStyleSheetLoad` method, which we used before to set the position of our Widget. 
+As LSS is doing that now, we no longer need this method. 
 Now we head to our `resources` folder in the `core` module (`src/main/resources/`) and go to (or create) the following folder structure: `assets/example/themes/vanilla/lss/` (replace `example` with the namespace of your addon). 
-After doing that, create a new file called `example.lss`. 
+After that, create a new file called `example.lss`. 
 
 Now the magic part: as we didn't set an id, we'll use the type. 
-We have a `ComponentWidget` in our Activity so we're going to type `Component {` into the first line.
-As we want our component centered we'll be adding `left: 50%;` and `top: 50%;` to the following lines. 
-If we were just doing that, the component would start at 50% of the screen each, so we're adding `alignment-x: center;` and `alignment-y: center;` as the following lines. 
-This will adjust the anchor point of the widget to its center, so 50% from the left will be exactly at the center of the widget.
-The last thing we'll need to do here is close the block with `}` and we're done.
+We have a `ComponentWidget` in our Activity, so we're going to type `Component {` into the first line.
+As we want our Component centered, we'll add `left: 50%;` and `top: 50%;` to the following lines. 
+If we were doing that, the Component would start at 50% of the screen each, adding `alignment-x: center;` and `alignment-y: center;` as the following lines. 
+This will adjust the anchor point of the Widget to its center, so 50% from the left will be exactly at the center of the Widget.
+The last thing we'll need to do here is close the block with `},` and we're done.
 
 All we have to do now is go back to our Activity that uses LSS, add the `Link` annotation above and add "example.lss" as the annotation's argument.
 Theoretically, we're done. But there are a few things left that we can do. 
 For once, we can remove the field `componentWidget`, as we don't need the Widget anywhere else anymore.
-We can also remove the argument `NamedTextColor.GOLD` from the ComponentWidget's constructor call and just add `text-color: gold;` to our LSS file.
-Now, there is one more thing we can do and that is to add an id to our widget. 
+We can also remove the argument `NamedTextColor.GOLD` from the ComponentWidget's constructor call and add `text-color: gold;` to our LSS file.
+Now, there is one more thing we can do, and that is to add an id to our Widget. 
 We'll do this by just calling `componentWidget.addId("test-widget")` and replacing `Component` in our LSS StyleSheet with `.test-widget`. 
 This will be very important when creating complex Activities so that blocks for the same Widget don't overwrite each other.
 
