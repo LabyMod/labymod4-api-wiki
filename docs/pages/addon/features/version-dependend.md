@@ -22,7 +22,7 @@ Now to the implementation. First, we implement the interface `ExampleChatExecuto
 
 After implementing the `ExampleChatExecutor` interface, we go back to our `core` module and head into our `ExamplePingCommand`, that we got from using the addon template. Then we remove the line where we are displaying a gold-colored "Pong!" component and get the object of our interface via `LabyGuice.getInstance(ExampleChatExecutor.class)` (we need to get the instance of the interface because we have no access to the `VersionedExampleChatExecutor` class when not in this specific module). Now all we need to do is call the `displayMessageInChat` method from our interface and declare a String as an argument, we'll be using `"Pong!"` again.
 
-After starting LabyMod 4, joining a server and executing "/pong", well see a colorless "Pong!". Now if we want that message colored, we need to replace `String` in our interface with `Component` and instead of using `Command.literal`, we get the `ComponentMapper` via `Laby.labyApi().minecraft().componentMapper()` and call `toMinecraftComponent(component)`. Now our component from the Adventure Component library was mapped to a Minecraft Component and calling `displayMessageInChat(Component.text("Pong!", NamedTextColor.GOLD))` in our Command works just like before. Just with our own implementation.
+After starting LabyMod 4, joining a server and executing "/pong", well see a colorless "Pong!". Now if we want that message colored, we need to replace `String` in our interface with `Component`. Instead of using `Command.literal`, we get the `ComponentMapper` via `Laby.labyApi().minecraft().componentMapper()` and call `toMinecraftComponent(component)`. Now our component from the Adventure Component library was mapped to a Minecraft Component and calling `displayMessageInChat(Component.text("Pong!", NamedTextColor.GOLD))` in our Command works just like before. Just with our own implementation.
 
 Those are the results from this example:
 
@@ -92,6 +92,6 @@ Those are the results from this example:
 
 todo: write
 
-## Inheriting Version Dependend Code
+## Inheriting Version Dependent Code
 
 todo: write

@@ -6,9 +6,13 @@ You can do more than just internationalize your settings. You also have the opti
 
 So for example instead of using a non-translated String like `"The Addon has a rating of " + rating + " Stars!"`, you could put a String like `"The Addon has a rating of %d Stars!"` in your internationalization file and create the Component with `Component.translatable("example.commands.info.rating", rating)` and the output would be the same. The only difference: your Addon can be used in many different languages without having to hard code every string.
 
-To get the raw translation string you have to get the class `Internationalization` via Guice. FURTHER EXPLAIN WHEN ALL GETTERS WERE RENAMED
+There are two possibilities to get the translated String if you don't want a Component.
+If you want a string that cannot be null, you call `I18n.translate` with the translation key and the arguments. 
+If the translation key is not found the method will return the key.
+Now if you want to easily check if the translation key could be found, you call `I18n.getTranslation` with the translation key and possibly arguments. 
+The method will return `null` if the key could not be found.
 
-As already mentioned, you can internationalize every text the user can see, even the widgets of our Activity system that display text. A list of all widgets delivered with our Addon API can be found <a href="#FINAL_LINK_HERE">here</a>. 
+As already mentioned, you can internationalize every text the user can see, even the widgets of our Activity system that display text. A list of all widgets delivered with our Addon API can be found <a href="/pages/addon/activities/widgets/#all-widgets">here</a>. 
 
 ## Support Multiple Languages
 

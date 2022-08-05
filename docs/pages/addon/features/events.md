@@ -46,8 +46,8 @@ The `JsonConfigLoaderInitializeEvent` is fired when the configuration loader is 
 
 ## Every Other Event
 
-coming soon
+todo: write
 
 ## Create Your Very Own Events
 
-coming soon
+todo: write

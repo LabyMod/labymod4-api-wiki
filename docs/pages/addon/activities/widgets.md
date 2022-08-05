@@ -6,7 +6,7 @@ In this part we will show you how to use and integrate Widgets in your Activity.
 
 ???+ warning "Important Note"
 
-    Please keep in mind that we're explaining the Activity System in multiple steps. In this part of the page page, we will explain how to create Activities with Widets but without LSS. This is for example purposes only, we highly recommend using Widgets and LSS in your Activities, as the system is not optimized for Widgets without LSS. It is possible but don't expect that your code will work forever, there is a high chance that the methods you use will be deprecated at any time.
+    Please keep in mind that we're explaining the Activity System in multiple steps. In this part of the page, we will explain how to create Activities with Widets but without LSS. This is for example purposes only, we highly recommend using Widgets and LSS in your Activities, as the system is not optimized for Widgets without LSS. It is possible but don't expect that your code will work forever, there is a high chance that the methods you use will be deprecated at any time.
 
 Looking back at the bare Activity example, we remove the `render` method overwrite, as we don't need that anymore because the ComponentWidget will render the text for us. Now we overwrite the `initialize` method. Keep in mind that the super call has to be at the head of the method body. The method will be called any time the window is resized, the activity is manually reloaded or when the Activity was opened.
 
@@ -43,8 +43,8 @@ Like with the bare Activity, this is what the code we described above would look
         super.postStyleSheetLoad();
     
         Bounds activityBounds = this.bounds();
-        Bounds widgetBounds = this.componentWidget.bounds();
-        widgetBounds.setPosition(
+        Bounds widgetBounds = this.componentWidgetBounds.bounds();
+        componentWidgetBounds.setPosition(
             activityBounds.getCenterX(),
             activityBounds.getCenterY()
         );
@@ -68,21 +68,11 @@ Like with the bare Activity, this is what the code we described above would look
 You not only can use the Widgets we created, but you can also create your very own ones. 
 In this small example, we will show you how to create your first Widget and how to add it to your Activity. 
 The result of our little example will be a widget that displays a player's head to the left and a player's name. 
-This widget will be applied in a vertical list with multiple entries.
+This Widget will be applied in a vertical list with multiple entries.
 
-???+ warning "Important Note"
+!!! warning "Important Note"
 
-    This example will also be without the use of LSS. You can find the same Widget just with LSS on the next page about LSS.
-
-We start by creating a new class and inheriting `SimpleWidget`. `SimpleWidget` only does one thing, it inherits from `AbstractWidget` with the type `Widget`. The type on the `AbstractWidget` declares what type the children have to be. In this case, it's `Widget` and therefore you can add any widget you want as a child. But if you only want ComponentWidgets as children, you can inherit `AbstractWidget` and set the type parameter to `ComponentWidget`. This will only allow the children to be or inherit `ComponentWidget`.
-
-We'll continue by creating a constructor with a String as the parameter. This String will represent the name of the player. 
-Now we overwrite the `initialize` method and declare a new `HorizontalListWidget` as a local variable. The `HorizontalListWidget` does what it's named after, it's a list that displays the entries horizontally. The counterpart is the `VerticalListWidget`, but we'll use that one later.
-The `HorizontalListWidget` allows us to list our widgets horizontally while setting the position of the children automatically. We could also inherit the `HorizontalListWidget` directly but let's assume there is a reason we're not.
-
-Now we create a new `IconWidget`...
-
-todo: finish
+    As it would be too complex to explain how to create a Widget without LSS, as of now you can only find an explanation on how to create Widgets <a href="/pages/addon/activities/lss/#create-widgets-with-lss">here</a>.
 
 ## All Widgets
 
@@ -105,7 +95,7 @@ The Widget has the following LSS properties:
 
 #### Check Box
 
-The `CheckBoxWidget` is an Input-Widget that switches between two states (`CHECKED` and `UNCHECKED`) when pressed but cab also have the state `PARTLY`, but that can only be set via `setState(State)`.
+The `CheckBoxWidget` is an Input-Widget that switches between two states (`CHECKED` and `UNCHECKED`) when pressed but can also have the state `PARTLY`, but that can only be set via `setState(State)`.
 Can be created with the default constructor (no arguments needed). <br>
 The Widget has no own LSS properties.
 
@@ -157,14 +147,14 @@ Typed in Text can be validated by calling `validator(Predicate)`.
 Can be created with the default constructor (no arguments needed). <br>
 The Widget has the following LSS properties: 
 
-  + `cursor-color` - color of the cursor (default is `white`)
+  + `cursor-color` - the color of the cursor (default is `white`)
   + `font-size` - size of the text (default is `1.0`)
-  + `mark-color` - color of the marked background (default is `-1`)
+  + `mark-color` - the color of the marked background (default is `-1`)
   + `mark-text-color` - color of the marked text (default is `rgb(32, 32, 170)`)
-  + `place-holder-color` - color of the placeholder text (default is `dark-gray`)
+  + `place-holder-color` - the color of the placeholder text (default is `dark-gray`)
   + `text-alignment-x` - either `left`, `center` or `right` (default is `left`)
   + `text-alignment-y` - either `top`, `center` or `bottom` (default is `top`)
-  + `text-color` - color of the text (default is `white`)
+  + `text-color` - the color of the text (default is `white`)
   + `type` - either `default` or `vanilla-window` (default is `default`)
 
 ### Grid Widgets
@@ -210,9 +200,24 @@ The Widget has the following LSS properties:
 
 Utility Widgets are Widgets that can be useful for any type of Activity. 
 
+#### Component
+
+The `ComponentWidget` is a Utility-Widget that displays any Component.
+Can be created with `ComponentWidget.text`, `Componentwidget.i18n` and `ComponentWidget.component`. Each factory method has multiple implementations. <br>
+The Widget has the following LSS properties: 
+
+ + `allow-colors` - if the color of the component should be used (default is `true`)
+ + `font-size` - how much the component should be scaled (default is `1.0`)
+ + `line-spacing` - the spacing between multiple lines if `overflow-strategy` is `wrap` (default is `0.0`)
+ + `max-lines` - the number of maximum lines that should be displayed if `overflow-strategy` is `wrap` (default is `0`, set to `0` to disable)
+ + `overflow-strategy` - the strategy that is applied when text is longer than the bounds allow - either `wrap` or `clip` (default is `wrap`)
+ + `scale-to-fit` - if the component should be scaled to fit the bounds if it would overflow (default is `false`)
+ + `shadow` - if the component should have a shadow (default is `true`)
+ + `text-color` - the color of the component (default is `-1`, set to `-1` to disable)
+
 #### Div
 
-The `DivWidget` is a Utility-Widget that does nothing special, as it is just an implementation of `SimpleWidget`, can be used for creating simple containers without automatic alignment. 
+The `DivWidget` is a Utility-Widget that does nothing special, as it is just an implementation of `SimpleWidget` and can be used for creating simple containers without automatic alignment. 
 Can be created with the default constructor (no arguments needed). <br>
 The Widget has no own LSS properties.
 
@@ -257,7 +262,7 @@ Can be created with either `new ScrollWidget(VerticalListWidget)` or `new Scroll
 The Widget has the following LSS properties: 
 
  + `enable-scroll-content` - if content should be scrolled when dragging the mouse (default is `false`)
- + `scrollSpeed` - how fast the content should be scrolled (default is `-1`, set to `-1` to calculate the scroll speed automatically based on the amount of children)
+ + `scrollSpeed` - how fast the content should be scrolled (default is `-1`, set to `-1` to calculate the scroll speed automatically based on the number of children)
  + `child-align` - where the content should be aligned - either `top`, `center` or `bottom` (default is `top`)
 
 ##### Scrollbar
@@ -272,44 +277,6 @@ The `AbstractWidget` is the main implementation of almost every Widget.
 The generic type declares the type of its children. <br>
 The Widget and therefore all inheriting Widgets have the following LSS properties (if no default value is specified, the default value is `null` and the property has to be set to take effect) <br>
 As there are so many, they are split into different sections:
-
-###### Misc
- + `renderer` - which `ThemeRenderer` the Widget uses
- + `visible` - if the widget is visible or not (default is `true`)
- + `pressable` - if clicking the widget fires the `Pressable` callback (default is `true`)
- + `scale-x` - the horizontal scale (default is `1.0`)
- + `scale-y` - the vertical scale (default is `1.0`)
- + `opacity` - the opacity - has to be between `0.0` and `1.0` (default is `1.0`)
- + `animation-duration` - the duration of the animation - in milliseconds (default is `0`)
- + `always-focused` - if the widget should always have the attribute `FOCUSED` (default is `false`)
- + `render-children` - if the children should be rendered (default is `true`)
-
- + `destroy-delay` - ? - in milliseconds (default is `0`)
- + `width-precision` - ?
- + `height-precision` - ?
- + `box-sizing` - ? - either `content-box` or `border-box` (default is `content-box`)
- + `maintain-aspect-ratio` - ? - either `none`, `width`, or `height` (default is `none`)
- + `priority-layer` - ? - either `very-back`, `back`, `normal`, `front`, `very-front` (default is `normal`)
- + `translate-x` - ? (default is `0.0`)
- + `translate-y` - ? (default is `0.0`)
- + `mouse-render-distance` - ? (default is `0.0`)
- + `animation-timing-function` - ? - either `linear`, `ease-in-out`, `ease-in` or `ease-out` (default is `ease-in-out`)
- + `stencil` - ? (default is `false`)
- + `stencil-translation` - ? (default is `false`)
- + `fit-outer` - ? (default is `false`)
- + `distinct` - ? (default is `false`)
- + `background-always-dirt` - ? (default is `false`)
-  
-
- + `draggable` - if the widget can be dragged (default is `false`)
- + `interactable` - if the widget can be interacted with (default is `true`)
- + `filter` - filters that should be applied - possible are `blur(RADIUS)` and `stencil-background`
- + `background-color` - the color of the background
- + `background-dirt-brightness` - the brightness of the dirt background (default is `32`)
- + `background-dirt-shift` - the shift of the dirt background
- + `font-weight` - the weight of the font
-
-
 
 ##### Positioning (Bounds)
 
@@ -337,10 +304,35 @@ Every property (except the `padding` and `margin` allrounder) in this section ca
  + `margin-left` - the margin at the left (default is `0.0`)
  + `alignment-x` - the horizontal anchor point of the widget - either `left`, `center` or `right` (default is `left`)
  + `alignment-y` - the vertical anchor point of the widget - either `top`, `center` or `bottom` (default is `top`)
- + `fit-width` - if the width should be the same as the content width (default is `false`, same as `width: fit-content;`) 
- + `fit-height` - if the height should be the same as the content height (default is `false`, same as `height: fit-content;`) 
  + `use-floating-point-position` - if the position should use Float instead of Integer (default is `false` in Vanilla- and `true` in Fancy-Theme)
+ + `fit-outer` - if fit-content should be applied to the outer instead of the inner bounds of the children (default is `false`)
+ + `box-sizing` - how the width and height should be calculated - either `content-box` or `border-box` (default is `content-box`)
 
+##### Visual 
+
+ + `animation-duration` - the duration of the animation - in milliseconds (default is `0`)
+ + `animation-timing-function` - how animations should be interpolated - either `linear`, `ease-in-out`, `ease-in` or `ease-out` (default is `ease-in-out`)
+ + `background-color` - the color of the background (default is 0, set to 0 to disable)
+ + `background-dirt-brightness` - the brightness of the dirt background (default is `32`)
+ + `filter` - filters that should be applied - possible are `blur(RADIUS)` and `stencil-background`
+ + `font-weight` - the weight of the font
+ + `opacity` - the opacity - has to be between `0.0` and `1.0` (default is `1.0`)
+ + `render-children` - if the children should be rendered (default is `true`)
+ + `renderer` - which `ThemeRenderer` the Widget uses
+ + `scale` - the scale in which the widget is rendered (default is `1.0`)
+ + `visible` - if the widget is visible or not (default is `true`)
+  
+##### Behavioral
+
+ + `always-focused` - if the widget should always have the attribute `FOCUSED` (default is `false`)
+ + `background-always-dirt` - if the background should always stay dirt, even if ingame (default is `false`)
+ + `background-dirt-shift` - the shift of the dirt background
+ + `draggable` - if the widget can be dragged (default is `false`)
+ + `interactable` - if the widget can be interacted with (default is `true`)
+ + `mouse-render-distance` - in which distance to your mouse the widget will get visible (default is `0.0`, set to `0.0` to disable)
+ + `pressable` - if clicking the widget fires the `Pressable` callback (default is `true`)
+ + `priority-layer` - depending on what is set the widget will be rendered before everything else or after - either `very-back`, `back`, `normal`, `front`, `very-front` (default is `normal`)
+ + `stencil` - if the widget content should not be able out of bounds (default is `false`)
 
 #### List Widget
 
@@ -355,4 +347,4 @@ The Widget has no own LSS properties.
 #### Wrapped Widget
 
 The `WrappedWidget` is a "pseudo Widget" that wraps around its child and acts like it. <br>
-The Widget has no LSS properties as it redirects everything to its child.
+The Widget has no LSS properties as it redirects everything to its child. **deprecated!**
