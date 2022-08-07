@@ -15,6 +15,6 @@ As of now, you'll have to manually update your `build.gradle.kts` when we update
  If you want to stay up to date at any time or if you have any questions regarding our Addon API, please feel free to 
 <a href="https://labymod.net/dc/dev" target="_blank">join our development Discord</a>.
 
-Have you found something missing from this wiki that you find important, or are you unsatisfied with something? 
+Have you found something missing from this wiki that you think is important, or are you unhappy with something? 
 Please fork our wiki repository, add/improve it and create a pull request 
 <a href="https://github.com/LabyMod/labymod4-api-wiki" target="_blank">here</a>.
