@@ -1,6 +1,7 @@
 # LabyMod4 API Wiki
 
-<a href="/pages/addon/">Click here to get to the wiki of our new Addon API</a>.
+Click <a href="/pages/addon/">here</a> to get to the wiki of our new addon API.
 
-Have you found something that is missing from this wiki and you find important or are you unsatisfied with something? Please fork our wiki repository, add/improve it and create a pull request 
+Have you found something missing from this wiki that you think is important, or are you unhappy with something?
+Please fork our wiki repository, add/improve it and create a pull request 
 <a href="https://github.com/LabyMod/labymod4-api-wiki" target="_blank">here</a>.
