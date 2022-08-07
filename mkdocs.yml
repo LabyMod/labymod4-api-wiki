@@ -2,11 +2,39 @@ site_name: LabyMod4 API
 
 nav:
   - Addon API:
-      - pages/addon
-
+    - Introduction: pages/addon/index.md
+    - Setup:
+      - First Steps: pages/addon/setup/first-steps.md
+      - Your first LabyMod 4 Addon: pages/addon/setup/setup.md
+    - Features:
+      - Creating a Configuration: pages/addon/features/config.md
+      - Internationalize your Addon: pages/addon/features/internationalization.md
+      - Use and Create Events: pages/addon/features/events.md
+      - Create Commands: pages/addon/features/commands.md
+      - Write Version Dependend Code: pages/addon/features/version-dependend.md
+    - Activity System:
+      - What are Activities?: pages/addon/activities/activity.md
+      - Use and Create Widgets: pages/addon/activities/widgets.md
+      - Understand LSS: pages/addon/activities/lss.md
+      - Theming: pages/addon/activities/themes.md
+    - Publishing:
+      - Requirements: pages/addon/publishing/requirements.md
+      - Publish Your Addon: pages/addon/publishing/publish.md
+    - Troubleshoot: pages/addon/troubleshoot.md
+    - Additional Information: pages/addon/additional-infos.md
+      
 plugins:
   - search
-  - include_dir_to_nav
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
 
 theme:
   name: material
