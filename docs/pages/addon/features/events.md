@@ -28,6 +28,10 @@ The `ChatReceiveEvent` is fired when a message is registered to be shown in chat
 
 The `GameTickEvent` is fired twice every tick. Once with the phase `PRE` and once with the phase `POST`. The phase represents the current state of a tick. If it has the phase `PRE`, it is fired before Minecraft registers the tick to all its different handlers; if it's the `POST` phase, it is fired after Minecraft itself handled the tick. A tick represents 50 milliseconds (20 ticks per second).
 
+### Json Config Loader Initialize Event
+
+The `JsonConfigLoaderInitializeEvent` is fired when the configuration loader is initialized. This Event is used to create your own type adapters for your configuration.
+
 ### Network Disconnect Event
 
 The `NetworkDisconnectEvent` will be fired if the connection to a server closes (so either if the user disconnects or gets kicked).
@@ -40,9 +44,10 @@ The `NetworkLoginEvent` will be fired as soon as the user connects to a server. 
 
 The `NetworkServerSwitchEvent` is fired when the user is already connected to a server but switches to a sub-server (for example, when connected to a proxy and switching from the hub to survival games).
 
-### Json Config Loader Initialize Event
+### Setting Initialize Event
 
-The `JsonConfigLoaderInitializeEvent` is fired when the configuration loader is initialized. This Event is used to create your own type adapters for your configuration.
+The `SettingInitializeEvent` is fired when an in-game setting was initialized; is used to modify setting Widgets at a later point (adding custom entries to a Dropdown for example). 
+**The listener has to be registered before the setting category is added!**
 
 ## Every Other Event
 

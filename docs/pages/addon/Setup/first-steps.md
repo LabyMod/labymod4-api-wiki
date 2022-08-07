@@ -4,3 +4,5 @@ First you'll need a Java IDE, as of now we only support
 
 Now 
 <a href="https://github.com/LabyMod/addon-template" target="_blank">download or clone our addon template</a> and open it in your preferred IDE.
+
+todo: fill with basic information

@@ -50,7 +50,7 @@ Looking back at what we just wrote, this is what the code and result would look 
     
       @Override
       public <T extends LabyScreen> @Nullable T renew() {
-        return (T) new ExampleBareActivity();
+        return new ExampleBareActivity().generic();
       }
     }
     ```
