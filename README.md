@@ -7,4 +7,4 @@ At the moment, we've only got a wiki for the Addon API but there will be more to
 Have you found something missing from this wiki that you think is important, or are you unhappy with something? 
 Please fork this repository, add/improve it and create a pull request.
 
-The live build can be found <a href="https://wiki.labymod.net">here</a>.
+The live build can be found <a href="https://wiki.labymod.net" target="_blank">here</a>.
