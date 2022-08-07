@@ -1,4 +1,10 @@
-# LabyMod4 API wiki
+# LabyMod4 API Wiki
 
-Have you found something that is missing from this wiki and you find important or are you unsatisfied with something? Please fork our wiki repository, add/improve it and create a pull request 
-<a href="https://github.com/LabyMod/labymod4-api-wiki" target="_blank">here</a>.
+This is the official wiki for the LabyMod 4 API.
+
+At the moment, we've only got a wiki for the Addon API but there will be more to come.
+
+Have you found something missing from this wiki that you think is important, or are you unhappy with something? 
+Please fork this repository, add/improve it and create a pull request.
+
+The live build can be found <a href="https://labymod.github.io/labymod4-api-wiki">here</a>.
