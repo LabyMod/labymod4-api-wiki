@@ -12,5 +12,5 @@ If this happens to you, try to delete the `build-data.txt` in the project root f
 
 ## My LSS StyleSheet Doesn't load
 
-If it can happen that the LSS StyleSheet doesn't load, this is most commonly caused by a forgotten or misplaced semicolon (`;`) or curly bracket (`{`, `}`).
+If it can happen that the LSS StyleSheet doesn't load, this is most commonly caused by a forgotten or misplaced semicolon (`;`) or curly bracket (`{`, `}`); the affected line should be printed to your log.
 Try to search for those two cases. If you cannot find anything, feel free to ask for help on our <a href="https://labymod.net/dc/dev" target="_blank">development Discord</a> and <b>provide your LSS StyleSheet</b>.

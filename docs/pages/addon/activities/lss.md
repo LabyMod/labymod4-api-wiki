@@ -63,7 +63,7 @@ Like before, this is what the code we described above would look like:
     
       @Override
       public <T extends LabyScreen> @Nullable T renew() {
-        return (T) new ExampleLssActivity();
+        return new ExampleLssActivity().generic();
       }
     }
     ```

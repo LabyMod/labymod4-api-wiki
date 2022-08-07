@@ -55,7 +55,7 @@ Like with the bare Activity, this is what the code we described above would look
     
       @Override
       public <T extends LabyScreen> @Nullable T renew() {
-        return (T) new ExampleWidgetActivity();
+        return new ExampleWidgetActivity().generic();
       }
     }
     ```
