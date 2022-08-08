@@ -108,7 +108,7 @@ You can create sections in your settings; you just have to add the annotation `@
 
 If you want more structure in your settings but don't want to use Sections, you can create sub-settings that can be accessed via a button. Just create a new class, and let it inherit from `Config`. Add a field with the same type in your configuration (just the type, not a `ConfigProperty`) and create a new instance of said class. You might have noticed that you don't have to use the `AddonConfig` superclass for sub-settings. The `AddonConfig` class is required for your main configuration but not for sub-settings.
 
-If you want to display more than just the advanced button (the button that lets you access the sub-settings), add the `@ParentSetting` annotation to the field of the most desirable setting.
+If you want to display more than just the advanced button (the button that lets you access the sub-settings), add the `@ParentSwitch` annotation to the most important switch in your sub-settings.
 
 ### Use Icons for Settings
 
