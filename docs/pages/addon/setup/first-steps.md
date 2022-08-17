@@ -1,5 +1,5 @@
 First you'll need a Java IDE, as of now we only support
-<a href="https://www.jetbrains.com/idea/download/" target="_blank">IntelliJ IDEA</a>. Then download JDK (Java Development Kit) 17 if you haven't already and install it.
+<a href="https://www.jetbrains.com/idea/download/" target="_blank">IntelliJ IDEA</a>. Then download and install the JDK (Java Development Kit) 17 if you haven't already.
 
 
 Now 

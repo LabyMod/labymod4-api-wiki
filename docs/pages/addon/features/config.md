@@ -6,7 +6,7 @@ You can create your configuration by creating a new class and inheriting `AddonC
 
 The only thing you always need to keep in mind while creating a configuration besides the type you need to inherit is that you need to use the `ConfigProperty` type for your settings, but just for specific types that you might want to use. More on which types you can use by default <a href="#valid-setting-types">here</a>. For any other types, use the type itself without declaring it as an argument on `ConfigProperty`.
 
-To create a setting that represents if your addon is enabled or not, you need to create a new field with the type `ConfigProperty`. Now add the type of your setting, in this case, `Boolean` as boolean. Now instantiate this property by declaring a new ConfigProperty with the default value as the argument, well use `true` as the default value.
+To create a setting that represents if your addon is enabled or not, you need to create a new field with the type `ConfigProperty`. Now add the type of your setting, in this case, `Boolean` as boolean. Now instantiate this property by declaring a new ConfigProperty with the default value as the argument, we'll use `true` as the default value.
 The result would look like this `ConfigProperty<Boolan> enabled = new ConfigProperty<>(true)`. Now, if we want to use this property in an event, we'll get the property (preferably by its getter) and call `get()`. This will get us the value of the property.
 
 

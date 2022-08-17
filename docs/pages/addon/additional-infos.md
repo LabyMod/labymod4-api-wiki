@@ -1,6 +1,6 @@
 Here you can find some information about things that didn't fit anywhere else.
 
-## Why Is the Naming on Some of Our Methods So Weird?
+## Why Is the naming on some of our methods so weird?
 
 We've decided to change how we name our getters & setters. 
 The "established" naming for getters would be `getSomething()`, but we've decided as an "internal naming convention" that getters that can't return `null` and return a type created by us don't have the `get` prefix but instead are just called by their name. 

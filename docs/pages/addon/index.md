@@ -3,10 +3,10 @@ You now have one project per addon; this allows you to write version-independent
 
 Here are some of the changes with our new Addon API:
 
-* With our brand new Activity System, you can easily create and theme custom screens without needing to know how to use OpenGL
+* Easily create and theme custom screens without any OpenGL knowledge with our brand new Activity System
 * More events for almost every occasion that behave like server-side events
 * Improved way to create and use configurations
-* Easy internationalization
+* Easier internationalization
 * Mixin for bytecode manipulation in every version
 * Easier setup and debugging of the addon
 
@@ -16,5 +16,5 @@ As of now, you'll have to manually update your `build.gradle.kts` when we update
 <a href="https://labymod.net/dc/dev" target="_blank">join our development Discord</a>.
 
 Have you found something missing from this wiki that you think is important, or are you unhappy with something? 
-Please fork our wiki repository, add/improve it and create a pull request 
+Please fork our wiki repository, add or improve it and create a pull request 
 <a href="https://github.com/LabyMod/labymod4-api-wiki" target="_blank">here</a>.

@@ -3,7 +3,7 @@ All you need to do to start your Addon is done. You should be able to start your
 To name a few of them:
 
 + **Basic Information**: not only those who will test your Addon would benefit from providing some information, but we do too. Some information is crucial to guarantee a seamless experience
-+ **Understanding the Example**: you could start with coding stuff for your Addon, but we've written an example addon to show you the basics of how LabyMod 4 addons work.
++ **Understanding the Example**: you could start with coding stuff for your Addon, but we've written an example addon to show you the basics of how a LabyMod 4 addon works.
 
 ## Provide information about your Addon
 Head inside the `build.gradle.kts` and scroll to the bottom. <br>
@@ -22,7 +22,7 @@ Head to `core\src\main\java` in your root project folder. You'll find some examp
 
 ### The Main Class
 
-The most important thing about the main addon class is the `AddonListener` annotation. This annotation allows us to automatically generate the `addon.json`, basically the identifier of your Addon. That means without this file, LabyMod can't recognize your Addon, and thus it won't start.
+The most important thing about the main addon class is the `AddonListener` annotation. This annotation allows us to automatically generate the `addon.json`, which is basically the identifier of your Addon. That means without this file, LabyMod can't recognize your Addon, and thus it won't start.
 
 Now there are two ways to use this main class:
 
@@ -31,14 +31,14 @@ Now there are two ways to use this main class:
 
 #### The Main with the Superclass
 
-We've written a Superclass for an easier and more convenient way to develop addons. By inheriting the class `LabyAddon`, everything is more straightforward. All you have to do is specify your configuration class (in our example, the class `ExampleConfiguration`, but more about that later) in 3 different places (the parts you need to replace are written in CAPS):
+We've written a Superclass for an easier and more convenient way to develop addons. By inheriting the class `LabyAddon`, everything is more straightforward. All you have to do is specify your configuration class (in our example, the `ExampleConfiguration` class, but more about that later) in 3 different places (the parts you need to replace are written in CAPS):
  
  1. after declaring your main class by appending `extends LabyAddon<CONFIGURATION>`. After doing that, your IDE should either mark the other two places as errors or replace them automatically, but we'll show you anyhow
  2. in the head of the getter `configurationClass` by changing it to `Class<CONFIGURATION>`
  3. in the body of the same getter `configuraionClass` by changing the returned value to `CONFIGURATION.class`
 
 
-Looking at the method `enable`, you'll see we used a method called `registerSettingCategory``. This method registers a new category in the LabyMod Settings, allowing users to enable/disable or configure other things regarding your Addon.
+Looking at the method `enable`, you'll see we used a method called `registerSettingCategory`. This method registers a new category in the LabyMod Settings, allowing users to enable/disable or configure other things regarding your Addon.
 
 Registering commands and listeners can be done by calling `registerListener` and `registerCommand` and providing the class (which will then be injected by us with the help of Guice, more on that 
 <a href="#FINAL_LINK_HERE">here</a>) or by providing the already initialized object.
@@ -60,13 +60,13 @@ This section stays empty for now, it would take too long to describe it, and we 
 Now navigate to the class `ExampleConfiguration`. You'll see that this class inherits `AddonConfig`. This is necessary for the main configuration, as it requires you to inherit the `enabled` ConfigProperty.
 
 Looking at the class body, you will find a field called `enabled` with the `SwitchSetting` annotation. 
-The annotation declares the Widget that you'll find in your settings. In this case, the Widget is a SwitchSettingWidget, which toggles a boolean between on and off.
+The annotation declares the Widget that you'll find in your settings. In this case, the Widget is a `SwitchSettingWidget`, which toggles a boolean between on and off.
 
 You can find more about configurations <a href="/pages/addon/features/config/">here</a>.
 
 ### The Listener
 
-Looking into the package `org.example.core.listener`, you'll find the class ExampleGameTickListener; it does what it says. It listens to the GameTickListener event. You can find a complete guide to our events 
+Looking into the package `org.example.core.listener`, you'll find the class ExampleGameTickListener; it does what it says. It listens to the `GameTickEvent`. You can find a complete guide to our events 
 <a href="/pages/addon/features/events/">here</a>.
 
 First, we declared a field with our addon main class as type. Then we created a constructor with our main class instance as a parameter and added the `@Inject` annotation for <a href="#FINAL_LINK_HERE">Guice</a> to be able to find the constructor. 
