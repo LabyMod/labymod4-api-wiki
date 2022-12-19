@@ -51,3 +51,9 @@ public class ExampleCommand extends Command {
 
 ### execute Command
 To execute your Command type `/exampleAddon+notify` or `/+notify` 
+
+### register Command
+Go into your `LabyAddon` Class and register the Command in `enable()` with
+```java
+this.registerCommand(ExampleCommand.class);
+```
