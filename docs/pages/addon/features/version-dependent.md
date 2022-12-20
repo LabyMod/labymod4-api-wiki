@@ -38,9 +38,7 @@ with `Minecraft.getInstance().gui.getChat()` and add our component with `addMess
 After implementing the `ExampleChatExecutor` interface, we go back to our `core` module and head into
 our `ExamplePingCommand` that we got from using the addon template. Then we remove the line where we are displaying a
 gold-colored "Pong!" Component get the object of our interface
-via `LabyGuice.getInstance(ExampleChatExecutor.class). We need to get the instance of the interface because we have no access to the `
-VersionedExampleChatExecutor` class when not in this specific module. Now, all we need to do is call the `
-displayMessageInChat` method from our interface and declare a String as an argument; we'll be using `"Pong!"` again.
+via `LabyGuice.getInstance(ExampleChatExecutor.class)`. We need to get the instance of the interface because we have no access to the `VersionedExampleChatExecutor` class when not in this specific module. Now, all we need to do is call the `displayMessageInChat` method from our interface and declare a String as an argument; we'll be using `"Pong!"` again.
 
 After starting LabyMod 4, joining a server, and executing "/pong", we'll see a colorless "Pong!". Now, if we want that
 message colored, we need to replace `String` in our interface with `Component`. Instead of using `Command.literal`, we
