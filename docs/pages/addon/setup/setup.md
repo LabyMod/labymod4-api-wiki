@@ -38,7 +38,7 @@ We've written a Superclass for an easier and more convenient way to develop addo
  3. in the body of the same getter `configuraionClass` by changing the returned value to `CONFIGURATION.class`
 
 
-Looking at the method `enable`, you'll see we used a method called `registerSettingCategory``. This method registers a new category in the LabyMod Settings, allowing users to enable/disable or configure other things regarding your Addon.
+Looking at the method `enable`, you'll see we used a method called `registerSettingCategory`. This method registers a new category in the LabyMod Settings, allowing users to enable/disable or configure other things regarding your Addon.
 
 Registering commands and listeners can be done by calling `registerListener` and `registerCommand` and providing the class (which will then be injected by us with the help of Guice, more on that 
 <a href="#FINAL_LINK_HERE">here</a>) or by providing the already initialized object.
