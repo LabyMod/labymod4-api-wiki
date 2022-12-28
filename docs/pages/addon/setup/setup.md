@@ -1,4 +1,4 @@
-All you need to do to start your Addon is done. You should be able to start your Addon with LabyMod 4 right after you imported the Gradle project, but are a few things left that you shouldn't forget.
+All you need to do to start your Addon is done. You should be able to start your Addon with LabyMod 4 right after you've imported the Gradle project, but there are a few things left that you shouldn't forget.
 
 To name a few of them:
 
