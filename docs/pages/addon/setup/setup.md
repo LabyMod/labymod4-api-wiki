@@ -1,4 +1,4 @@
-All you need to do to start your Addon is done. You should be able to start your Addon with LabyMod 4 right after you imported the Gradle project, but are a few things left that you shouldn't forget.
+All you need to do to start your Addon is done. You should be able to start your Addon with LabyMod 4 right after you've imported the Gradle project, but there are a few things left that you shouldn't forget.
 
 To name a few of them:
 
@@ -39,7 +39,7 @@ We've written a Superclass for an easier and more convenient way to develop addo
  3. in the body of the same getter `configuraionClass` by changing the returned value to `CONFIGURATION.class`
 
 
-Looking at the method `enable`, you'll see we used a method called `registerSettingCategory``. This method registers a new category in the LabyMod Settings, allowing users to enable/disable or configure other things regarding your Addon.
+Looking at the method `enable`, you'll see we used a method called `registerSettingCategory`. This method registers a new category in the LabyMod Settings, allowing users to enable/disable or configure other things regarding your Addon.
 
 Registering commands and listeners can be done by calling `registerListener` and `registerCommand` and providing the class (which will then be injected by us with the help of Guice, more on that 
 <a href="#FINAL_LINK_HERE">here</a>) or by providing the already initialized object.
