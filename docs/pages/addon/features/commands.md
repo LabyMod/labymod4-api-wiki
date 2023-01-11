@@ -1,14 +1,14 @@
 # Create Commands
 
-with Labymod 4, you can create custom Clientside Commands which are easy to use and easy to made, 
-this page will show you how
+With LabyMod 4, You Can Create Custom Clientside Commands Which Are Easy to Use and Easy to Made,
+This Page Will Show You How
 
 ### The super Method
-the first String in the super Method is the prefix, see it as the Name of your command, the Stringlist
+The first String in the super Method is the prefix, see it as the Name of your command, the String List
 after it are aliases, these are optional
 
 ### The execute Method
-your Command method. If you return `true`, the command will be consumed by Labymod and won't be send
+Your Command method. If you return `true`, the command will be consumed by LabyMod and won't be send
 to the Server. If you return `false`, the command will be cancelled and sent to the Server.
 
 To execute your Command you need to register it in your main class with
@@ -36,7 +36,7 @@ public class ExampleCommand extends Command {
         String title;
         String text;
 
-        if (arguments.length == 0) {
+        if (arguments.length <= 2) {
             title = "Title";
             text = "Text";
         } else {
