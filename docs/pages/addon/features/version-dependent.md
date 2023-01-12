@@ -50,62 +50,62 @@ our own implementation.
 Those are the results from this example:
 
 === ":octicons-file-code-16: ExampleChatExecutor"
-```java
-public interface ExampleChatExecutor {
-
-  void displayMessageInChat(String message);
-
-  void displayMessageInChat(Component adventureComponent);
-}
-```
+    ```java
+    public interface ExampleChatExecutor {
+    
+      void displayMessageInChat(String message);
+    
+      void displayMessageInChat(Component adventureComponent);
+    }
+    ```
 
 === ":octicons-file-code-16: VersionedExampleChatExecutor"
-```java
-@Singleton
-@Implement(ExampleChatExecutor.class)
-public class VersionedExampleChatExecutor implements ExampleChatExecutor {
-
-  @Override
-  public void displayMessageInChat(String message) {
-    Component component = Component.literal(message);
-    this.addMessageToChat(component);
-  }
-
-  @Override
-  public void displayMessageInChat(net.kyori.adventure.text.Component adventureComponent) {
-    ComponentMapper componentMapper = Laby.labyAPI().minecraft().componentMapper();
-    Component component = (Component) componentMapper.toMinecraftComponent(adventureComponent);
-    Minecraft.getInstance().gui.getChat().addMessage(component);
-  }
-
-  private void addMessageToChat(Component component) {
-    Minecraft.getInstance().gui.getChat().addMessage(component);
-  }
-}
-```
+    ```java
+    @Singleton
+    @Implement(ExampleChatExecutor.class)
+    public class VersionedExampleChatExecutor implements ExampleChatExecutor {
+    
+      @Override
+      public void displayMessageInChat(String message) {
+        Component component = Component.literal(message);
+        this.addMessageToChat(component);
+      }
+    
+      @Override
+      public void displayMessageInChat(net.kyori.adventure.text.Component adventureComponent) {
+        ComponentMapper componentMapper = Laby.labyAPI().minecraft().componentMapper();
+        Component component = (Component) componentMapper.toMinecraftComponent(adventureComponent);
+        Minecraft.getInstance().gui.getChat().addMessage(component);
+      }
+    
+      private void addMessageToChat(Component component) {
+        Minecraft.getInstance().gui.getChat().addMessage(component);
+      }
+    }
+    ```
 
 === ":octicons-file-code-16: ExamplePingCommand"
-```java
-public class ExamplePingCommand extends Command {
-
-  @Inject
-  private ExamplePingCommand() {
-    super("ping", "pong");
-  }
-
-  @Override
-  public boolean execute(String prefix, String[] arguments) {
-    if (prefix.equalsIgnoreCase("ping")) {
-      this.displayMessage(Component.text("Ping!", NamedTextColor.AQUA));
-      return false;
+    ```java
+    public class ExamplePingCommand extends Command {
+    
+      @Inject
+      private ExamplePingCommand() {
+        super("ping", "pong");
+      }
+    
+      @Override
+      public boolean execute(String prefix, String[] arguments) {
+        if (prefix.equalsIgnoreCase("ping")) {
+          this.displayMessage(Component.text("Ping!", NamedTextColor.AQUA));
+          return false;
+        }
+    
+        ExampleChatExecutor chatExecutor = LabyGuice.getInstance(ExampleChatExecutor.class);
+        chatExecutor.displayMessageInChat(Component.text("Pong!", NamedTextColor.GOLD));
+        return true;
+      }
     }
-
-    ExampleChatExecutor chatExecutor = LabyGuice.getInstance(ExampleChatExecutor.class);
-    chatExecutor.displayMessageInChat(Component.text("Pong!", NamedTextColor.GOLD));
-    return true;
-  }
-}
-```
+    ```
 
 ## Access the Minecraft Code via Mixin
 
