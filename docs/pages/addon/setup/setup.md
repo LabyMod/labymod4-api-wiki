@@ -13,7 +13,6 @@ Search for the `addon` segment and edit the following points:
 + `displayName`: the display name users will see when they view their installed addons
 + `author`: the name of your organization or you
 + `description`: a description that fits your Addon
-+ `iconUrl`: the url to your addon icon
 
 After you have changed these attributes, reload the Gradle project, and you're good to go.
 
