@@ -36,7 +36,7 @@ public class ExampleCommand extends Command {
         String title;
         String text;
 
-        if (arguments.length <= 2) {
+        if (arguments.length < 2) {
             title = "Title";
             text = "Text";
         } else {
