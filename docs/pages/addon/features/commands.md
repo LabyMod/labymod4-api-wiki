@@ -1,18 +1,14 @@
 # Create Commands
 
-With LabyMod 4, You Can Create Custom Clientside Commands Which Are Easy to Use and Easy to Made,
-This Page Will Show You How
+With LabyMod 4, you can easily create custom client-side commands. This page will show you how.
 
-### The super Method
-The first String in the super Method is the prefix, see it as the Name of your command, the String List
-after it are aliases, these are optional
+### The Super Method
+The first parameter in the super constructor call is the prefix, see it as the name of your command. Every parameter after is an alias and thus optional.
 
-### The execute Method
-Your Command method. If you return `true`, the command will be consumed by LabyMod and won't be send
-to the Server. If you return `false`, the command will be cancelled and sent to the Server.
+### The Execute Method
+The execute method contains the code that is executed if the player is using your command. If you return `true`, the command will be consumed by LabyMod. If you return `false`, the command will not be consumed and will be sent to the server.
 
-To execute your Command you need to register it in your main class with
-`this.registerCommand(ExampleCommand.class);`then type `/notify` or `/alias`
+Before you're able to use and test your command in-game, you'll need to register the command by calling  `this.registerCommand(ExampleCommand.class);` in your main class. You don't need to do anything else, after registering the command and restarting LabyMod you can submit "/notify" or "/alias" in the ingame-chat and your command will be executed.
 
 === ":octicons-file-code-16: ExampleCommand"
 ```java
