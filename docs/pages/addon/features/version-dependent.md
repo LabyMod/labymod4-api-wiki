@@ -1,5 +1,5 @@
 While our API is entirely version-independent for you to use, you might still need to implement some version-dependent
-things yourself (such as highly niche things, just something we didn't implement). At the current moment, you might
+things yourself (such as niche things, just something we didn't implement). At the current moment, you might need to
 implement more yourself, as we're still implementing more and more stuff for you to use version independently.
 
 There are two ways to implement version-dependent; different use cases require different ways to implement them.
@@ -15,6 +15,10 @@ at the beginning, as all new things are.
     Please keep in mind that the examples on this page are version dependent. We are showing the examples for Minecraft 1.19.1, so depending on the date you're reading this, recreating the examples might not be possible, we'll try to keep them updated, though, and if we do, we update the version in this note.
 
 ## Access the Minecraft Code "the Normal Way"
+
+???+ warning "Important Note"
+
+    This is slightly outdated as we removed Guice. See <a href="https://github.com/labymod-addons/togglesneak" target="_blank">ToggleSneak on GitHub</a> for "the new way".
 
 You should only use this method for things you can access without using Reflections, as using Reflections can have a
 high impact on the performance of the players that use your addon.
