@@ -8,7 +8,7 @@ The first parameter in the super constructor call is the prefix, see it as the n
 ### The Execute Method
 The execute method contains the code that is executed if the player is using your command. If you return `true`, the command will be consumed by LabyMod. If you return `false`, the command will not be consumed and will be sent to the server.
 
-Before you're able to use and test your command in-game, you'll need to register the command by calling  `this.registerCommand(ExampleCommand.class);` in your main class. You don't need to do anything else, after registering the command and restarting LabyMod you can submit "/notify" or "/alias" in the ingame-chat and your command will be executed.
+Before you're able to use and test your command in-game, you'll need to register the command by calling  `this.registerCommand(new ExampleCommand());` in your main class. You don't need to do anything else, after registering the command and restarting LabyMod you can submit "/notify" or "/alias" in the ingame-chat and your command will be executed.
 
 === ":octicons-file-code-16: ExampleCommand"
 ```java
@@ -16,10 +16,9 @@ public class ExampleCommand extends Command {
 
     private final NotificationController notificationController;
 
-    @Inject
-    private ExampleCommand(NotificationController notificationController) {
+    public ExampleCommand() {
         super("notify", "alias");
-        this.notificationController = notificationController;
+        this.notificationController = Laby.references().notificationController();
     }
 
     @Override

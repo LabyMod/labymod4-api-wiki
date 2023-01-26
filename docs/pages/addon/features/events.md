@@ -6,12 +6,16 @@ We deliver a variety of events, but the following are the ones with the most com
 
 ### Addon Enable Event
 
-The `AddonEnableEvent` is fired right after we detected your addon. This Event is only fired in your addon; you cannot use it to detect other addons.
+The `AddonEnableEvent` is fired right after we detected your addon. This Event is only fired in your addon; you cannot use it to detect other addons. The event contains the Installed Addon Info, the reference storage of your addon and the main instance your addon was initialized with.
 
 ### Addon Post Enable Event
 
 The exact moment when the `AddonPostEnableEvent` is fired depends on the current state of LabyMod. Suppose your addon is loaded directly after the game start (for example while in the addon develop environment or when the addon has been installed before). In that case, the Event will be fired as soon as LabyMod itself has been fully initialized. But if your addon is enabled while LabyMod is already initialized (when a user downloads your addon via the addon store), the Event will be fired right after we enabled it.
  
+### Global Addon Post Enable Event
+
+The `GlobalAddonPostEnableEvent` is called if an addon has been enabled. Same as `AddonPostEnableEvent`, the moment the event is fired depends on the current state of LabyMod. Can be used to detect if another addon has been enabled.
+
 ### Addon Unload Event
 
 The class exists, but the Event won't be fired yet. It can be used to save custom configurations or close open connections to prevent a timeout.

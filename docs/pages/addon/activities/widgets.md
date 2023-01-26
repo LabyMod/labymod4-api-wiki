@@ -80,6 +80,10 @@ Below listed are all Widgets for use. They can be extended and modified for a mo
 
 Every Widget also has the LSS Properties from <a href="#abstract-widget">`AbstractWidget`</a>
 
+???+ warning "Important Note"
+
+    The LSS Properties noted here might be outdated and/or incomplete.
+
 ### Input Widgets
 
 Input Widgets are Widgets that allow direct user input.

@@ -2,12 +2,12 @@ All internationalization files have to be located in the module called `core` an
 
 ## Create Custom Translations
 
-You can do more than internationalize your settings. You also have the option to internationalize every other text that the user sees. Any time a `Component` of the Adventure Library is used, you have the option to just set a raw String via `Component.text`. Still, you also have the option to use your custom translations by using `Component.translatable`. Do you have arguments that need to be replaced? Not a problem! We apply `String.format` on every translation, so you can just use a Format Specifier in your translation (more about String Formatting <a href="https://www.javatpoint.com/java-string-format" target="_blank">here</a>). 
+You can do more than internationalize your settings. You also have the option to internationalize every other text that the user sees. Any time a `Component` is used, you have the option to just set a raw String via `Component.text`. Still, you also have the option to use your custom translations by using `Component.translatable`. Do you have arguments that need to be replaced? Not a problem! We replace arguments that are indicated with `%s` on every translation. 
 
-So, for example instead of using a non-translated String like `"The Addon has a rating of " + rating + " Stars!"`, you could put a String like `"The Addon has a rating of %d Stars!"` in your internationalization file and create the Component with `Component.translatable("example.commands.info.rating", rating)` and the output would be the same. The only difference is that your Addon can be used in many different languages without hard-coding every String.
+So, for example instead of using a non-translated String like `"The Addon has a rating of " + rating + " Stars!"`, you could put a String like `"The Addon has a rating of %s Stars!"` in your internationalization file and create the Component with `Component.translatable("example.commands.info.rating", rating)` and the output would be the same. The only difference is that your Addon can be used in many different languages without hard-coding every String.
 
-There are two possibilities to get the translated String if you don't want a Component.
-If you want a string that cannot be null, you call `I18n.translate` with the translation key and the arguments. 
+There are two possibilities to get the translated String if you don't want to use Components.
+If you want a String that cannot be null, you call `I18n.translate` with the translation key and the arguments. 
 The method will return the key if the translation key cannot be found in any internationalization file.
 Now, if you want to check if the translation key can be found easily, you call `I18n.getTranslation` with the translation key and possibly arguments. 
 The method will return `null` if the key cannot be found.

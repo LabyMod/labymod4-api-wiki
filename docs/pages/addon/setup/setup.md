@@ -6,13 +6,15 @@ To name a few of them:
 + **Understanding the Example**: you could start with coding stuff for your Addon, but we've written an example addon to show you the basics of how LabyMod 4 addons work.
 
 ## Provide information about your Addon
-Head inside the `build.gradle.kts` and scroll to the bottom. <br>
-Search for the `addon` segment and edit the following points:
+Head inside the `build.gradle.kts` and search for the block called `labyMod`. <br>
+Inside this block is an assignment to the field `defaultPackageName`, change the assigned value to the main package you're using in all modules (for example `net.labymod.addons.voicechat`). This allows us to generate important files to the right package. <br>
+Now search for the `addonInfo` segment and edit the following fields:
 
 + `namespace`: this attribute has to be unique for everything to work without complications. If you want to publish your Addon, we will check if this namespace is already taken by any other published addon, so nothing to worry about 
 + `displayName`: the display name users will see when they view their installed addons
 + `author`: the name of your organization or you
 + `description`: a description that fits your Addon
++ `minecraftVersion`: the <a href="/pages/addon/publishing/publish/#version-compatibility" target="_blank">version combatibility</a> of the addon
 
 After you have changed these attributes, reload the Gradle project, and you're good to go.
 
@@ -22,7 +24,7 @@ Head to `core\src\main\java` in your root project folder. You'll find some examp
 
 ### The Main Class
 
-The most important thing about the main addon class is the `AddonListener` annotation. This annotation allows us to automatically generate the `addon.json`, basically the identifier of your Addon. That means without this file, LabyMod can't recognize your Addon, and thus it won't start.
+The most important thing about the main addon class is the `AddonMain` annotation. This annotation allows us to automatically generate the `addon.json`, basically the identifier of your Addon. That means without this file, LabyMod can't recognize your Addon, and thus it won't start.
 
 Now there are two ways to use this main class:
 
@@ -40,8 +42,7 @@ We've written a Superclass for an easier and more convenient way to develop addo
 
 Looking at the method `enable`, you'll see we used a method called `registerSettingCategory`. This method registers a new category in the LabyMod Settings, allowing users to enable/disable or configure other things regarding your Addon.
 
-Registering commands and listeners can be done by calling `registerListener` and `registerCommand` and providing the class (which will then be injected by us with the help of Guice, more on that 
-<a href="#FINAL_LINK_HERE">here</a>) or by providing the already initialized object.
+Registering commands and listeners can be done by calling `registerListener` and `registerCommand` and providing the already initialized object.
 
 Now the final method we called here is `this.logger()`, a logger to print information to the console/log. This is nicer than `System.out.println()` because it is integrated with the Minecraft log. You can print information with `.info()`, warnings with `.warn()` or errors with `.error()`.
 
@@ -69,7 +70,7 @@ You can find more about configurations <a href="/pages/addon/features/config/">h
 Looking into the package `org.example.core.listener`, you'll find the class ExampleGameTickListener; it does what it says. It listens to the GameTickListener event. You can find a complete guide to our events 
 <a href="/pages/addon/features/events/">here</a>.
 
-First, we declared a field with our addon main class as type. Then we created a constructor with our main class instance as a parameter and added the `@Inject` annotation for <a href="#FINAL_LINK_HERE">Guice</a> to be able to find the constructor. 
+First, we declared a field with our addon main class as type. Then we created a constructor with our main class instance as a parameter.
 
 Basically, what this class does is, as already mentioned, listen to the GameTickEvent, which is called twice every tick (first one with phase PRE & the second one with phase POST). In this case, we only listen to the PRE phase because we only want the rest called once.
 Inside the event, we access the field with our addon main instance; with this instance, we are gaining access to the logger we mentioned a few sections above and printing if the Addon is enabled or disabled.
