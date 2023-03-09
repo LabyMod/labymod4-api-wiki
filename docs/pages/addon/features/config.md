@@ -26,6 +26,7 @@ The current valid types are:
  + Key
  + MouseButton
  + ResourceLocation
+ + Color (net.labymod.api.util)
 
 ## Using Predefined Setting Widgets
 

@@ -13,8 +13,7 @@ Examples are shown on every page; you will find a link to the section with the e
 
 All you need to do to create an Activity is create a new class and inherit either `SimpleActivity` or `Activity`. The SimpleActivity and Activity only have one difference. By inheriting `SimpleActivity`, your Activity renders the default theme background; by inheriting just `Activity`, you'll have an empty Activity that you can 100% customize. For our example, we'll be inheriting the `SimpleActivity` as we register it as a NavigationElement (so it will be displayed as another tab in the navigation). 
 
-After we inherit the Activity superclass (or one of its extensions), we need to implement the `renew` method. In most cases, just returning a new instance of your Activity will do enough; in some cases, you might want to set the fields of your current activity instance to the new one, as the user's progress inside the Activity might be lost otherwise. Now we need to add the annotation at the top of our class, and the Activity will open.
-
+Now we need to add the `AutoActivity` annotation at the top of our class, and the Activity will open.
 In this case, we want to render a text at the center of the screen, and as we are creating a bare Activity, we'll overwrite the `render` method. (please keep in mind that the super call has to be at the head of the method. Otherwise, our text will be rendered beneath the background). 
 
 All we have to do now is to get the bounds of the Activity by declaring `this.bounds()` as a local variable (the bounds represent the position and size of activities and widgets - more on that in the part about LSS). Then we need get the `TextRenderer` by calling `this.labyAPI.renderPipeline().textRenderer()` as we will render our text with that renderer. 
@@ -46,11 +45,6 @@ Looking back at what we just wrote, this is what the code and result would look 
             .shadow(false)
             .color(Color.ORANGE.getRGB())
             .render(stack);
-      }
-    
-      @Override
-      public <T extends LabyScreen> @Nullable T renew() {
-        return new ExampleBareActivity().generic();
       }
     }
     ```
