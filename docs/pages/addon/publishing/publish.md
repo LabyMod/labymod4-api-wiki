@@ -1,4 +1,16 @@
-On this page, we're explaining what exactly you have to do to publish your addon. 
+On this page, we're explaining what exactly you have to do to publish your addon. <br>
+Before publishing, please make sure that you're following our <a href="/pages/addon/publishing/guidelines" target="_blank">Addon Store Guidelines</a>.
+
+## Upload to GitHub or GitLab
+
+In order to publish your addon, you have to provide us with your source code and an artifact (either built by GitHub Actions or GitLab CI/CD). <br>
+While it is only necessary to publicly share your addon until we reviewed it, it is always welcome to see the source code of addons being publicly available at all times. <br> 
+
+If you want to upload your addon to your own GitLab instance, write an email to <a href="mailto:info@labymod.net" target="_blank">info@labymod.net</a>.
+
+## Publish
+
+We use <a href="https://flintmc.net" target="_blank">FlintMC</a> as the back end (and web view) for our addon store. 
 
 ## Version Compatibility
 
