@@ -52,11 +52,6 @@ Like with the bare Activity, this is what the code we described above would look
         this.componentWidget.alignmentX().set(WidgetAlignment.CENTER);
         this.componentWidget.alignmentY().set(WidgetAlignment.CENTER);
       }
-    
-      @Override
-      public <T extends LabyScreen> @Nullable T renew() {
-        return new ExampleWidgetActivity().generic();
-      }
     }
     ```
 

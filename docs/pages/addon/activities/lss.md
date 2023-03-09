@@ -60,11 +60,6 @@ Like before, this is what the code we described above would look like:
         componentWidget.addId("test-widget");
         this.document().addChild(componentWidget);
       }
-    
-      @Override
-      public <T extends LabyScreen> @Nullable T renew() {
-        return new ExampleLssActivity().generic();
-      }
     }
     ```
 
