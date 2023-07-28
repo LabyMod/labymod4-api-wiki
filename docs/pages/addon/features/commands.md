@@ -10,39 +10,69 @@ The execute method contains the code that is executed if the player is using you
 
 Before you're able to use and test your command in-game, you'll need to register the command by calling  `this.registerCommand(new ExampleCommand());` in your main class. You don't need to do anything else, after registering the command and restarting LabyMod you can submit "/notify" or "/alias" in the ingame-chat and your command will be executed.
 
+### Subcommands
+You can also add subcommands to your command. To do so, you'll need to create a new class that inherits from `SubCommand` and add it to your command by calling `this.withSubCommand(new ExampleSubCommand());` in your command's constructor. You can set the sub command's name and aliases the same way you set the command's name with the <a href="#the-super-method">super</a> constructor call.
+
 === ":octicons-file-code-16: ExampleCommand"
-```java
-public class ExampleCommand extends Command {
+    ```java
+    public class ExampleCommand extends Command {
 
-    private final NotificationController notificationController;
+        private final NotificationController notificationController;
 
-    public ExampleCommand() {
-        super("notify", "alias");
-        this.notificationController = Laby.references().notificationController();
-    }
-
-    @Override
-    public boolean execute(String prefix, String[] arguments) {
-        if (prefix.equalsIgnoreCase("alias")) {
-            this.displayMessage(Component.text("You used an Alias!", NamedTextColor.AQUA));
-            return false;
+        public ExampleCommand() {
+            super("notify", "alias");
+            this.notificationController = Laby.references().notificationController();
+            this.withSubCommand(new ExampleSubCommand());
         }
 
-        String title;
-        String text;
+        @Override
+        public boolean execute(String prefix, String[] arguments) {
+            if (prefix.equalsIgnoreCase("alias")) {
+                this.displayMessage(Component.text("You used an Alias!", NamedTextColor.AQUA));
+                return false;
+            }
 
-        if (arguments.length < 2) {
-            title = "Title";
-            text = "Text";
-        } else {
-            title = arguments[0];
-            text = arguments[1];
+            String title;
+            String text;
+
+            if (arguments.length < 2) {
+                title = "Title";
+                text = "Text";
+            } else {
+                title = arguments[0];
+                text = arguments[1];
+            }
+            notificationController.push(
+                Notification.builder()
+                    .title(Component.text(title))
+                    .text(Component.text(text))
+                    .build()
+            );
+            return true;
         }
-        notificationController.push(Notification.builder()
-                .title(Component.text(title))
-                .text(Component.text(text))
-                .build());
-        return true;
     }
-}
-```
+    ```
+
+=== ":octicons-file-code-16: ExampleSubCommand"
+    ```java
+    public class ExampleSubCommand extends SubCommand {
+
+        private final NotificationController notificationController;
+
+        public ExampleSubCommand() {
+            super("sub");
+            this.notificationController = Laby.references().notificationController();
+        }
+
+        @Override
+        public boolean execute(String prefix, String[] arguments) {
+            notificationController.push(
+                Notification.builder()
+                    .title(Component.text("Success!"))
+                    .text(Component.text("You used a subcommand!"))
+                    .build()
+            );
+            return true;
+        }
+    }
+    ```
