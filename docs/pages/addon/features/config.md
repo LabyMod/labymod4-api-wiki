@@ -144,10 +144,13 @@ These are some example files showing a few of the functions mentioned before.
 
       @MethodOrder(after = "text")
       @SpriteSlot(x = 2, y = 6)
-      @ButtonSetting(text = "Print!")
+      @ButtonSetting
       public void print(Setting setting) {
-        LabyGuice.getInstance(ExampleAddon.class).logger()
-            .info(setting.getId() + " was clicked! " + this.text);
+        Notification.Builder builder = Notification.builder()
+            .title(Component.text("INFO"))
+            .text(Component.text(setting.getId() + " was clicked! " + this.text))
+            .type(Type.ADVANCEMENT);
+        Laby.labyAPI().notificationController().push(builder.build());
       }
 
       @Override
@@ -197,7 +200,8 @@ These are some example files showing a few of the functions mentioned before.
             "name": "Text to be Printed"
           },
           "print": {
-            "name": "Click Me to Print the Text"
+            "name": "Click Me to Print the Text",
+            "text": "Print!"
           },
           "subSettings": {
             "name": "Miscellaneous Sub Settings",
@@ -210,18 +214,20 @@ These are some example files showing a few of the functions mentioned before.
           },
           "type": {
             "name": "Display Type",
-            "heart": "Heart",
-            "circle": "Circle",
-            "rectangle": "Rectangle",
-            "triangle": "Triangle",
-            "scaleneTriangle": "Weird Shape"
+            "entries": {
+              "heart": "Heart",
+              "circle": "Circle",
+              "rectangle": "Rectangle",
+              "triangle": "Triangle",
+              "scaleneTriangle": "Weird Shape"
+            }
           },
           "header": {
-            "miscellaneous": {
-              "name": "Miscellaneous"
-            },
             "print": {
               "name": "Print!"
+            },
+            "miscellaneous": {
+              "name": "Miscellaneous"
             }
           }
         }
