@@ -10,7 +10,7 @@ If you want to upload your addon to your own GitLab instance, write an email to 
 
 ## Publish
 
-We use <a href="https://flintmc.net" target="_blank">FlintMC</a> as the back end (and web view) for our addon store. There may be some bugs because it's in early development, so create a bug report on <a href="https://labymod.net/ideas">our Idea platform</a> if you find any.
+We use <a href="https://flintmc.net" target="_blank">FlintMC</a> as the back end (and web view) for our addon store. There may be some bugs because it's in early development, so create a bug report on <a href="https://labymod.net/ideas#category=webbugs">our Idea platform</a> if you find any.
 
 ## Version Compatibility
 
