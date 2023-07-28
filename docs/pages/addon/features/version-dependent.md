@@ -39,10 +39,7 @@ implementation of Minecraft; we'll overwrite the `displayMessageInChat` method f
 Component from our String with `Component.literal(message)`. Then we access the Chat GUI
 with `Minecraft.getInstance().gui.getChat()` and add our component with `addMessage(component)`.
 
-After implementing the `ExampleChatExecutor` interface, we go back to our `core` module and head into
-our `ExamplePingCommand` that we got from using the addon template. Then we remove the line where we are displaying a
-gold-colored "Pong!" Component get the object of our interface
-via `LabyGuice.getInstance(ExampleChatExecutor.class)`. We need to get the instance of the interface because we have no access to the `VersionedExampleChatExecutor` class when not in this specific module. Now, all we need to do is call the `displayMessageInChat` method from our interface and declare a String as an argument; we'll be using `"Pong!"` again.
+To access our `VersionedExampleChatExecutor` from the core module, we need to add a private instance of the `ExampleChatExecutor` with a getter to our `ExampleAddon` class. Then we assign the instance in our `ExampleAddon#enable` method using `((DefaultReferenceStorage) this.referenceStorageAccessor).exampleChatExecutor()`. If the function does not exist, we need to run a gradle build to add the class to our reference storage. We can now access the instance from the core module with `ExampleAddon#chatExecutor()`. Now we can require an `ExampleAddon` instance as a parameter in our `ExamplePingCommand` and pass `this` to the constructor of the command in the `ExampleAddon#enable`. Then we can access the `VersionedExampleChatExecutor` instance from the command and call the `displayMessageInChat` method with `"Pong!"` as an argument.
 
 After starting LabyMod 4, joining a server, and executing "/pong", we'll see a colorless "Pong!". Now, if we want that
 message colored, we need to replace `String` in our interface with `Component`. Instead of using `Command.literal`, we
@@ -88,13 +85,38 @@ Those are the results from this example:
     }
     ```
 
+=== ":octicons-file-code-16: ExampleAddon"
+    ```java
+    public class ExampleAddon extends LabyAddon<ExampleConfiguration> {
+    
+      private ExampleChatExecutor chatExecutor;
+
+      @Override
+      protected void enable() {
+        chatExecutor = ((DefaultReferenceStorage) this.referenceStorageAccessor()).exampleChatExecutor();
+
+        this.registerCommand(new ExamplePingCommand(this));
+      }
+
+      @Override
+      protected Class<? extends ExampleConfiguration> configurationClass() {
+        return ExampleConfiguration.class;
+      }
+
+      public ExampleChatExecutor chatExecutor() {
+        return chatExecutor;
+      }
+    ```
+
 === ":octicons-file-code-16: ExamplePingCommand"
     ```java
     public class ExamplePingCommand extends Command {
     
-      @Inject
-      private ExamplePingCommand() {
+      private final ExampleChatExecutor chatExecutor;
+
+      public ExamplePingCommand(ExampleAddon addon) {
         super("ping", "pong");
+        chatExecutor = addon.chatExecutor();
       }
     
       @Override
@@ -104,7 +126,6 @@ Those are the results from this example:
           return false;
         }
     
-        ExampleChatExecutor chatExecutor = LabyGuice.getInstance(ExampleChatExecutor.class);
         chatExecutor.displayMessageInChat(Component.text("Pong!", NamedTextColor.GOLD));
         return true;
       }

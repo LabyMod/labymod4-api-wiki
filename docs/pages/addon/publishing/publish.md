@@ -10,7 +10,7 @@ If you want to upload your addon to your own GitLab instance, write an email to 
 
 ## Publish
 
-We use <a href="https://flintmc.net" target="_blank">FlintMC</a> as the back end (and web view) for our addon store. 
+We use <a href="https://flintmc.net" target="_blank">FlintMC</a> as the back end (and web view) for our addon store. There may be some bugs because it's in early development, so create a bug report on <a href="https://labymod.net/ideas#category=webbugs">our Idea platform</a> if you find any.
 
 ## Version Compatibility
 
@@ -18,7 +18,8 @@ We're using version ranges to verify the compatibility of an addon with LabyMod 
 
 ### The Star
 
-The version `*` indicates compatibility with all versions (even unreleased ones). Don't use this unless you're only using version-independent things from the official LabyMod 4 Addon API. 
+The version `*` indicates compatibility with all versions (even unreleased ones).<br>
+<b>Don't use the star unless you're only using version-independent things from the official LabyMod 4 Addon API.</b>
 
 ### Single Version 
 

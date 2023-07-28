@@ -36,17 +36,21 @@ The `GameTickEvent` is fired twice every tick. Once with the phase `PRE` and onc
 
 The `JsonConfigLoaderInitializeEvent` is fired when the configuration loader is initialized. This Event is used to create your own type adapters for your configuration.
 
-### Network Disconnect Event
+### Server Disconnect Event
 
-The `NetworkDisconnectEvent` will be fired if the connection to a server closes (so either if the user disconnects or gets kicked).
+The `ServerDisconnectEvent` will be fired if the connection to a server closes (so either if the user disconnects or gets kicked).
 
-### Network Login Event
+### Server Join Event
 
-The `NetworkLoginEvent` will be fired as soon as the user connects to a server. Contains the ServerData.
+The `ServerJoinEvent` will be fired as soon as the user connects to a server. Contains the ServerData.
 
-### Network Server Switch Event
+### Sub Server Switch Event
 
-The `NetworkServerSwitchEvent` is fired when the user is already connected to a server but switches to a sub-server (for example, when connected to a proxy and switching from the hub to survival games).
+The `SubServerSwitchEvent` is fired when the user is already connected to a server but switches to a sub-server (for example, when connected to a proxy and switching from the hub to survival games).
+
+### Server Switch Event
+
+The `ServerSwitchEvent` will be fired when the user is on a server and then joins another server from the server list without disconnecting.
 
 ### Setting Initialize Event
 
