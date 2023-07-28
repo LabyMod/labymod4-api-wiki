@@ -84,14 +84,14 @@ Description:
 ### Button Widget
 
 Annotation: `ButtonSetting` <br>
-Arguments: (`text` - a String that will be displayed - default is ""), (`translation` - the key to a translation within your localization files, default is "") <br>
-Compatible Types: any public method, <b>not ConfigProperty</b><br>
+Arguments: none <br>
+Compatible Types: any public method annotated with `@MethodOrder` and with a `Setting` object as the only parameter. <b>It's not supposed to return ConfigProperty</b><br>
 Description: 
 
-### Addon Activity Widget
+### Activity Widget
 
-Annotation: `AddonActivityWidget` <br>
-Arguments: (`text` - a String that will be displayed - default is ""), (`translation` - the key to a translation within your localization files, default is "") <br>
+Annotation: `ActivitySetting` <br>
+Arguments: none <br>
 Compatible Types: any public method that returns an <a href="#FINAL_LINK_HERE">Activity</a>, <b>not ConfigProperty</b><br>
 Description: 
 
