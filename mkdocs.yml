@@ -22,6 +22,7 @@ nav:
       - Publish Your Addon: pages/addon/publishing/publish.md
     - Troubleshoot: pages/addon/troubleshoot.md
     - Additional Information: pages/addon/additional-infos.md
+    - Contributors: pages/addon/contributors.md
 
 plugins:
   - search
