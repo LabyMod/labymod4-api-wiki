@@ -19,5 +19,5 @@ As already mentioned, you can internationalize every text the user can see, even
 The language in LabyMod and thus the preferred internationalization file of every Addon will change when switching the language in Minecraft itself. The fallback language always stays `en_us`. That means if, for example, a user selected German as the language in which Minecraft is displayed, we will search for a file called `de_de.json` in your Addon. If that file isn't found, we will use the default file and thus the English translations.
 
 All official supported languages can be found in 
-<a href="https://minecraft.fandom.com/wiki/Language#Languages" target="_blank">this Minecraft Fandom Wiki article</a>.
+<a href="https://minecraft.wiki/w/Language#Languages" target="_blank">this Minecraft Fandom Wiki article</a>.
 The relevant part of this chart is the In-game Locale Code. Your file has to have the same locale code. Otherwise, we can't identify your file as a match to the intended language.
