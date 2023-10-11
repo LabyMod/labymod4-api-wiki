@@ -15,11 +15,6 @@ at the beginning, as all new things are.
     Please keep in mind that the examples on this page are version dependent. We are showing the examples for Minecraft 1.19.1, so depending on the date you're reading this, recreating the examples might not be possible, we'll try to keep them updated, though, and if we do, we update the version in this note.
 
 ## Access the Minecraft Code "the Normal Way"
-
-???+ warning "Important Note"
-
-    This is slightly outdated as we removed Guice. See <a href="https://github.com/labymod-addons/togglesneak" target="_blank">ToggleSneak on GitHub</a> for "the new way".
-
 You should only use this method for things you can access without using Reflections, as using Reflections can have a
 high impact on the performance of the players that use your addon.
 
