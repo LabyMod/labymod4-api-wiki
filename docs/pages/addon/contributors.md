@@ -16,3 +16,5 @@ We want to express our gratitude to the following people for their contributions
 + [Adler702](https://github.com/Adler702)
 + [Wqsknijper](https://github.com/Wqsknijper)
 + [RappyTV](https://github.com/RappyTV)
++ [NULLYUKI](https://github.com/NULLYUKI)
++ [Misode](https://github.com/misode)
