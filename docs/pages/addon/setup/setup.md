@@ -20,7 +20,7 @@ After you have changed these attributes, reload the Gradle project, and you're g
 
 
 ## Understanding the Basics
-Head to `core\src\main\java` in your root project folder. You'll find some examples, starting with the main addon class: `ExampleAddon`.
+Head to `core/src/main/java` in your root project folder. You'll find some examples, starting with the main addon class: `ExampleAddon`.
 
 ### The Main Class
 
