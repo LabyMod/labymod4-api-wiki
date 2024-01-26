@@ -21,7 +21,7 @@ high impact on the performance of the players that use your addon.
 The use case we will implement in the following example will show how to display messages in the player's chat. We have
 already implemented this, but it is relatively easy to show and understand.
 
-We will first create a new interface in our `core`- or `api` module called `ExampleChatExecutor` and declare a new
+We will first create a new interface in our `core`- or `api` module called `ExampleChatExecutor`, annotate it with the `@Referenceable` annotation and declare a new
 method `void displayMessageInChat(String)`. Now we head to the module of the version we want and create a new class
 called `VersionedExampleChatExecutor` in our desired package. If there is no folder called `src` in the module, you'll
 need to create the following folder structure inside the module: `src/main/java/`.
@@ -47,6 +47,7 @@ Those are the results from this example:
 
 === ":octicons-file-code-16: ExampleChatExecutor"
     ```java
+    @Referenceable
     public interface ExampleChatExecutor {
     
       void displayMessageInChat(String message);
