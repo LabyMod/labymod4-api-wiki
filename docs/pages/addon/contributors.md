@@ -18,3 +18,4 @@ We want to express our gratitude to the following people for their contributions
 + [RappyTV](https://github.com/RappyTV)
 + [NULLYUKI](https://github.com/NULLYUKI)
 + [Misode](https://github.com/misode)
++ [RedstoneSpeaker](https://github.com/RedstoneSpeaker)
