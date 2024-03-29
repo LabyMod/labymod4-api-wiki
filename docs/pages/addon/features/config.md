@@ -251,8 +251,6 @@ The next step is creating a class which actually migrates the old config values 
 === ":octicons-file-code-16: ConfigVersionListener"
 ```java
 public class ConfigVersionListener {
-
-  private final Gson gson = new Gson();
   
   @Subscribe
   public void onConfigVersionUpdate(ConfigurationVersionUpdateEvent event) {
@@ -275,9 +273,10 @@ public class ConfigVersionListener {
 
         // Add default values to a newly created array
         JsonArray myNewArrayProperty = new JsonArray();
-        myNewArrayProperty.add("array value number 1");
-        myNewArrayProperty.add("array value number 2");
-        myNewArrayProperty.add("array value number 3");
+        // JsonArray#add(String) can't be used unfortunately because the method does not exist in the gson version used in labymod 1.8
+        myNewArrayProperty.add(new JsonPrimitive("array value number 1"));
+        myNewArrayProperty.add(new JsonPrimitive("array value number 2"));
+        myNewArrayProperty.add(new JsonPrimitive("array value number 3"));
 
         config.add("myNewArrayProperty", myNewArrayProperty);
 
