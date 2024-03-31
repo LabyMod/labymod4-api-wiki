@@ -238,6 +238,63 @@ These are some example files showing a few of the functions mentioned before.
 === ":octicons-file-media-24: Result"
     ![Config-Result](/assets/files/screenshots/config-example.gif)
 
+## Config Versioning
+If you want to push an update for your addon which breaks existing configs it would be a great idea to write a little config migrator class which converts the old json file to your new config format.
+The first step would be increasing the current version of your addon config by one. You do so by overriding the `AddonConfig#getConfigVersion` method in your config implementation.
+```java
+@Override
+public int getConfigVersion() {
+  return 2;
+}
+```
+The next step is creating a class which actually migrates the old config values to the new one.
+=== ":octicons-file-code-16: ConfigVersionListener"
+```java
+public class ConfigVersionListener {
+  
+  @Subscribe
+  public void onConfigVersionUpdate(ConfigurationVersionUpdateEvent event) {
+    // Get the config class so you can differantiate which config is being updated
+    Class<? extends Config> configClass = event.getConfigClass();
+    // This is the version which the old config is in
+    int usedVersion = event.getUsedVersion();
+
+    // Check if it's really your config
+    if (configClass == YourConfigClass.class) {
+      if (usedVersion == 1) {
+        // The current config json object
+        JsonObject config = event.getJsonObject();
+
+        // Keep the value of a renamed ConfigProperty
+        if(config.has("oldConfigOptionName")) {
+          // You'd have to adapt the #getAsString to your property type of course
+          config.set("newConfigOptionName", config.get("oldConfigOptionName").getAsString());
+        }
+
+        // Add default values to a newly created array
+        JsonArray myNewArrayProperty = new JsonArray();
+        // JsonArray#add(String) can't be used unfortunately because the method does not exist in the gson version used in labymod 1.8
+        myNewArrayProperty.add(new JsonPrimitive("array value number 1"));
+        myNewArrayProperty.add(new JsonPrimitive("array value number 2"));
+        myNewArrayProperty.add(new JsonPrimitive("array value number 3"));
+
+        config.add("myNewArrayProperty", myNewArrayProperty);
+
+        /*
+          You don't really have to remove old json values of removed ConfigProperties
+          as they're removed when the config is being loaded anyway
+        */
+
+        // Finally set the modified config object
+        event.setJsonObject(config);
+      } else if (usedVersion == 2) {
+        // If the addon's config is already on version 2 and you need to migrate it to version 3 for example
+      }
+    }
+  }
+}
+```
+
 ## Create Custom Settings
 
 ### Register Your Own Setting Type
