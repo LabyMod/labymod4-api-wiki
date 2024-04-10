@@ -19,3 +19,5 @@ We want to express our gratitude to the following people for their contributions
 + [NULLYUKI](https://github.com/NULLYUKI)
 + [Misode](https://github.com/misode)
 + [RedstoneSpeaker](https://github.com/RedstoneSpeaker)
++ [xNoci](https://github.com/xNoci)
++ [cs-jako](https://github.com/cs-jako)
