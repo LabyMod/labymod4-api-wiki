@@ -63,4 +63,51 @@ todo: write
 
 ## Create Your Very Own Events
 
-todo: write
+### Create a Basic Event
+
+If you cannot find a suitable event for your needs, you can simply create your own event. You can create a basic event by creating a new class and implementing the `Event` interface.
+
+Events are particularly useful when working with version-dependent code. For example, if you want to play a sound every time a player receives an advancement, you can use a custom event so you don't have to implement the logic for each version.
+
+### Fire a Custom Event
+
+To fire/call a custom event, you only need to execute the `Laby.fireEvent` method, which returns the executed event.
+
+### Code Example of the Previous Section
+
+We first create a new class in our `core`- or `api` module called `AdvancementReceiveEvent` and implement the `Event` interface from the `net.labymod.api.event` package.
+For this example, we only need a simple class that does not contain any fields. However, you can also add fields that can be changed in your event listener.
+
+=== ":octicons-file-code-16: AdvancementReceiveEvent"
+    ``` java
+    import net.labymod.api.event.Event;
+
+    public class AdvancementReceiveEvent implements Event {
+
+      public AdvancementReceiveEvent() {
+      }
+
+    }
+    ```
+Now we need to fire the event so that all registered listeners can be notified. We will do this by hooking into the Minecraft code for each version and calling `Laby.fireEvent(new AdvancementReceiveEvent())` every time the player receives a new advancement.
+
+You can find more information about how to hook into Minecraft methods <a href="/pages/addon/features/version-dependent/#access-the-minecraft-code-via-mixin">here</a>.
+
+The last thing to do is to create our listener class called `AdvancementReceivedListener` which will listen for our `AdvancementReceiveEvent` and play a sound for the client every time the event is fired.
+The `AdvancementReceivedListener` needs a method annotated with `@Subscribe` and our `AdvancementReceiveEvent` class as parameters. In this method, we can simply call `Laby.labyAPI().minecraft().sounds().playButtonPress()` to play a sound for the client every time our event is fired.
+
+=== ":octicons-file-code-16: AdvancementReceivedListener"
+    ``` java
+    import net.labymod.api.Laby;
+    import net.labymod.api.event.Subscribe;
+
+    public class AdvancementReceivedListener {
+
+      @Subscribe
+      public void onAdvancementReceived(AdvancementReceivedEvent event) {
+        Laby.labyAPI().minecraft().sounds().playButtonPress();
+      }
+
+    }
+    ```
+Finally, we need to register our `AdvancementReceivedListener` class in the `enable()` method of our main addon class by calling `registerListener(new AdvancementReceivedListener())`.
