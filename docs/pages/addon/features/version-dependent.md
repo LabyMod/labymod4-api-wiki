@@ -59,7 +59,7 @@ Those are the results from this example:
 === ":octicons-file-code-16: VersionedExampleChatExecutor"
     ```java
     @Singleton
-    @Implement(ExampleChatExecutor.class)
+    @Implements(ExampleChatExecutor.class)
     public class VersionedExampleChatExecutor implements ExampleChatExecutor {
     
       @Override
