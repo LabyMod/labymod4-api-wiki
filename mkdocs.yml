@@ -1,28 +1,59 @@
-site_name: LabyMod4 API
+site_name: LabyMod 4 Developer Portal
+repo_url: https://github.com/LabyMod/labymod4-api-wiki/
+repo_name: LabyMod/labymod4-api-wiki
+edit_uri: https://github.com/LabyMod/labymod4-api-wiki/tree/master/docs/
 
 nav:
+  - Server API:
+      - Server API Introduction: pages/server/index.md
+      - Setup: pages/server/setup.md
+      - Send And Handle Packets: pages/server/handle.md
+      - LabyMod Protocol:
+          - Server Displays:
+              - Economy Display: pages/server/labymod/displays/economy.md
+              - Subtitles: pages/server/labymod/displays/subtitles.md
+              - Tablist Banner: pages/server/labymod/displays/tablist-banner.md
+              - Tablist Flags: pages/server/labymod/displays/tablist-flags.md
+          - Features:
+              - Discord RPC: pages/server/labymod/features/discord.md
+              - Emotes: pages/server/labymod/features/emotes.md
+              - Gamemode: pages/server/labymod/features/gamemode.md
+              - Interaction Menu: pages/server/labymod/features/interaction-menu.md
+              - Makers: pages/server/labymod/features/makers.md
+          - Moderation:
+              - Addon Recommendations: pages/server/labymod/moderation/addon-recommendation.md
+              - Get LabyMod Version: pages/server/labymod/moderation/labymod-version.md
+              - Permissions: pages/server/labymod/moderation/permissions.md
+          - Minecraft Supplements:
+              - Input Prompt: pages/server/labymod/supplements/input-prompt.md
+              - Server Switch Prompt: pages/server/labymod/supplements/server-switch.md
+      - Addon Integrations:
+          - VoiceChat:
+              - Mute Players: pages/server/addons/voicechat/mute.md
+              - Unmute a Player: pages/server/addons/voicechat/mute.md
+              - Open Channels: pages/server/addons/voicechat/open-channels.md
   - Addon API:
-    - Introduction: pages/addon/index.md
-    - Setup:
-      - First Steps: pages/addon/setup/first-steps.md
-      - Your first LabyMod 4 Addon: pages/addon/setup/setup.md
-    - Features:
-      - Creating a Configuration: pages/addon/features/config.md
-      - Internationalize your Addon: pages/addon/features/internationalization.md
-      - Use and Create Events: pages/addon/features/events.md
-      - Create Commands: pages/addon/features/commands.md
-      - Write Version Dependent Code: pages/addon/features/version-dependent.md
-    - Activity System:
-      - What are Activities?: pages/addon/activities/activity.md
-      - Use and Create Widgets: pages/addon/activities/widgets.md
-      - Understand LSS: pages/addon/activities/lss.md
-      - Theming: pages/addon/activities/themes.md
-    - Publishing:
-      - Guidelines: pages/addon/publishing/guidelines.md
-      - Publish Your Addon: pages/addon/publishing/publish.md
-    - Troubleshoot: pages/addon/troubleshoot.md
-    - Additional Information: pages/addon/additional-infos.md
-    - Contributors: pages/addon/contributors.md
+      - Addon API Introduction: pages/addon/index.md
+      - Setup:
+          - First Steps: pages/addon/setup/first-steps.md
+          - Your first LabyMod 4 Addon: pages/addon/setup/setup.md
+      - Features:
+          - Creating a Configuration: pages/addon/features/config.md
+          - Internationalize your Addon: pages/addon/features/internationalization.md
+          - Use and Create Events: pages/addon/features/events.md
+          - Create Commands: pages/addon/features/commands.md
+          - Write Version Dependent Code: pages/addon/features/version-dependent.md
+      - Activity System:
+          - What are Activities?: pages/addon/activities/activity.md
+          - Use and Create Widgets: pages/addon/activities/widgets.md
+          - Understand LSS: pages/addon/activities/lss.md
+          - Theming: pages/addon/activities/themes.md
+      - Publishing:
+          - Guidelines: pages/addon/publishing/guidelines.md
+          - Publish Your Addon: pages/addon/publishing/publish.md
+      - Troubleshoot: pages/addon/troubleshoot.md
+      - Additional Information: pages/addon/additional-infos.md
+      - Contributors: pages/addon/contributors.md
 
 plugins:
   - search
@@ -49,5 +80,5 @@ theme:
     - navigation.tabs
     - navigation.expand
 
-extra_javascript: ['assets/theme/js/script.js']
-extra_css: ['assets/theme/css/main.css']
+extra_javascript: [ 'assets/theme/js/script.js' ]
+extra_css: [ 'assets/theme/css/main.css' ]
