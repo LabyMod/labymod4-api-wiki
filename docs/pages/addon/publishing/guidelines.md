@@ -7,7 +7,8 @@ Before you can submit an addon to our addon store, make sure you are following t
 
 1. Addons cannot impact the game experience negatively, this includes performance.
     1. Don't create objects every tick or frame if you can cache them.
-    2. Do not consume commands without providing a response.
+    2. Do not use streams.
+    3. Do not consume commands without providing a response.
 2. Respect the privacy of your users.
     1. Do not use the player's session identifier maliciously.
     2. If creating a connection to a private server, do not store or send any information that is not specifically
