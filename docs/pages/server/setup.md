@@ -5,6 +5,7 @@
 ## Adding the LabyMod Repository
 
 === ":octicons-file-code-16: Gradle (Kotlin DSL)"
+
     ```kotlin
     repositories {
         maven {
@@ -15,6 +16,7 @@
     ```
 
 === ":octicons-file-code-16: Gradle (Groovy)"
+
     ```groovy
     repositories {
         maven {
@@ -25,6 +27,7 @@
     ```
 
 === ":octicons-file-code-16: Maven"
+
     ```xml
     <repositories>
         <repository>
@@ -51,6 +54,7 @@ Depending on the actual artifact you want to use, you have to add the following 
 
 
 === ":octicons-file-code-16: Gradle (Kotlin DSL)"
+
     ```kotlin
     dependencies {
         compileOnly("net.labymod.serverapi:ARTIFACT:VERSION")
@@ -58,6 +62,7 @@ Depending on the actual artifact you want to use, you have to add the following 
     ```
 
 === ":octicons-file-code-16: Gradle (Groovy)"
+
     ```groovy
     dependencies {
         compileOnly "net.labymod.serverapi:ARTIFACT:VERSION"
@@ -65,6 +70,7 @@ Depending on the actual artifact you want to use, you have to add the following 
     ```
 
 === ":octicons-file-code-16: Maven"
+
     ```xml
     <dependencies>
       <dependency>

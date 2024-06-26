@@ -19,7 +19,7 @@ nav:
               - Emotes: pages/server/labymod/features/emotes.md
               - Gamemode: pages/server/labymod/features/gamemode.md
               - Interaction Menu: pages/server/labymod/features/interaction-menu.md
-              - Makers: pages/server/labymod/features/makers.md
+              - Markers: pages/server/labymod/features/makers.md
           - Moderation:
               - Addon Recommendations: pages/server/labymod/moderation/addon-recommendation.md
               - Get LabyMod Version: pages/server/labymod/moderation/labymod-version.md
