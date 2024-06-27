@@ -109,7 +109,7 @@ You can create sections in your settings; you just have to add the annotation `@
 
 If you want more structure in your settings but don't want to use Sections, you can create sub-settings that can be accessed via a button. Just create a new class, and let it inherit from `Config`. Add a field with the same type in your configuration (just the type, not a `ConfigProperty`) and create a new instance of said class. You might have noticed that you don't have to use the `AddonConfig` superclass for sub-settings. The `AddonConfig` class is required for your main configuration but not for sub-settings.
 
-If you want to display more than just the advanced button (the button that lets you access the sub-settings), add the `@ParentSwitch` annotation to the most important switch in your sub-settings.
+If you want to display more than just the advanced button (the button that lets you access the sub-settings), add the `@ShowSettingInParent` annotation to the most important switch in your sub-settings.
 
 ### Use Icons for Settings
 
@@ -164,7 +164,7 @@ These are some example files showing a few of the functions mentioned before.
     ``` java
     public class ExampleSubSettings extends Config {
     
-      @ParentSwitch
+      @ShowSettingInParent
       @SpriteSlot(x = 7)
       @SwitchSetting
       private ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
@@ -237,6 +237,63 @@ These are some example files showing a few of the functions mentioned before.
 
 === ":octicons-file-media-24: Result"
     ![Config-Result](/assets/files/screenshots/config-example.gif)
+
+## Config Versioning
+If you want to push an update for your addon which breaks existing configs it would be a great idea to write a little config migrator class which converts the old json file to your new config format.
+The first step would be increasing the current version of your addon config by one. You do so by overriding the `AddonConfig#getConfigVersion` method in your config implementation.
+```java
+@Override
+public int getConfigVersion() {
+  return 2;
+}
+```
+The next step is creating a class which actually migrates the old config values to the new one.
+=== ":octicons-file-code-16: ConfigVersionListener"
+```java
+public class ConfigVersionListener {
+  
+  @Subscribe
+  public void onConfigVersionUpdate(ConfigurationVersionUpdateEvent event) {
+    // Get the config class so you can differantiate which config is being updated
+    Class<? extends Config> configClass = event.getConfigClass();
+    // This is the version which the old config is in
+    int usedVersion = event.getUsedVersion();
+
+    // Check if it's really your config
+    if (configClass == YourConfigClass.class) {
+      if (usedVersion == 1) {
+        // The current config json object
+        JsonObject config = event.getJsonObject();
+
+        // Keep the value of a renamed ConfigProperty
+        if(config.has("oldConfigOptionName")) {
+          // You'd have to adapt the #getAsString to your property type of course
+          config.set("newConfigOptionName", config.get("oldConfigOptionName").getAsString());
+        }
+
+        // Add default values to a newly created array
+        JsonArray myNewArrayProperty = new JsonArray();
+        // JsonArray#add(String) can't be used unfortunately because the method does not exist in the gson version used in labymod 1.8
+        myNewArrayProperty.add(new JsonPrimitive("array value number 1"));
+        myNewArrayProperty.add(new JsonPrimitive("array value number 2"));
+        myNewArrayProperty.add(new JsonPrimitive("array value number 3"));
+
+        config.add("myNewArrayProperty", myNewArrayProperty);
+
+        /*
+          You don't really have to remove old json values of removed ConfigProperties
+          as they're removed when the config is being loaded anyway
+        */
+
+        // Finally set the modified config object
+        event.setJsonObject(config);
+      } else if (usedVersion == 2) {
+        // If the addon's config is already on version 2 and you need to migrate it to version 3 for example
+      }
+    }
+  }
+}
+```
 
 ## Create Custom Settings
 
