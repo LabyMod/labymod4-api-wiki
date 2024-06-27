@@ -5,10 +5,12 @@ edit_uri: https://github.com/LabyMod/labymod4-api-wiki/tree/master/docs/
 
 nav:
   - Server API:
-      - Server API Introduction: pages/server/index.md
       - Setup: pages/server/setup.md
-      - Send And Handle Packets: pages/server/handle.md
+      - Working with Protocols: pages/server/protocols.md
+      - Creating Packets: pages/server/packets.md
+      - Creating Integrations: pages/server/integrations.md
       - LabyMod Protocol:
+          - Overview: pages/server/labymod/overview.md
           - Server Displays:
               - Economy Display: pages/server/labymod/displays/economy.md
               - Subtitles: pages/server/labymod/displays/subtitles.md
@@ -19,7 +21,7 @@ nav:
               - Emotes: pages/server/labymod/features/emotes.md
               - Gamemode: pages/server/labymod/features/gamemode.md
               - Interaction Menu: pages/server/labymod/features/interaction-menu.md
-              - Markers: pages/server/labymod/features/makers.md
+              - Markers: pages/server/labymod/features/markers.md
           - Moderation:
               - Addon Recommendations: pages/server/labymod/moderation/addon-recommendation.md
               - Get LabyMod Version: pages/server/labymod/moderation/labymod-version.md
@@ -79,6 +81,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.expand
+    - content.tabs.link
 
 extra_javascript: [ 'assets/theme/js/script.js' ]
 extra_css: [ 'assets/theme/css/main.css' ]
