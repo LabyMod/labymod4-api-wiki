@@ -43,10 +43,10 @@ Depending on the actual artifact you want to use, you have to add the following 
 
 - `api` - The protocol itself without any LabyMod-specific code. Useful if you want to just use the protocol.
 - `core` - The LabyMod implementation of the protocol, containing all packets and models to interact with the LabyMod client. Use this if you want to communicate with the LabyMod 4 Server API platform-independently.
-- `server-bukkit` - The platform-specific integration of the LabyMod Protocol for Servers running on Bukkit (Spigot, Paper, etc.).
-- `server-bungeecord` - The platform-specific integration of the LabyMod Protocol for Servers running on BungeeCord.
-- `server-velocity` - The platform-specific integration of the LabyMod Protocol for Servers running on Velocity.
-- `server-common` - Contains shared classes and utilities used across different server implementations to ensure consistent behavior and reduce code duplication. Use this if you want to create your own platform integration.
+- `server-bukkit` - The platform-specific implementation of the LabyMod Protocol for Servers running on Bukkit (Spigot, Paper, etc.).
+- `server-bungeecord` - The platform-specific implementation of the LabyMod Protocol for Servers running on BungeeCord.
+- `server-velocity` - The platform-specific implementation of the LabyMod Protocol for Servers running on Velocity.
+- `server-common` - Contains shared classes and utilities used across different server implementations to ensure consistent behavior and reduce code duplication. Use this if you want to create your own platform implementation.
 
 ???+ danger "Important Note"
 
