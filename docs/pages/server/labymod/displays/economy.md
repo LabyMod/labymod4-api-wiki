@@ -17,7 +17,7 @@ The following methods are available to update the values of an Economy Display:
 
 ???+ note
 
-    When sending an custom Economy Display (the key is neither `bank` nor `cash`) to the player and no icon url is set, the default icon of the cash economy will be used.
+    When sending an custom Economy Display (meaning that the key is neither `bank` nor `cash`) to the player and no icon url is set, the default icon of the cash economy will be used.
 
 ## Managing via LabyModPlayer (Recommended)
 

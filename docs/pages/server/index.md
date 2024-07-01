@@ -1,6 +1,6 @@
 ???+ danger "Important Note"
 
-    You need Java Development Kit (JDK) 17 or higher to be able to use the LabyMod 4 Server API.
+    You'll need Java Development Kit (JDK) 17 or higher to be able to use the LabyMod 4 Server API.
 
 ## Adding the LabyMod Repository
 
@@ -50,7 +50,7 @@ Depending on the actual artifact you want to use, you have to add the following 
 
 ???+ danger "Important Note"
 
-    For the examples below, replace `ARTIFACT` with the artifact you want to use and `VERSION` with the version you want to use. The latest version can be found here: <a href="https://github.com/LabyMod/labymod4-server-api/releases" target="_blank" style="display: inline-flex;-ms-transform: translateY(25%);transform: translateY(25%);">![GitHub Release](https://img.shields.io/github/v/release/LabyMod/labymod4-server-api?label=%20)</a>
+    For the examples below, replace `ARTIFACT` and `VERSION` with the artifact and version you want to use. The latest version can be found here: <a href="https://github.com/LabyMod/labymod4-server-api/releases" target="_blank" style="display: inline-flex;-ms-transform: translateY(25%);transform: translateY(25%);">![GitHub Release](https://img.shields.io/github/v/release/LabyMod/labymod4-server-api?label=%20)</a>
 
 
 === ":octicons-file-code-16: Gradle (Kotlin DSL)"
@@ -86,7 +86,7 @@ Depending on the actual artifact you want to use, you have to add the following 
 Each officially supported server platform has two types of implementations. 
 
 1. You load the official jar file into your server's plugins folder and add it as a plugin dependency to your plugin.
-2. You shade the dependency into your plugin and initialize it manually. Effectively eliminating the need to have the 
+2. You shade the dependency into your plugin and initialize it manually, effectively eliminating the need to have the 
 Server API run as a separate plugin.
 
 ### Bukkit Plugin

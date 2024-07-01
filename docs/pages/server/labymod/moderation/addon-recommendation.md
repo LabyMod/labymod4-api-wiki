@@ -1,6 +1,6 @@
 The `AddonRecommendationPacket` is a client-bound packet that opens a popup for the player with addons that are recommended or even required. The client will then respond with an `AddonRecommendationResponsePacket` that contains the player's response.
 
-If sending required addons, you need to handle the response and check if the player has installed all required addons. LabyMod itself does not enforce the installation of required addons.
+If you're sending required addons, you'll need to handle the response and check if the player has installed all required addons yourself. LabyMod itself does not enforce the installation of required addons.
 
 ???+ danger "Note"
     The `AddonRecommendationResponsePacket` is sent <strong>twice</strong> by the client. Once before opening the popup and once the player has closed the popup. The `#isInitial` method can be used to check which response is being sent.

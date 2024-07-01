@@ -3,8 +3,8 @@ writes data directory into a ByteBuffer. This is a more efficient way of communi
 in the data that can be sent.
 
 The downside of this is that it is even more important to read and write packets correctly. Therefore, it is
-recommended to share the classes on the server and client-side. We for example use the `core` artifact, which you will
-also use, in LabyMod 4.
+recommended to share the classes on the server and client-side. The `core` artifact for example, is also shared between 
+the implementation in LabyMod 4 and the server.
 
 For an easier process of creating packets, we provide the classes `PayloadReader` and `PayloadWriter`. Both contain
 a variety of methods to read and write data from and to the ByteBuffer for any types thinkable. From collections and
@@ -118,7 +118,7 @@ To write the packet, we need to override the `write` method of the `Packet` inte
 `super.write`, as this will throw an exception upon writing the packet.
 
 ???+ danger "Important"
-    Always keep in mind that the order of writing and reading the values of the Packet must be the same, also the types must match. You can't write a variable integer and read a normal integer. If you are unsure what to do (or if what you've done is correct), don't hesitate to ask on [our Discord Server for Developers](https://labymod.net/dc/dev).
+    Always keep in mind that the order of writing and reading the values of the Packet must be the same, also the types must match. You can't write a variable integer and read a normal integer. If you are unsure what to do (or whether what you've done is correct), don't hesitate to ask on [our Discord Server for Developers](https://labymod.net/dc/dev).
 
 ```java
 @Override
