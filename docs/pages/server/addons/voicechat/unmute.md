@@ -22,8 +22,11 @@ voiceChatPlayer.unmute();
 
 ### Via the AddonProtocol
 
-While not recommended, it is also possible to send the unmutes directly via the `AddonProtocol` of the `VoiceChatIntegration`.<br/>
-But keep in mind, that you will have to store all the mutes yourself and send them to every player manually.
+While not recommended, it is also possible to send the unmutes directly via the `AddonProtocol` of the `VoiceChatIntegration`.
+
+???+ danger "Important Note"
+
+    When sending (un)mutes directly via the `AddonProtocol` of the `VoiceChatIntegration`, you will have to store all mutes yourself and send them to every player manually.
 
 ```java
 // Get the VoiceChatIntegration
@@ -44,8 +47,11 @@ addonProtocol.sendPacket(uniqueId, new VoiceChatUnmutePacket(uniqueId));
 
 ### Via the LabyMod Player
 
-While not recommended, it is also possible to send the packet directly via the `LabyModPlayer`. This will basically skip the "protocol-getting" process, as it will search for the protocol automatically. <br/>
-But keep in mind, that you will have to store all the mutes yourself and send them to every player manually.
+While not recommended, it is also possible to send the packet directly via the `LabyModPlayer`. This will basically skip the "protocol-getting" process, as it will search for the protocol automatically.
+
+???+ danger "Important Note"
+
+    When sending (un)mutes directly via the `LabyModPlayer`, you will have to store all mutes yourself and send them to every player manually.
 
 ```java
 // Get the LabyModPlayer

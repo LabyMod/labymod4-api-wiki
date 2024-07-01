@@ -18,8 +18,11 @@ labyModPlayer.setTabListFlag(TabListFlagCountryCode.DE);
 
 ## Sending via the LabyModProtocol
 
-While not recommended, it is also possible to send the flags directly via the `LabyModProtocol`.<br/>
-But keep in mind, that you will have to store all the flags yourself and send them to every player manually.
+While not recommended, it is also possible to send the flags directly via the `LabyModProtocol`.
+
+???+ danger "Important Note"
+
+    When sending flags directly via the `LabyModProtocol`, you will have to store all flags yourself and send them to every player manually.
 
 ```java
 // Create or get a List of flags (array is also possible)

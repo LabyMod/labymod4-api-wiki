@@ -58,8 +58,11 @@ labyModPlayer.resetSubtitle();
 
 ## Sending via the LabyModProtocol
 
-While not recommended, it is also possible to send the subtitles directly via the `LabyModProtocol`.<br/>
-But keep in mind, that you will have to store all the subtitles yourself and send them to every player manually.
+While not recommended, it is also possible to send the subtitles directly via the `LabyModProtocol`.
+
+???+ danger "Important Note"
+
+    When sending subtitles directly via the `LabyModProtocol`, you will have to store all subtitles yourself and send them to every player manually.
 
 ```java
 // Create or get a List of subtitles (array is also possible)

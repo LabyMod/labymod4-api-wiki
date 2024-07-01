@@ -2,7 +2,7 @@ In contrast to the LabyMod 3 Server API, the LabyMod 4 Server API doesn't commun
 writes data directory into a ByteBuffer. This is a more efficient way of communication and allows for more flexibility
 in the data that can be sent.
 
-The downside of this is that it is even more important to read and write packets correctly. Because of this, it is
+The downside of this is that it is even more important to read and write packets correctly. Therefore, it is
 recommended to share the classes on the server and client-side. We for example use the `core` artifact, which you will
 also use, in LabyMod 4.
 
