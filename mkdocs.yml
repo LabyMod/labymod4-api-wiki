@@ -2,6 +2,7 @@ site_name: LabyMod 4 Developer Portal
 repo_url: https://github.com/LabyMod/labymod4-api-wiki/
 repo_name: LabyMod/labymod4-api-wiki
 edit_uri: https://github.com/LabyMod/labymod4-api-wiki/tree/master/docs/
+copyright: Copyright &copy; 2024 LabyMedia GmbH - Imprint
 
 nav:
   - Server API:
@@ -72,6 +73,7 @@ markdown_extensions:
 
 theme:
   name: material
+  custom_dir: overrides
   favicon: 'assets/theme/images/favicon.ico'
   logo: 'assets/theme/images/wolf.png'
   palette:
@@ -79,9 +81,16 @@ theme:
   feature:
     tabs: true
   features:
+    - navigation.sections
     - navigation.tabs
     - navigation.expand
     - content.tabs.link
+    - content.action.edit
+    - navigation.footer
+    - search.highlight
 
 extra_javascript: [ 'assets/theme/js/script.js' ]
 extra_css: [ 'assets/theme/css/main.css' ]
+
+extra:
+  generator: false
