@@ -5,6 +5,9 @@ edit_uri: https://github.com/LabyMod/labymod4-api-wiki/tree/master/docs/
 copyright: Copyright &copy; 2024 LabyMedia GmbH - Imprint
 
 nav:
+  - Home:
+      - Introduction: index.md
+      - Contributors: contributors.md
   - Server API:
       - Setup: pages/server/setup.md
       - Working with Protocols: pages/server/protocols.md
@@ -33,8 +36,9 @@ nav:
       - Addon Integrations:
           - VoiceChat:
               - Mute Players: pages/server/addons/voicechat/mute.md
-              - Unmute a Player: pages/server/addons/voicechat/mute.md
+              - Unmute a Player: pages/server/addons/voicechat/unmute.md
               - Open Channels: pages/server/addons/voicechat/open-channels.md
+      - Contributors: /contributors
   - Addon API:
       - Addon API Introduction: pages/addon/index.md
       - Setup:
@@ -56,7 +60,7 @@ nav:
           - Publish Your Addon: pages/addon/publishing/publish.md
       - Troubleshoot: pages/addon/troubleshoot.md
       - Additional Information: pages/addon/additional-infos.md
-      - Contributors: pages/addon/contributors.md
+      - Contributors: /contributors
 
 plugins:
   - search

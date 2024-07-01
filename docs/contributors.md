@@ -1,4 +1,4 @@
-Due to the sheer complexity and scope of LabyMod 4 and its addon API, we cannot maintain this wiki alone. <br>
+Due to the sheer complexity and scope of LabyMod 4 and its Addon & Server API, we cannot maintain this wiki alone. <br>
 Therefore, we rely on the help of the community to keep this wiki complete and up to date.
 
 If you want to help us, feel free to fork the repository of this wiki, make your desired changes and create a pull request <a href="https://github.com/LabyMod/labymod4-api-wiki" target="_blank">here</a>.
