@@ -8,8 +8,11 @@ nav:
   - Home:
       - Introduction: index.md
       - Contributors: contributors.md
+      - Documentation:
+         - Server API: /pages/server
+         - Addon API: /pages/addon
   - Server API:
-      - Setup: pages/server/setup.md
+      - Server API Setup: pages/server/index.md
       - Working with Protocols: pages/server/protocols.md
       - Creating Packets: pages/server/packets.md
       - Creating Integrations: pages/server/integrations.md
@@ -43,7 +46,7 @@ nav:
       - Addon API Introduction: pages/addon/index.md
       - Setup:
           - First Steps: pages/addon/setup/first-steps.md
-          - Your first LabyMod 4 Addon: pages/addon/setup/setup.md
+          - Your First LabyMod 4 Addon: pages/addon/setup/setup.md
       - Features:
           - Creating a Configuration: pages/addon/features/config.md
           - Internationalize your Addon: pages/addon/features/internationalization.md

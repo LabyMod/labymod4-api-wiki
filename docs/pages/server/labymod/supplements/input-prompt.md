@@ -39,6 +39,8 @@ The InputPrompt model uses the Server API's own Component model.
 
 The packet can either be sent via the `LabyModPlayer` object of the player, or directly via the `LabyModProtocol`.
 
+If you're not sending the packet with an integrated handler, you need to register a handler for the `ServerSwitchPromptResponsePacket` yourself. The process is explained [here](/pages/server/protocols/#registering-handlers).
+
 ### Via LabyModPlayer (Recommended)
 
 === ":octicons-file-code-16: #openInputPrompt(InputPrompt, Consumer<String>)"
@@ -94,6 +96,7 @@ The packet can either be sent via the `LabyModPlayer` object of the player, or d
         InputPromptResponsePacket.class,
         response -> {
             // Handle the response packet
+
             return false; // Return false, as only one response is expected
         }
     );
