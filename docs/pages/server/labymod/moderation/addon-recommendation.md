@@ -25,7 +25,7 @@ If you're not sending the packet with an integrated handler, you need to registe
 
 ### Via LabyModPlayer (Recommended)
 
-=== ":octicons-file-code-16: #openServerSwitchPrompt(ServerSwitchPrompt, Consumer<ServerSwitchPromptResponsePacket>)"
+=== ":octicons-file-code-16: #sendAddonRecommendations(List<RecommendedAddon>, Consumer<AddonRecommendationResponsePacket>)"
 
     ```java
     // Create or get a List of recommended addons 
@@ -45,7 +45,7 @@ If you're not sending the packet with an integrated handler, you need to registe
     });
     ```
 
-=== ":octicons-file-code-16: #openServerSwitchPrompt(ServerSwitchPrompt)"
+=== ":octicons-file-code-16: #sendAddonRecommendations(List<RecommendedAddon>)"
 
     ```java
     // Create or get a List of recommended addons 

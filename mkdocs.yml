@@ -38,6 +38,7 @@ nav:
               - Server Switch Prompt: pages/server/labymod/supplements/server-switch.md
       - Addon Integrations:
           - VoiceChat:
+              - Overview: pages/server/addons/voicechat/index.md
               - Mute Players: pages/server/addons/voicechat/mute.md
               - Unmute a Player: pages/server/addons/voicechat/unmute.md
               - Open Channels: pages/server/addons/voicechat/open-channels.md

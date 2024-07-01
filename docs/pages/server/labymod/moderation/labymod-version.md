@@ -7,4 +7,4 @@ There is generally no need to manually handle this packet, as the LabyMod Server
 upon receiving this packet. The LabyMod version is then stored in the player's `LabyModPlayer` and can be accessed via
 `LabyModPlayer#getLabyModVersion()`.
 
-If you want to handle it anyway, you can register a `PacketHandler` for the `VersionLoginPacket`.
+If you want to handle it anyway, you can register a `PacketHandler` for the `VersionLoginPacket`. The process is explained [here](/pages/server/protocols/#registering-handlers).  
