@@ -16,6 +16,7 @@ nav:
       - Working with Protocols: pages/server/protocols.md
       - Creating Packets: pages/server/packets.md
       - Creating Integrations: pages/server/integrations.md
+      - Events: pages/server/events.md
       - LabyMod Protocol:
           - Overview: pages/server/labymod/overview.md
           - Server Displays:
