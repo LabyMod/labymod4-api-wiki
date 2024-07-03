@@ -22,3 +22,4 @@ We want to express our gratitude to the following people for their contributions
 + [xNoci](https://github.com/xNoci)
 + [cs-jako](https://github.com/cs-jako)
 + [Funboyy](https://github.com/Funboyy)
++ [MisterCore](https://github.com/MisterCore)
