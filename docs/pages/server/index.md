@@ -1,6 +1,6 @@
 ???+ danger "Important Note"
 
-    You'll need Java Development Kit (JDK) 17 or higher to be able to use the LabyMod 4 Server API.
+    You'll need Java Development Kit (JDK) 8 or higher to be able to use the LabyMod 4 Server API (the Velocity platform-specific implementation requires JDK 17 or higher)
 
 ## Adding the LabyMod Repository
 
@@ -162,8 +162,8 @@ Server API run as a separate plugin.
 2. Configure shadow in your project's `build.gradle` or `pom.xml` to shade the `server-velocity` dependency into your plugin.
 3. Initialize the LabyMod 4 Server API in your plugin's `ProxyInitializeEvent` listener:
     ```java
-    @Override
-    public void onEnable() {
+    @Subscribe
+    public void onProxyInitialization(ProxyInitializeEvent event) {
         LabyModProtocolService.initialize(this, this.server, this.logger);
     }
     ```

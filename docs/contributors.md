@@ -23,3 +23,5 @@ We want to express our gratitude to the following people for their contributions
 + [cs-jako](https://github.com/cs-jako)
 + [Funboyy](https://github.com/Funboyy)
 + [MisterCore](https://github.com/MisterCore)
++ [EinsJustinn](https://github.com/EinsJustinn)
++ [Kaseax](https://github.com/Kaseax)

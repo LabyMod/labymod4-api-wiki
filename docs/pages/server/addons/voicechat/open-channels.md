@@ -13,7 +13,7 @@ LabyModPlayer labyModPlayer = LabyModProtocolService.get().getPlayer(uniqueId);
 // Get the VoiceChatPlayer
 VoiceChatPlayer voiceChatPlayer = labyModPlayer.getIntegrationPlayer(VoiceChatPlayer.class);
 
-// Mute the player
+// Open the VoiceChat Channels Widget
 voiceChatPlayer.openVoiceChatChannels();
 ```
 
