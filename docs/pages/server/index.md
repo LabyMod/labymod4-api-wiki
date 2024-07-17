@@ -1,6 +1,6 @@
 ???+ danger "Important Note"
 
-    You'll need Java Development Kit (JDK) 17 or higher to be able to use the LabyMod 4 Server API.
+    You'll need Java Development Kit (JDK) 8 or higher to be able to use the LabyMod 4 Server API (the Velocity platform-specific implementation requires JDK 17 or higher)
 
 ## Adding the LabyMod Repository
 
