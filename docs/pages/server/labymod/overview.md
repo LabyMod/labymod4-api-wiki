@@ -18,6 +18,8 @@ The following features are currently available in the LabyMod Protocol:
 ## Moderation
 
 - [Addon Recommendations](/pages/server/labymod/moderation/addon-recommendation)
+- [Get the Installed Addons](/pages/server/labymod/moderation/installed-addons)
+- [Disable Addons](/pages/server/labymod/moderation/disable-addons)
 - [Get the LabyMod Version](/pages/server/labymod/moderation/labymod-version)
 - [Permissions](/pages/server/labymod/moderation/permissions)
 
@@ -30,8 +32,6 @@ The following features are currently available in the LabyMod Protocol:
 
 These features are planned for the future but are not yet available:
 
-- Getting a Player's Installed Addons
-- Disabling Addons Server-Side
 - Sending Notifications
 
 You have a feature request? Feel free to [create an issue on GitHub](https://github.com/LabyMod/labymod4-server-api/issues/new/choose) or post it on [our Discord for Developers](https://labymod.net/dc/dev).
