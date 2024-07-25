@@ -10,7 +10,7 @@ Reverting the forced disabled state is also possible via the same packet.
 ## Disabling Addons
 
 ???+ danger "Note"
-    Some addons also provide special permissions to disable certain features. For user experience sake, please consider disabling these permissions instead of the whole addon (f.e. [BetterPerspective](#)).
+    Some addons also provide special permissions to disable certain features. For user experience sake, please consider disabling these permissions instead of the whole addon (f.e. [BetterPerspective](/pages/server/addons/betterperspective/)).
 
 ### Via LabyModPlayer (Recommended)
 

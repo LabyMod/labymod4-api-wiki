@@ -41,3 +41,14 @@ The following methods are available in this event:
 - `#getSender()` - Returns the unique id player that has sent the packet.
 - `#getLabyModPlayer()` - Returns the `LabyModPlayer` object of the player that has sent the packet. **Can be `null` if
   it's not a LabyMod player.**
+
+## LabyModInstalledAddonsUpdateEvent
+
+The `LabyModInstalledAddonsUpdateEvent` is fired either after the server received `InstalledAddonsResponsePacket` or `AddonStateChangedPacket`.
+
+The following methods are available in this event:
+
+- `#protocolService()` - Returns the `LabyModProtocolService` instance.
+- `#labyModPlayer()` - Returns the `LabyModPlayer` object of the player.
+- `#installedAddons()` - Returns the already updated `InstalledAddonsResponse` object which can also be accessed via `LabyModPlayer#installedAddons`.
+
