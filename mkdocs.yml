@@ -32,12 +32,15 @@ nav:
               - Markers: pages/server/labymod/features/markers.md
           - Moderation:
               - Addon Recommendations: pages/server/labymod/moderation/addon-recommendation.md
+              - Get Installed Addons: pages/server/labymod/moderation/installed-addons.md
+              - Disable Addons: pages/server/labymod/moderation/disable-addons.md
               - Get LabyMod Version: pages/server/labymod/moderation/labymod-version.md
               - Permissions: pages/server/labymod/moderation/permissions.md
           - Minecraft Supplements:
               - Input Prompt: pages/server/labymod/supplements/input-prompt.md
               - Server Switch Prompt: pages/server/labymod/supplements/server-switch.md
       - Addon Integrations:
+          - BetterPerspective: pages/server/addons/betterperspective/index.md
           - VoiceChat:
               - Overview: pages/server/addons/voicechat/index.md
               - Mute Players: pages/server/addons/voicechat/mute.md
