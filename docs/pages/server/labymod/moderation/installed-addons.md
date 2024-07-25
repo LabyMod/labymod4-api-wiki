@@ -7,6 +7,26 @@ The workflow is as follows:
 3. If the enabled state of a requested addon changes (or it was installed), the client will send the
    `AddonStateChangedPacket` to the server.
 
+## Get Installed Addons
+
+`LabyModPlayer#installedAddons` gets an object of the class `InstalledAddonsResponse`, this object is created with the `LabyModPlayer` BUT does not contain any addons until you request them. You can check this by calling `#hasResponse` on the object.
+
+This object is also used as response when using the `LabyModPlayer#requestInstalledAddons` method (with callback).
+
+???+ danger "Important Note"
+    Installed addons are not sent to the server by default. You need to request them first, see [Requesting Installed Addons](#requesting-installed-addons).
+
+The `InstalledAddonsResponse` class contains the following methods:
+
+- `#hasResponse` - Whether the client has responded with the installed addons.
+- `#hasRequested` - Whether the installed addons were requested
+- `#getRequested` - Gets the requested addons. If `#hasRequested` is true and the list is empty, all addons were requested.
+- `#isInstalled` - Whether the addon is installed
+- `#isEnabled` - Whether the addon is enabled
+- `#isDisabled` - Whether the addon is disabled
+- `#isLocal` - Returns `true` if the addon is installed locally (`false` if it's from the addon store)
+- `#getVersion` - Gets the version of the addon
+
 ## Requesting Installed Addons
 
 As mentioned above **ALL** packets related to installed addons **RELY** on this packet and it's contents. The client **DOES NOT** send the installed addons to the server automatically.
@@ -36,13 +56,13 @@ The `LabyModPlayer` object provides the `#installedAddons` method to get the ins
     
     // Request the installed addons and optionally handle the response
     labyModPlayer.requestInstalledAddons(addonsToRequest, response -> {
-      if (response.isEnabled("voicechat")) {
-        // VoiceChat is enabled
-      } else if (response.isDisabled("voicechat")) {
-        // VoiceChat is disabled
-      } else {
-        // VoiceChat is not installed
-      }
+        if (response.isEnabled("voicechat")) {
+            // VoiceChat is enabled
+        } else if (response.isDisabled("voicechat")) {
+            // VoiceChat is disabled
+        } else {
+            // VoiceChat is not installed
+        }
     });
     ```
 
@@ -54,9 +74,8 @@ The `LabyModPlayer` object provides the `#installedAddons` method to get the ins
     
     // Request all installed addons and optionally handle the response
     labyModPlayer.requestInstalledAddons(response -> {
-      List<String> disabledAddons = response.getDisabled();
-      List<String> enabledAddons = response.getEnabled();
-      // Handle the response
+        List<InstalledAddon> installedAddons = response.getInstalledAddons();
+        // Handle the response
     });
     ```
 
@@ -101,9 +120,7 @@ The `LabyModPlayer` object provides the `#installedAddons` method to get the ins
         new InstalledAddonsRequestPacket(recommendations),
         InstalledAddonsResponsePacket.class,
         response -> {
-            InstalledAddons installedAddons = response.installedAddons();
-            List<String> disabledAddons = installedAddons.getDisabled();
-            List<String> enabledAddons = installedAddons.getEnabled();
+            List<InstalledAddon> installedAddons = response.getInstalledAddons();
             // Handle the response
 
             return false; // return false because no other response is expected
