@@ -1,7 +1,7 @@
 # Create Hud Widgets
 
 A Hud Widget is a block of content, which can be enabled within our "Widget Editor". Users can customize and move Widgets by drag&drop.
-Our Hud Widget System allows you to create own Widgets for your addon
+Our Hud Widget System allows you to create own Widgets for your addon.
 
 ### Create own Hud Widget Category
 
@@ -16,7 +16,23 @@ public class ExampleAddon extends LabyAddon<ExampleConfiguration> {
 
   @Override
   protected void enable() {
-    labyAPI().hudWidgetRegistry().categoryRegistry().register(this.widgetCategory = new HudWidgetCategory("moneymaker"));
+    labyAPI().hudWidgetRegistry().categoryRegistry().register(this.widgetCategory = new HudWidgetCategory("example_category"));
+  }
+
+{
+```
+
+# Registering HudWidgets
+
+You can register a created Hud Widget in your Addon enable method.
+
+```java
+@AddonMain
+public class ExampleAddon extends LabyAddon<ExampleConfiguration> {
+
+  @Override
+  protected void enable() {
+    labyAPI().hudWidgetRegistry().register(new ExampleHudWidget(this));
   }
 
 {
@@ -34,12 +50,12 @@ LabyMod provides different Widget types that help you to easily create HudWidget
 
 ```java
 
-public class ExampleHudWidgets extends TextHudWidget<TextHudWidgetConfig> {
+public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
 
   private ExampleAddon addon;
   private TextLine textLine;
 
-  public WorkerPriceWidget(ExampleAddon addon) {
+  public ExampleHudWidget(ExampleAddon addon) {
     super("example_id");
     this.addon = addon;
     // Bind the Widget to our created category in our main class
