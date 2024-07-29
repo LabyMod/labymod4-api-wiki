@@ -92,3 +92,7 @@ public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
 }
 
 ```
+
+# Hud Widget Configurations
+
+todo: write
