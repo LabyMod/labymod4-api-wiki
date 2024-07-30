@@ -12,7 +12,7 @@ Just create a HudWidgetCategory and register it in your Addon enable method.
 @AddonMain
 public class ExampleAddon extends LabyAddon<ExampleConfiguration> {
 
-  private final HudWidgetCategory widgetCategory;
+  private HudWidgetCategory widgetCategory;
 
   @Override
   protected void enable() {
