@@ -44,6 +44,7 @@ LabyMod provides different Widget types that help you to easily create HudWidget
 
 + TextHudWidget - a simple text widget that supports multiple lines
 + ItemHudWidget - an item widget with that you can display an image with a text next to it
++ SimpleHudWidget - a widget that render custom icons/text etc. - an example can be found in the <a href="https://github.com/labymod-addons/teamspeak/blob/master/core/src/main/java/net/labymod/addons/teamspeak/core/hud/TeamSpeakHudWidget.java">Teamspeak LabyMod Addon</a>
 
   
 # Example TextHudWidget
