@@ -119,6 +119,7 @@ public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
     String value = null;
     if(Laby.labyAPI().serverController().isConnected()) {
       value = Laby.labyAPI().getUniqueId().toString();
+      // Access our created Setting
       if(!this.getConfig().showDashes().get()) {
         value = value.replace("-", "");
       }
@@ -131,11 +132,7 @@ public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
   public static class ExampleHudWidgetConfig extends TextHudWidgetConfig {
 
     @SwitchSetting
-    private final ConfigProperty<Boolean> showDashes;
-
-    public ExampleHudWidgetConfig() {
-      this.showDashes = new ConfigProperty<>(false);
-    }
+    private final ConfigProperty<Boolean> showDashes = new ConfigProperty<>(true);
 
     public ConfigProperty<Boolean> showDashes() {
       return showDashes;
