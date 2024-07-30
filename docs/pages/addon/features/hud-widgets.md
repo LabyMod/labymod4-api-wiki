@@ -49,15 +49,12 @@ LabyMod provides different Widget types that help you to easily create HudWidget
 # Example TextHudWidget
 
 ```java
-
 public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
 
-  private ExampleAddon addon;
   private TextLine textLine;
 
   public ExampleHudWidget(ExampleAddon addon) {
     super("example_id");
-    this.addon = addon;
     // Bind the Widget to our created category in our main class
     this.bindCategory(addon.widgetCategory());
 
@@ -68,15 +65,15 @@ public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
   @Override
   public void load(TextHudWidgetConfig config) {
     super.load(config);
-    this.textLine = createLine("Own Username", "0");
+    this.textLine = createLine("Own Username", "");
   }
 
   @Override
   public void onTick(boolean isEditorContext) {
 
     String value = null;
-    if(this.addon.labyAPI().serverController().isConnected()) {
-      value = this.addon.labyAPI().getName();
+    if(Laby.labyAPI().serverController().isConnected()) {
+      value = Laby.labyAPI().getName();
     }
     
     // Update the text line an flush it
@@ -90,9 +87,60 @@ public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
   }
 
 }
-
 ```
 
 # Hud Widget Configurations
 
-todo: write
+You can also create Configurations for your Hud Widgets, in our example we are using a configuration for the TextHudWidget.
+You can easily create configurations by creating a class that inherit the `TextHudWidgetConfig` class.
+You can use the same Setting Elements that you are using to create the configuration of your addon, take a look <a href="/pages/addon/features/config/#using-predefined-setting-widgets">here</a>.
+
+```java
+
+public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
+
+  private TextLine textLine;
+
+  public ExampleHudWidget(ExampleAddon addon) {
+    super("example_id");
+    this.bindCategory(addon.widgetCategory());
+  }
+
+  @Override
+  public void load(ExampleHudWidgetConfig config) {
+    super.load(config);
+    this.textLine = createLine("Own UUID", "");
+  }
+
+  @Override
+  public void onTick(boolean isEditorContext) {
+
+    String value = null;
+    if(Laby.labyAPI().serverController().isConnected()) {
+      value = Laby.labyAPI().getUniqueId().toString();
+      if(!this.getConfig().showDashes().get()) {
+        value = value.replace("-", "");
+      }
+    }
+
+    this.textLine.updateAndFlush(value);
+    this.textLine.setState(value != null ? State.VISIBLE : State.HIDDEN);
+  }
+
+  public static class ExampleHudWidgetConfig extends TextHudWidgetConfig {
+
+    @SwitchSetting
+    private final ConfigProperty<Boolean> showDashes;
+
+    public ExampleHudWidgetConfig() {
+      this.showDashes = new ConfigProperty<>(false);
+    }
+
+    public ConfigProperty<Boolean> showDashes() {
+      return showDashes;
+    }
+
+  }
+
+}
+```
