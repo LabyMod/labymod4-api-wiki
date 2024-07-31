@@ -1,6 +1,3 @@
-???+ warning "Only available on Snapshot"
-    This feature was added in LabyMod 4.2.33 (currently only available on the snapshot release channel).
-
 There are multiple packets related to the installed addons of your players. But all rely on the client-bound packet
 `InstalledAddonsRequestPacket`.
 The workflow is as follows:
