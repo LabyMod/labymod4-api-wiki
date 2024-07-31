@@ -98,12 +98,12 @@ You can use the same Setting Elements that you are using to create the configura
 
 ```java
 
-public class ExampleHudWidget extends TextHudWidget<TextHudWidgetConfig> {
+public class ExampleHudWidget extends TextHudWidget<ExampleHudWidgetConfig> {
 
   private TextLine textLine;
 
   public ExampleHudWidget(ExampleAddon addon) {
-    super("example_id");
+    super("example_id", ExampleHudWidgetConfig.class);
     this.bindCategory(addon.widgetCategory());
   }
 
