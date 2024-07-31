@@ -1,6 +1,3 @@
-???+ warning "Only available on Snapshot"
-    This feature was added in LabyMod 4.2.33 (currently only available on the snapshot release channel).
-
 The `AddonDisablePacket` is a client-bound packet that forcefully disables the specified addons for the player.
 Reverting the forced disabled state is also possible via the same packet.
 
