@@ -45,6 +45,7 @@ Depending on the actual artifact you want to use, you have to add the following 
 - `core` - The LabyMod implementation of the protocol, containing all packets and models to interact with the LabyMod client. Use this if you want to communicate with the LabyMod 4 Server API platform-independently.
 - `server-bukkit` - The platform-specific implementation of the LabyMod Protocol for Servers running on Bukkit (Spigot, Paper, etc.).
 - `server-bungeecord` - The platform-specific implementation of the LabyMod Protocol for Servers running on BungeeCord.
+- `server-minestom` - The platform-specific implementation of the LabyMod Protocol for Servers running on Minestom.
 - `server-velocity` - The platform-specific implementation of the LabyMod Protocol for Servers running on Velocity.
 - `server-common` - Contains shared classes and utilities used across different server implementations to ensure consistent behavior and reduce code duplication. Use this if you want to create your own platform implementation.
 
@@ -140,6 +141,15 @@ Server API run as a separate plugin.
     }
     ```
 4. You're now ready to use the LabyMod 4 Server API in your BungeeCord plugin.
+
+### Minestom Library
+
+1. Add the `server-minestom` dependency to your project's dependencies as described above.
+2. Initialize the LabyMod 4 Server API before you call `MinecraftServer#start`:
+    ```java
+    LabyModProtocolService.initialize();
+    ```
+3. You're now ready to use the LabyMod 4 Server API in your Minestom server.
 
 ### Velocity Plugin
 
