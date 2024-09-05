@@ -66,7 +66,7 @@ While not recommended, it is also possible to send the subtitles directly via th
 
 ```java
 // Create or get a List of subtitles (array is also possible)
-List<Permission.StatedPermission> subtitles = new ArrayList<>();
+List<Subtitle> subtitles = new ArrayList<>();
 
 // Add all subtitles you want to send to the player
 subtitles.add(Subtitle.create(uniqueId, ServerAPIComponent.text("Example Subtitle")));
