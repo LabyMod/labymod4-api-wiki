@@ -25,5 +25,6 @@ We want to express our gratitude to the following people for their contributions
 + [MisterCore](https://github.com/MisterCore)
 + [EinsJustinn](https://github.com/EinsJustinn)
 + [Kaseax](https://github.com/Kaseax)
++ [Nathan Weisz](https://github.com/nateweisz)
 + [Corvonn](https://github.com/Corvonn)
 + [Strafbefehl](https://github.com/Strafbefehl)
