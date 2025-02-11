@@ -149,7 +149,7 @@ These are some example files showing a few of the functions mentioned before.
         Notification.Builder builder = Notification.builder()
             .title(Component.text("INFO"))
             .text(Component.text(setting.getId() + " was clicked! " + this.text))
-            .type(Type.ADVANCEMENT);
+            .type(Type.SYSTEM);
         Laby.labyAPI().notificationController().push(builder.build());
       }
 
