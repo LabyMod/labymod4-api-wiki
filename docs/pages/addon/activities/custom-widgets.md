@@ -151,28 +151,28 @@ public class UserWidget extends AbstractWidget<Widget> {
 
 === ":octicons-file-code-16: user-widget.lss"
 ```css
-    .head {
-        // align left
-        left: 0;
-        
-        // center vertically
-        top: 50%;
-        alignment-y: center;
-        
-        width: 12;
-        height: 12;
-    }
+.head {
+    // align left
+    left: 0;
+    
+    // center vertically
+    top: 50%;
+    alignment-y: center;
+    
+    width: 12;
+    height: 12;
+}
 
-    .username {
-        // align next to the head
-        left: 14;
-        
-        // center vertically
-        top: 50%;
-        alignment-y: center;
-        
-        // width/height is set automatically for a ComponentWidget
-    }
+.username {
+    // align next to the head
+    left: 14;
+    
+    // center vertically
+    top: 50%;
+    alignment-y: center;
+    
+    // width/height is set automatically for a ComponentWidget
+}
 ```
 
 === ":octicons-file-media-24: Result"
