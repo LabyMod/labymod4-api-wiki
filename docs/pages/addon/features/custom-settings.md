@@ -1,5 +1,3 @@
-# Create Custom Settings
-
 Additionally to the predefined setting types discussed [in the last page](/pages/addon/features/config), you can also
 create your own types to create more complex settings like the VoiceChat.
 
