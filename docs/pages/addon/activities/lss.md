@@ -77,9 +77,6 @@ Like before, this is what the code we described above would look like:
 === ":octicons-file-media-24: Result"
     ![Config-Result](/assets/files/screenshots/lss-activity-example.png)
  
-## Create Widgets With LSS
-
-todo: write
 
 ## Injecting Blocks Into Other StyleSheets
 
