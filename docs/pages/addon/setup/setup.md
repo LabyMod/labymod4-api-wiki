@@ -14,7 +14,7 @@ Now search for the `addonInfo` segment and edit the following fields:
 + `displayName`: the display name users will see when they view their installed addons
 + `author`: the name of your organization or you
 + `description`: a description that fits your Addon
-+ `minecraftVersion`: the <a href="/pages/addon/publishing/publish/#version-compatibility" target="_blank">version combatibility</a> of the addon
++ `minecraftVersion`: the <a href="/pages/addon/publishing/publish/#version-compatibility" target="_blank">version compatibility</a> of the addon
 
 After you have changed these attributes, reload the Gradle project, and you're good to go.
 
