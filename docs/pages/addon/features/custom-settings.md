@@ -1,4 +1,4 @@
-## Create Custom Settings
+# Create Custom Settings
 
 Additionally to the predefined setting types discussed [in the last page](/pages/addon/features/config), you can also
 create your own types to create more complex settings like the VoiceChat.
@@ -9,7 +9,7 @@ In this example we will create a custom setting widget with a Dropdown and a But
 include a list with some kind of values and a refresh button to refresh the values. The selected value shall be
 stored in the config.
 
-### Register Your Own Setting Type
+## Register Your Own Setting Type
 
 === ":octicons-file-code-16: CustomSettingWidget"
 ```java
