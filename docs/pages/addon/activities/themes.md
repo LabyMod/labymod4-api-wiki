@@ -5,7 +5,7 @@ With LSS, just like with CSS, you can just have an LSS StyleSheet for each theme
 You can also create your own theme. All that is explained on this page.
 
 ???+ warning "Important Note"
-Creating own themes doesn't work as of now. But we're working on it!
+    Creating own themes doesn't work as of now. But we're working on it!
 
 ## How Themes Work
 
