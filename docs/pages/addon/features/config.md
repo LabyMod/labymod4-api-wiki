@@ -294,13 +294,3 @@ public class ConfigVersionListener {
   }
 }
 ```
-
-## Create Custom Settings
-
-### Register Your Own Setting Type
-
-todo: write, check chattime
-
-### Create Custom Setting Widgets
-
-todo: write, check chattime

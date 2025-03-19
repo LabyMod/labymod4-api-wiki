@@ -54,6 +54,7 @@ nav:
           - Your First LabyMod 4 Addon: pages/addon/setup/setup.md
       - Features:
           - Creating a Configuration: pages/addon/features/config.md
+          - Custom Setting types: pages/addon/features/custom-settings.md
           - Internationalize your Addon: pages/addon/features/internationalization.md
           - Use and Create Events: pages/addon/features/events.md
           - Create Commands: pages/addon/features/commands.md
@@ -63,6 +64,7 @@ nav:
           - What are Activities?: pages/addon/activities/activity.md
           - Use and Create Widgets: pages/addon/activities/widgets.md
           - Understand LSS: pages/addon/activities/lss.md
+          - Create Custom Widgets: pages/addon/activities/custom-widgets.md
           - Theming: pages/addon/activities/themes.md
       - Publishing:
           - Guidelines: pages/addon/publishing/guidelines.md

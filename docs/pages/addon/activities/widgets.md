@@ -58,17 +58,6 @@ Like with the bare Activity, this is what the code we described above would look
 === ":octicons-file-media-24: Result"
     ![Config-Result](/assets/files/screenshots/widget-activity-example.png)
 
-## Create Your Own Widget
-
-You cannot only use the Widgets we created, but you can also create your own ones. 
-This small example will show you how to create your first Widget and add it to your Activity. 
-The result of our little example will be a widget that displays a player's head to the left and a player's name. 
-This Widget will be applied in a vertical list with multiple entries.
-
-!!! warning "Important Note"
-
-    As it would be too complex to explain how to create a Widget without LSS, as of now you can only find an explanation on how to create Widgets <a href="/pages/addon/activities/lss/#create-widgets-with-lss">here</a>.
-
 ## All Widgets
 
 Below listed are all Widgets for use. They can be extended and modified for a more specific use case. <br>
