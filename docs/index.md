@@ -9,4 +9,4 @@ Please fork our wiki repository, add/improve it and create a pull request
 <a href="https://github.com/LabyMod/labymod4-api-wiki" target="_blank">here</a>.
 
 If you have any questions or need help, feel free to join
-our [Discord server for Developers](https://discord.gg/labymod).
+our [Discord server for Developers](https://labymod.net/dc/dev).
