@@ -152,8 +152,6 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `CameraRotationEvent` | Fired when the camera rotates |
 | `EntityRenderEvent` | Fired when an entity is rendered |
 | `EntityRenderPassEvent` | Fired during an entity render pass |
-| `StringRenderEvent` | Fired when a string is rendered |
-| `StringWidthEvent` | Fired when calculating string width |
 | `PlayerItemRenderContextEvent` | Fired when rendering a player's item |
 | `HumanoidModelAnimateEvent` | Fired when a humanoid model is animated |
 | `HudWidgetDropzoneElementShiftEvent` | Fired when a HUD widget dropzone element is shifted |
