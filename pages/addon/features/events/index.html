@@ -1,0 +1,3458 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../internationalization/">
+      
+      
+        <link rel="next" href="../commands/">
+      
+      
+      <link rel="icon" href="../../../../assets/theme/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Use and Create Events - LabyMod 4 Developer Portal</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/theme/css/main.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-most-important-events" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="LabyMod 4 Developer Portal" class="md-header__button md-logo" aria-label="LabyMod 4 Developer Portal" data-md-component="logo">
+      
+  <img src="../../../../assets/theme/images/wolf.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LabyMod 4 Developer Portal
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Use and Create Events
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/LabyMod/labymod4-api-wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LabyMod/labymod4-api-wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../server/" class="md-tabs__link">
+          
+  
+  
+  Server API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Addon API
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="LabyMod 4 Developer Portal" class="md-nav__button md-logo" aria-label="LabyMod 4 Developer Portal" data-md-component="logo">
+      
+  <img src="../../../../assets/theme/images/wolf.png" alt="logo">
+
+    </a>
+    LabyMod 4 Developer Portal
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/LabyMod/labymod4-api-wiki/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LabyMod/labymod4-api-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/pages/server" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/pages/addon" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Addon API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Server API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Server API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server API Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/packets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Packets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Integrations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LabyMod Protocol
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            LabyMod Protocol
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Server Displays
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Server Displays
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/displays/economy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Economy Display
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/displays/subtitles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Subtitles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/displays/tablist-banner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tablist Banner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/displays/tablist-flags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tablist Flags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Features
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/features/discord/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Discord RPC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/features/emotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emotes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/features/gamemode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gamemode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/features/interaction-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interaction Menu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/features/markers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_4" id="__nav_2_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Moderation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Moderation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/moderation/addon-recommendation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Addon Recommendations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/moderation/installed-addons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Installed Addons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/moderation/disable-addons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disable Addons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/moderation/labymod-version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get LabyMod Version
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/moderation/permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_5" id="__nav_2_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Minecraft Supplements
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Minecraft Supplements
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/supplements/input-prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Input Prompt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/labymod/supplements/server-switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Server Switch Prompt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Addon Integrations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Addon Integrations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/addons/betterperspective/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BetterPerspective
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_2" id="__nav_2_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    VoiceChat
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            VoiceChat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/addons/voicechat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/addons/voicechat/mute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mute Players
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/addons/voicechat/unmute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unmute a Player
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/addons/voicechat/open-channels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Open Channels
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/contributors" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Addon API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Addon API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Addon API Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/first-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    First Steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Your First LabyMod 4 Addon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Features
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom Setting types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../internationalization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Internationalize your Addon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Use and Create Events
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use and Create Events
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-most-important-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Most Important Events
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Most Important Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addon-enable-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addon Enable Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addon-post-enable-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addon Post Enable Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-addon-post-enable-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Addon Post Enable Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addon-unload-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addon Unload Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-message-send-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat Message Send Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-receive-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat Receive Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#game-tick-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Tick Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-config-loader-initialize-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Json Config Loader Initialize Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-disconnect-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Disconnect Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-join-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Join Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-server-switch-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sub Server Switch Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-switch-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Switch Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-initialize-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Initialize Event
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-nearly-all-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of (nearly) all Events
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-very-own-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Your Very Own Events
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Your Very Own Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-basic-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Basic Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fire-a-custom-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fire a Custom Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-of-the-previous-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example of the Previous Section
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../version-dependent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Write Version Dependent Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hud-widgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hud Widgets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Activity System
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Activity System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../activities/activity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What are Activities?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../activities/widgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use and Create Widgets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../activities/lss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Understand LSS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../activities/custom-widgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create Custom Widgets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../activities/themes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Theming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Publishing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Publishing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../publishing/guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../publishing/publish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Publish Your Addon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshoot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshoot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additional-infos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Additional Information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/contributors" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-most-important-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Most Important Events
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Most Important Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addon-enable-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addon Enable Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addon-post-enable-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addon Post Enable Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-addon-post-enable-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Addon Post Enable Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addon-unload-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addon Unload Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-message-send-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat Message Send Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-receive-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat Receive Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#game-tick-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Tick Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-config-loader-initialize-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Json Config Loader Initialize Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-disconnect-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Disconnect Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-join-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Join Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-server-switch-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sub Server Switch Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-switch-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Switch Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-initialize-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Initialize Event
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-nearly-all-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of (nearly) all Events
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-very-own-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Your Very Own Events
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Your Very Own Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-basic-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Basic Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fire-a-custom-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fire a Custom Event
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-example-of-the-previous-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Example of the Previous Section
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/LabyMod/labymod4-api-wiki/tree/master/docs/pages/addon/features/events.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Use and Create Events</h1>
+
+<p>With LabyMod 4 we not only deliver more Events, but they are also very similar to use, like the events of Minecraft server software like Bukkit and BungeeCord.</p>
+<h2 id="the-most-important-events">The Most Important Events</h2>
+<p>We deliver a variety of events, but the following are the ones with the most common use cases:</p>
+<h3 id="addon-enable-event">Addon Enable Event</h3>
+<p>The <code>AddonEnableEvent</code> is fired right after we detected your addon. This Event is only fired in your addon; you cannot use it to detect other addons. The event contains the Installed Addon Info, the reference storage of your addon and the main instance your addon was initialized with.</p>
+<h3 id="addon-post-enable-event">Addon Post Enable Event</h3>
+<p>The exact moment when the <code>AddonPostEnableEvent</code> is fired depends on the current state of LabyMod. Suppose your addon is loaded directly after the game start (for example while in the addon develop environment or when the addon has been installed before). In that case, the Event will be fired as soon as LabyMod itself has been fully initialized. But if your addon is enabled while LabyMod is already initialized (when a user downloads your addon via the addon store), the Event will be fired right after we enabled it.</p>
+<h3 id="global-addon-post-enable-event">Global Addon Post Enable Event</h3>
+<p>The <code>GlobalAddonPostEnableEvent</code> is called if an addon has been enabled. Same as <code>AddonPostEnableEvent</code>, the moment the event is fired depends on the current state of LabyMod. Can be used to detect if another addon has been enabled.</p>
+<h3 id="addon-unload-event">Addon Unload Event</h3>
+<p>The class exists, but the Event won't be fired yet. It can be used to save custom configurations or close open connections to prevent a timeout.</p>
+<h3 id="chat-message-send-event">Chat Message Send Event</h3>
+<p>The <code>ChatMessageSendEvent</code> is fired when sending a chat message to the server. It can be used to manipulate outgoing messages but also can be canceled. </p>
+<h3 id="chat-receive-event">Chat Receive Event</h3>
+<p>The <code>ChatReceiveEvent</code> is fired when a message is registered to be shown in chat. It can be used to manipulate incoming messages. The Event is cancellable.</p>
+<h3 id="game-tick-event">Game Tick Event</h3>
+<p>The <code>GameTickEvent</code> is fired twice every tick. Once with the phase <code>PRE</code> and once with the phase <code>POST</code>. The phase represents the current state of a tick. If it has the phase <code>PRE</code>, it is fired before Minecraft registers the tick to all its different handlers; if it's the <code>POST</code> phase, it is fired after Minecraft itself handled the tick. A tick represents 50 milliseconds (20 ticks per second).</p>
+<h3 id="json-config-loader-initialize-event">Json Config Loader Initialize Event</h3>
+<p>The <code>JsonConfigLoaderInitializeEvent</code> is fired when the configuration loader is initialized. This Event is used to create your own type adapters for your configuration.</p>
+<h3 id="server-disconnect-event">Server Disconnect Event</h3>
+<p>The <code>ServerDisconnectEvent</code> will be fired if the connection to a server closes (so either if the user disconnects or gets kicked).</p>
+<h3 id="server-join-event">Server Join Event</h3>
+<p>The <code>ServerJoinEvent</code> will be fired as soon as the user connects to a server. Contains the ServerData.</p>
+<h3 id="sub-server-switch-event">Sub Server Switch Event</h3>
+<p>The <code>SubServerSwitchEvent</code> is fired when the user is already connected to a server but switches to a sub-server (for example, when connected to a proxy and switching from the hub to survival games).</p>
+<h3 id="server-switch-event">Server Switch Event</h3>
+<p>The <code>ServerSwitchEvent</code> will be fired when the user is on a server and then joins another server from the server list without disconnecting.</p>
+<h3 id="setting-initialize-event">Setting Initialize Event</h3>
+<p>The <code>SettingInitializeEvent</code> is fired when an in-game setting was initialized; is used to modify setting Widgets at a later point (adding custom entries to a Dropdown for example). 
+<strong>The listener has to be registered before the setting category is added!</strong></p>
+<h2 id="list-of-nearly-all-events">List of (nearly) all Events</h2>
+<details class="information" open="open">
+<summary>Note</summary>
+<p>LabyMod 4 is constantly being developed and new events are added on a regular basis. This list is therefore not guaranteed to be complete.</p>
+</details>
+<table>
+<thead>
+<tr>
+<th>Event Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Addon Lifecycle Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>AddonEnableEvent</code></td>
+<td>Fired right after an addon is detected</td>
+</tr>
+<tr>
+<td><code>AddonPostEnableEvent</code></td>
+<td>Fired after LabyMod is fully initialized or right after an addon is enabled</td>
+</tr>
+<tr>
+<td><code>GlobalAddonEnableEvent</code></td>
+<td>Fired when any addon is enabled</td>
+</tr>
+<tr>
+<td><code>GlobalAddonPostEnableEvent</code></td>
+<td>Fired after any addon is fully enabled</td>
+</tr>
+<tr>
+<td><strong>Block Entity Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>BlockEntityPreLoadEvent</code></td>
+<td>Fired before a block entity is loaded</td>
+</tr>
+<tr>
+<td><code>BlockEntityUpdateEvent</code></td>
+<td>Fired when a block entity is updated</td>
+</tr>
+<tr>
+<td><code>SignBlockEntityPostLoadEvent</code></td>
+<td>Fired after a sign block entity is loaded</td>
+</tr>
+<tr>
+<td><strong>Chat Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ActionBarReceiveEvent</code></td>
+<td>Fired when an action bar message is received</td>
+</tr>
+<tr>
+<td><code>ChatClearEvent</code></td>
+<td>Fired when the chat is cleared</td>
+</tr>
+<tr>
+<td><code>ChatMessageAddEvent</code></td>
+<td>Fired when a message is added to the chat</td>
+</tr>
+<tr>
+<td><code>ChatMessageGuessSenderEvent</code></td>
+<td>Fired when the sender of a chat message is being guessed</td>
+</tr>
+<tr>
+<td><code>ChatMessageSendEvent</code></td>
+<td>Fired when sending a chat message to the server. Allows modifying the message content, checking if it's a command, controlling whether it appears in chat history, or cancelling it entirely</td>
+</tr>
+<tr>
+<td><code>ChatMessageUpdateEvent</code></td>
+<td>Fired when a chat message is updated</td>
+</tr>
+<tr>
+<td><code>ChatReceiveEvent</code></td>
+<td>Fired when a message is received in chat. Allows accessing and modifying the message content or cancelling the message entirely</td>
+</tr>
+<tr>
+<td><code>ChatScreenUpdateEvent</code></td>
+<td>Fired when the chat screen is updated</td>
+</tr>
+<tr>
+<td><code>AdvancedChatReloadEvent</code></td>
+<td>Fired when advanced chat is reloaded</td>
+</tr>
+<tr>
+<td><code>AdvancedChatTabMessageEvent</code></td>
+<td>Fired when a message is added to an advanced chat tab</td>
+</tr>
+<tr>
+<td><strong>Component Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ComponentDeserializeEvent</code></td>
+<td>Fired when a component is deserialized</td>
+</tr>
+<tr>
+<td><code>ComponentSerializeEvent</code></td>
+<td>Fired when a component is serialized</td>
+</tr>
+<tr>
+<td><code>ComponentFlattenerConstructEvent</code></td>
+<td>Fired when a component flattener is constructed</td>
+</tr>
+<tr>
+<td><strong>Player Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ClientHotbarSlotChangeEvent</code></td>
+<td>Fired when the player changes their hotbar slot</td>
+</tr>
+<tr>
+<td><code>ClientPlayerAbilitiesUpdateEvent</code></td>
+<td>Fired when player abilities are updated</td>
+</tr>
+<tr>
+<td><code>ClientPlayerInteractEvent</code></td>
+<td>Fired when the player interacts with the world</td>
+</tr>
+<tr>
+<td><code>DamageBlockedEvent</code></td>
+<td>Fired when damage to a player is blocked</td>
+</tr>
+<tr>
+<td><code>FieldOfViewModifierEvent</code></td>
+<td>Fired when the field of view is modified</td>
+</tr>
+<tr>
+<td><code>CameraLockEvent</code></td>
+<td>Fired when the camera is locked</td>
+</tr>
+<tr>
+<td><code>CameraUnlockEvent</code></td>
+<td>Fired when the camera is unlocked</td>
+</tr>
+<tr>
+<td><code>InventorySetSlotEvent</code></td>
+<td>Fired when an inventory slot is set</td>
+</tr>
+<tr>
+<td><strong>GUI Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>HudWidgetEvent</code></td>
+<td>Fired for HUD widget-related actions</td>
+</tr>
+<tr>
+<td><code>ActivityInitializeEvent</code></td>
+<td>Fired when an activity is initialized</td>
+</tr>
+<tr>
+<td><code>ActivityOpenEvent</code></td>
+<td>Fired when an activity is opened</td>
+</tr>
+<tr>
+<td><code>FileDroppedEvent</code></td>
+<td>Fired when a file is dropped onto the game window</td>
+</tr>
+<tr>
+<td><code>IngameMenuInitializeEvent</code></td>
+<td>Fired when the in-game menu is initialized</td>
+</tr>
+<tr>
+<td><code>ScreenDisplayEvent</code></td>
+<td>Fired when a screen is displayed</td>
+</tr>
+<tr>
+<td><code>ScreenOpenEvent</code></td>
+<td>Fired when a screen is opened</td>
+</tr>
+<tr>
+<td><code>ScreenResizeEvent</code></td>
+<td>Fired when the screen is resized</td>
+</tr>
+<tr>
+<td><code>ScreenUpdateVanillaWidgetEvent</code></td>
+<td>Fired when a vanilla widget is updated</td>
+</tr>
+<tr>
+<td><code>VanillaWidgetReplacementEvent</code></td>
+<td>Fired when a vanilla widget is replaced</td>
+</tr>
+<tr>
+<td><code>VersionedScreenInitEvent</code></td>
+<td>Fired when a versioned screen is initialized</td>
+</tr>
+<tr>
+<td><code>PlayerListUpdateEvent</code></td>
+<td>Fired when the player list is updated</td>
+</tr>
+<tr>
+<td><code>ServerBannerEvent</code></td>
+<td>Fired when a server banner is displayed</td>
+</tr>
+<tr>
+<td><code>ThemeChangeEvent</code></td>
+<td>Fired when the theme is changed</td>
+</tr>
+<tr>
+<td><code>ThemeLoadEvent</code></td>
+<td>Fired when a theme is loaded</td>
+</tr>
+<tr>
+<td><code>ThemeRegisterEvent</code></td>
+<td>Fired when a theme is registered</td>
+</tr>
+<tr>
+<td><code>ThemeUnregisterEvent</code></td>
+<td>Fired when a theme is unregistered</td>
+</tr>
+<tr>
+<td><code>ThemeUpdateEvent</code></td>
+<td>Fired when a theme is updated</td>
+</tr>
+<tr>
+<td><code>TitleScreenLogoInitializeEvent</code></td>
+<td>Fired when the title screen logo is initialized</td>
+</tr>
+<tr>
+<td><code>TitleScreenOpenedEvent</code></td>
+<td>Fired when the main menu is fully opened, after the open sequence is finished and all parts of the menu are initialized. Can detect if this is the first time the title screen is opened during the application's lifecycle</td>
+</tr>
+<tr>
+<td><code>TitleScreenRenderEvent</code></td>
+<td>Fired when the title screen is rendered</td>
+</tr>
+<tr>
+<td><code>TitleScreenSplashTextEvent</code></td>
+<td>Fired when the title screen splash text is displayed</td>
+</tr>
+<tr>
+<td><code>WindowResizeEvent</code></td>
+<td>Fired when the game window is resized</td>
+</tr>
+<tr>
+<td><code>WindowShowEvent</code></td>
+<td>Fired when the game window is shown</td>
+</tr>
+<tr>
+<td><strong>Input Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>CharacterTypedEvent</code></td>
+<td>Fired when a character is typed</td>
+</tr>
+<tr>
+<td><code>KeyEvent</code></td>
+<td>Fired when a keyboard key is pressed or released. Provides information about which key was affected and the action (press, release, repeat). Can be cancelled to prevent the key input from being processed</td>
+</tr>
+<tr>
+<td><code>RegisterKeybindingEvent</code></td>
+<td>Fired when a keybinding is registered</td>
+</tr>
+<tr>
+<td><strong>Lifecycle Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GameFpsLimitEvent</code></td>
+<td>Fired when the FPS limit is changed</td>
+</tr>
+<tr>
+<td><code>GameShutdownEvent</code></td>
+<td>Fired when the game is shutting down</td>
+</tr>
+<tr>
+<td><code>GameTickEvent</code></td>
+<td>Fired twice every game tick (PRE and POST phases). Useful for performing periodic tasks or animations that need to be synchronized with the game's update cycle</td>
+</tr>
+<tr>
+<td><strong>Miscellaneous Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>CaptureScreenshotEvent</code></td>
+<td>Fired when a screenshot is captured</td>
+</tr>
+<tr>
+<td><code>VanillaOptionsSaveEvent</code></td>
+<td>Fired when vanilla options are saved</td>
+</tr>
+<tr>
+<td><code>WriteScreenshotEvent</code></td>
+<td>Fired when a screenshot is written to disk</td>
+</tr>
+<tr>
+<td><strong>Network Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>PlayerInfoAddEvent</code></td>
+<td>Fired when player info is added</td>
+</tr>
+<tr>
+<td><code>PlayerInfoRemoveEvent</code></td>
+<td>Fired when player info is removed</td>
+</tr>
+<tr>
+<td><code>NetworkDisconnectEvent</code></td>
+<td>Fired when disconnecting from a network (deprecated)</td>
+</tr>
+<tr>
+<td><code>NetworkServerSwitchEvent</code></td>
+<td>Fired when switching servers within a network</td>
+</tr>
+<tr>
+<td><code>NetworkSwitchEvent</code></td>
+<td>Fired when switching networks</td>
+</tr>
+<tr>
+<td><code>ServerDisconnectEvent</code></td>
+<td>Fired when the connection to a server closes (disconnect, kick, or network interruption). Provides access to server data for cleanup operations</td>
+</tr>
+<tr>
+<td><code>ServerJoinEvent</code></td>
+<td>Fired when the client is ready to send packets to the server/network after joining</td>
+</tr>
+<tr>
+<td><code>ServerSwitchEvent</code></td>
+<td>Fired when switching between different server networks without fully disconnecting. Provides access to both old and new server data</td>
+</tr>
+<tr>
+<td><code>SubServerSwitchEvent</code></td>
+<td>Fired when switching between sub-servers within the same network (e.g., moving between game modes on a BungeeCord/Velocity network)</td>
+</tr>
+<tr>
+<td><strong>Render Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ConfigureMojangShaderEvent</code></td>
+<td>Fired when Mojang shaders are configured</td>
+</tr>
+<tr>
+<td><code>PlayerNameTagRenderEvent</code></td>
+<td>Fired when a player name tag is rendered</td>
+</tr>
+<tr>
+<td><code>RenderEvent</code></td>
+<td>Fired during rendering</td>
+</tr>
+<tr>
+<td><code>RenderTypeAttachmentEvent</code></td>
+<td>Fired when a render type is attached</td>
+</tr>
+<tr>
+<td><code>CameraRotationEvent</code></td>
+<td>Fired when the camera rotates</td>
+</tr>
+<tr>
+<td><code>EntityRenderEvent</code></td>
+<td>Fired when an entity is rendered</td>
+</tr>
+<tr>
+<td><code>EntityRenderPassEvent</code></td>
+<td>Fired during an entity render pass</td>
+</tr>
+<tr>
+<td><code>PlayerItemRenderContextEvent</code></td>
+<td>Fired when rendering a player's item</td>
+</tr>
+<tr>
+<td><code>HumanoidModelAnimateEvent</code></td>
+<td>Fired when a humanoid model is animated</td>
+</tr>
+<tr>
+<td><code>HudWidgetDropzoneElementShiftEvent</code></td>
+<td>Fired when a HUD widget dropzone element is shifted</td>
+</tr>
+<tr>
+<td><code>PostProcessingScreenEvent</code></td>
+<td>Fired during post-processing of the screen</td>
+</tr>
+<tr>
+<td><code>ShadowRenderPassContextEvent</code></td>
+<td>Fired during shadow rendering</td>
+</tr>
+<tr>
+<td><code>RenderBlockSelectionBoxEvent</code></td>
+<td>Fired when rendering the block selection box</td>
+</tr>
+<tr>
+<td><code>RenderWorldEvent</code></td>
+<td>Fired when the world is rendered</td>
+</tr>
+<tr>
+<td><strong>Resource Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ReleaseTextureEvent</code></td>
+<td>Fired when a texture is released</td>
+</tr>
+<tr>
+<td><code>IncompatibleResourcePacksEvent</code></td>
+<td>Fired when incompatible resource packs are detected</td>
+</tr>
+<tr>
+<td><code>ResourceReloadEvent</code></td>
+<td>Fired when resources are reloaded</td>
+</tr>
+<tr>
+<td><code>RegisterResourceTransformerEvent</code></td>
+<td>Fired when a resource transformer is registered</td>
+</tr>
+<tr>
+<td><strong>Scoreboard Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ScoreboardObjectiveUpdateEvent</code></td>
+<td>Fired when a scoreboard objective is updated</td>
+</tr>
+<tr>
+<td><code>ScoreboardScoreUpdateEvent</code></td>
+<td>Fired when a scoreboard score is updated</td>
+</tr>
+<tr>
+<td><code>ScoreboardTeamUpdateEvent</code></td>
+<td>Fired when a scoreboard team is updated</td>
+</tr>
+<tr>
+<td><strong>Session Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SessionUpdateEvent</code></td>
+<td>Fired when the session is updated</td>
+</tr>
+<tr>
+<td><strong>World Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DimensionChangeEvent</code></td>
+<td>Fired when the dimension changes</td>
+</tr>
+<tr>
+<td><code>EntityDestructEvent</code></td>
+<td>Fired when an entity is destroyed</td>
+</tr>
+<tr>
+<td><code>EntitySpawnEvent</code></td>
+<td>Fired when an entity spawns</td>
+</tr>
+<tr>
+<td><code>ItemStackTooltipEvent</code></td>
+<td>Fired when an item stack tooltip is displayed</td>
+</tr>
+<tr>
+<td><code>WorldLeaveEvent</code></td>
+<td>Fired when leaving a world</td>
+</tr>
+<tr>
+<td><code>BlockUpdateEvent</code></td>
+<td>Fired when a block is updated</td>
+</tr>
+<tr>
+<td><code>ChunkEvent</code></td>
+<td>Fired for chunk-related actions</td>
+</tr>
+<tr>
+<td><code>LightUpdateEvent</code></td>
+<td>Fired when lighting is updated</td>
+</tr>
+<tr>
+<td><strong>LabyMod Events</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LabyModRefreshEvent</code></td>
+<td>Fired when LabyMod is refreshed</td>
+</tr>
+<tr>
+<td><code>ServiceLoadEvent</code></td>
+<td>Fired when a service is loaded</td>
+</tr>
+<tr>
+<td><code>SubscribeMethodRegisterEvent</code></td>
+<td>Fired when a subscribe method is registered</td>
+</tr>
+<tr>
+<td><code>ConfigurationLoadEvent</code></td>
+<td>Fired when a configuration is loaded</td>
+</tr>
+<tr>
+<td><code>ConfigurationSaveEvent</code></td>
+<td>Fired when a configuration is saved</td>
+</tr>
+<tr>
+<td><code>ConfigurationVersionUpdateEvent</code></td>
+<td>Fired when a configuration version is updated</td>
+</tr>
+<tr>
+<td><code>SettingInitializeEvent</code></td>
+<td>Fired when a setting is initialized</td>
+</tr>
+<tr>
+<td><code>SettingResetEvent</code></td>
+<td>Fired when a setting is reset</td>
+</tr>
+<tr>
+<td><code>SettingWidgetInitializeEvent</code></td>
+<td>Fired when a setting widget is initialized</td>
+</tr>
+<tr>
+<td><code>ImGuiInitializeEvent</code></td>
+<td>Fired when ImGui is initialized</td>
+</tr>
+<tr>
+<td><code>LabyConnectChatMessageDeleteEvent</code></td>
+<td>Fired when a LabyConnect chat message is deleted</td>
+</tr>
+<tr>
+<td><code>LabyConnectEvent</code></td>
+<td>Fired for LabyConnect-related actions</td>
+</tr>
+<tr>
+<td><code>LabyConnectChatDropdownInitializeEvent</code></td>
+<td>Fired when a LabyConnect chat dropdown is initialized</td>
+</tr>
+<tr>
+<td><code>LabyConnectChatInitializeEvent</code></td>
+<td>Fired when LabyConnect chat is initialized</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create-your-very-own-events">Create Your Very Own Events</h2>
+<h3 id="create-a-basic-event">Create a Basic Event</h3>
+<p>If you cannot find a suitable event for your needs, you can simply create your own event. You can create a basic event by creating a new class and implementing the <code>Event</code> interface.</p>
+<p>Events are particularly useful when working with version-dependent code. For example, if you want to play a sound every time a player receives an advancement, you can use a custom event so you don't have to implement the logic for each version.</p>
+<h3 id="fire-a-custom-event">Fire a Custom Event</h3>
+<p>To fire/call a custom event, you only need to execute the <code>Laby.fireEvent</code> method, which returns the executed event.</p>
+<h3 id="code-example-of-the-previous-section">Code Example of the Previous Section</h3>
+<p>We first create a new class in our <code>core</code>- or <code>api</code> module called <code>AdvancementReceiveEvent</code> and implement the <code>Event</code> interface from the <code>net.labymod.api.event</code> package.
+For this example, we only need a simple class that does not contain any fields. However, you can also add fields that can be changed in your event listener.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06M3.28 7.78 1.81 9.25l1.47 1.47a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042m8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914z"/></svg></span> AdvancementReceiveEvent</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">net.labymod.api.event.Event</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AdvancementReceiveEvent</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Event</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">AdvancementReceiveEvent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Now we need to fire the event so that all registered listeners can be notified. We will do this by hooking into the Minecraft code for each version and calling <code>Laby.fireEvent(new AdvancementReceiveEvent())</code> every time the player receives a new advancement.</p>
+<p>You can find more information about how to hook into Minecraft methods <a href="/pages/addon/features/version-dependent/#access-the-minecraft-code-via-mixin">here</a>.</p>
+<p>The last thing to do is to create our listener class called <code>AdvancementReceivedListener</code> which will listen for our <code>AdvancementReceiveEvent</code> and play a sound for the client every time the event is fired.
+The <code>AdvancementReceivedListener</code> needs a method annotated with <code>@Subscribe</code> and our <code>AdvancementReceiveEvent</code> class as parameters. In this method, we can simply call <code>Laby.labyAPI().minecraft().sounds().playButtonPress()</code> to play a sound for the client every time our event is fired.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06M3.28 7.78 1.81 9.25l1.47 1.47a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042m8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914z"/></svg></span> AdvancementReceivedListener</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">net.labymod.api.Laby</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">net.labymod.api.event.Subscribe</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AdvancementReceivedListener</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="nd">@Subscribe</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onAdvancementReceived</span><span class="p">(</span><span class="n">AdvancementReceivedEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Laby</span><span class="p">.</span><span class="na">labyAPI</span><span class="p">().</span><span class="na">minecraft</span><span class="p">().</span><span class="na">sounds</span><span class="p">().</span><span class="na">playButtonPress</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we need to register our <code>AdvancementReceivedListener</code> class in the <code>enable()</code> method of our main addon class by calling <code>registerListener(new AdvancementReceivedListener())</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../internationalization/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Internationalize your Addon">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Internationalize your Addon
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../commands/" class="md-footer__link md-footer__link--next" aria-label="Next: Create Commands">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Create Commands
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+    <span>Copyright &copy; 2024 </span>
+    <a href="https://labymod.net">LabyMedia GmbH</a>
+    <span> - </span>
+    <a href="https://labymod.net/impressum">Imprint</a>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.sections", "navigation.tabs", "navigation.expand", "content.tabs.link", "content.action.edit", "navigation.footer", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../../../assets/theme/js/script.js"></script>
+      
+    
+  </body>
+</html>
