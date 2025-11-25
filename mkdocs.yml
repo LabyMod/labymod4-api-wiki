@@ -66,6 +66,9 @@ nav:
           - Understand LSS: pages/addon/activities/lss.md
           - Create Custom Widgets: pages/addon/activities/custom-widgets.md
           - Theming: pages/addon/activities/themes.md
+      - Rendering System:
+          - Entity Snapshots: pages/addon/rendering/entity-snapshots.md
+          - Entity Tags: pages/addon/rendering/entity-tags.md
       - Publishing:
           - Guidelines: pages/addon/publishing/guidelines.md
           - Publish Your Addon: pages/addon/publishing/publish.md
