@@ -1,4 +1,4 @@
-As of version 1.21.10 Minecraft has introduced an immutable rendering state,
+As of version 1.21.3 Minecraft has introduced an immutable rendering state,
 this means that rendering only happens based off of immutable objects instead of
 taking e.g. the position of a player during the rendering of a frame. This greatly
 improves thread safety, but one must know how to make proper use of it.
@@ -21,7 +21,7 @@ Typically, an addon that uses the snapshot feature contains two types in its api
     
     public class ExampleExtraKeys {
     
-        // The key must be something unique and should contain the namespace of your addon
+        // The key must be something unique within your addon; it will automatically include your addon's namespace
         public static final ExtraKey<ExampleUserSnapshot> EXAMPLE_USER = ExtraKey.of("example_user", ExampleUserSnapshot.class);
         
         // ... add more keys as required

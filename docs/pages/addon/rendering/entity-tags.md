@@ -17,7 +17,7 @@ the previous page [Entity Snapshots](entity-snapshots.md) beforehand.
     
     public class ExampleTagExtraKeys {
 
-        // The key must be something unique and should contain the namespace of your addon    
+        // The key must be something unique within your addon; it will automatically include your addon's namespace
         public static final ExtraKey<ExampleTagUserSnapshot> EXAMPLE_USER_TAG = ExtraKey.of("example_user_tag", ExampleTagUserSnapshot.class);
         
         // ... add more keys as required
