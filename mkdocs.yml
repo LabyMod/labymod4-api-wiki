@@ -30,6 +30,8 @@ nav:
               - Gamemode: pages/server/labymod/features/gamemode.md
               - Interaction Menu: pages/server/labymod/features/interaction-menu.md
               - Markers: pages/server/labymod/features/markers.md
+              - User Badge: pages/server/labymod/features/user-badge.md
+              - Indicator Visibility: pages/server/labymod/features/indicator-visibility.md
           - Moderation:
               - Addon Recommendations: pages/server/labymod/moderation/addon-recommendation.md
               - Get Installed Addons: pages/server/labymod/moderation/installed-addons.md
