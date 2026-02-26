@@ -12,6 +12,7 @@ Before you can submit an addon to our addon store, make sure you are following t
 2. Respect the privacy of your users.
     1. Do not use the player's session identifier maliciously.
     2. If creating a connection to a private server, do not store or send any information that is not specifically required.
+    3. Do not send any information to external services/servers that could uniquely identify the player unless the player has explicitly consented or it is essential for a function of the addon.
 3. Only access the users' file system if necessary.
 4. Allow the user & servers to completely disable your addon at any time (see <a href="/pages/addon/features/config/#create-a-basic-configuration" target="_blank">Create a Basic Configuration</a>).
 5. Make sure your addon is compatible and remains so for the foreseeable future.
@@ -21,6 +22,7 @@ Before you can submit an addon to our addon store, make sure you are following t
     4. If you're injecting code via mixin, don't overdo it. Replacing a method in its entirety can cause incompatibilities.
     5. Do not access LabyMod core packages, as using them may break your addon at any time. If you need access to LabyMod internal methods, let us know <a href="https://labymod.net/dc/dev" target="_blank">on our development Discord</a>.
     6. Do not use legacy color codes
+    7. Do not use System.out.println or similar methods.
 6. You need to use our <a href="/pages/addon/features/internationalization/" target="_blank">Internationalization system</a> for every text the user sees.
     1. Excluded from this are strings that are the same for every language (like for example the prefix of commands).
     2. You are allowed to write f.e. German strings in the `en_us.json`, if there is no reason for international players to use your addon. For example a server addon for a server that is region locked or has no international players. This has to be clarified in the addon description.
