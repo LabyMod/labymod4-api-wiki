@@ -71,6 +71,7 @@ nav:
       - Rendering System:
           - Entity Snapshots: pages/addon/rendering/entity-snapshots.md
           - Entity Tags: pages/addon/rendering/entity-tags.md
+          - World Objects: pages/addon/rendering/world-objects.md
       - Publishing:
           - Guidelines: pages/addon/publishing/guidelines.md
           - Publish Your Addon: pages/addon/publishing/publish.md
