@@ -32,6 +32,7 @@ nav:
               - Markers: pages/server/labymod/features/markers.md
               - User Badge: pages/server/labymod/features/user-badge.md
               - Indicator Visibility: pages/server/labymod/features/indicator-visibility.md
+              - Feature Toggles: pages/server/labymod/features/feature-toggles.md
           - Moderation:
               - Addon Recommendations: pages/server/labymod/moderation/addon-recommendation.md
               - Get Installed Addons: pages/server/labymod/moderation/installed-addons.md
@@ -62,6 +63,7 @@ nav:
           - Create Commands: pages/addon/features/commands.md
           - Write Version Dependent Code: pages/addon/features/version-dependent.md
           - Hud Widgets: pages/addon/features/hud-widgets.md
+          - Server Features: pages/addon/features/server-features.md
       - Activity System:
           - What are Activities?: pages/addon/activities/activity.md
           - Use and Create Widgets: pages/addon/activities/widgets.md

@@ -179,6 +179,8 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `BlockUpdateEvent` | Fired when a block is updated |
 | `ChunkEvent` | Fired for chunk-related actions |
 | `LightUpdateEvent` | Fired when lighting is updated |
+| **Server API Events** |
+| `ServerFeatureUpdateEvent` | Fired when the server enables or disables features via the LabyMod Protocol. Can be fired at any point during the session |
 | **LabyMod Events** |
 | `LabyModRefreshEvent` | Fired when LabyMod is refreshed |
 | `ServiceLoadEvent` | Fired when a service is loaded |

@@ -14,6 +14,7 @@ The following features are currently available in the LabyMod Protocol:
 - [Playing Game Mode](features/gamemode.md)
 - [Interaction Menu Entries](features/interaction-menu.md)
 - [Markers](features/markers.md)
+- [Feature Toggles](features/feature-toggles.md)
 
 ## Moderation
 
