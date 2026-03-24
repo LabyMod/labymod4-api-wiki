@@ -6,27 +6,23 @@ We deliver a variety of events, but the following are the ones with the most com
 
 ### Addon Enable Event
 
-The `AddonEnableEvent` is fired right after we detected your addon. This Event is only fired in your addon; you cannot use it to detect other addons. The event contains the Installed Addon Info, the reference storage of your addon and the main instance your addon was initialized with.
+The `AddonEnableEvent` is fired right after we detected your addon. This event is only fired in your addon; you cannot use it to detect other addons. The event contains the Installed Addon Info, the reference storage of your addon and the main instance your addon was initialized with.
 
 ### Addon Post Enable Event
 
-The exact moment when the `AddonPostEnableEvent` is fired depends on the current state of LabyMod. Suppose your addon is loaded directly after the game start (for example while in the addon develop environment or when the addon has been installed before). In that case, the Event will be fired as soon as LabyMod itself has been fully initialized. But if your addon is enabled while LabyMod is already initialized (when a user downloads your addon via the addon store), the Event will be fired right after we enabled it.
- 
+The exact moment when the `AddonPostEnableEvent` is fired depends on the current state of LabyMod. Suppose your addon is loaded directly after the game start (for example while in the addon develop environment or when the addon has been installed before). In that case, the event will be fired as soon as LabyMod itself has been fully initialized. But if your addon is enabled while LabyMod is already initialized (when a user downloads your addon via the addon store), the event will be fired right after we enabled it.
+
 ### Global Addon Post Enable Event
 
 The `GlobalAddonPostEnableEvent` is called if an addon has been enabled. Same as `AddonPostEnableEvent`, the moment the event is fired depends on the current state of LabyMod. Can be used to detect if another addon has been enabled.
 
-### Addon Unload Event
-
-The class exists, but the Event won't be fired yet. It can be used to save custom configurations or close open connections to prevent a timeout.
-
 ### Chat Message Send Event
 
-The `ChatMessageSendEvent` is fired when sending a chat message to the server. It can be used to manipulate outgoing messages but also can be canceled. 
+The `ChatMessageSendEvent` is fired when sending a chat message to the server. It can be used to manipulate outgoing messages but also can be canceled.
 
 ### Chat Receive Event
 
-The `ChatReceiveEvent` is fired when a message is registered to be shown in chat. It can be used to manipulate incoming messages. The Event is cancellable.
+The `ChatReceiveEvent` is fired when a message is registered to be shown in chat. It can be used to manipulate incoming messages. The event is cancellable.
 
 ### Game Tick Event
 
@@ -34,7 +30,7 @@ The `GameTickEvent` is fired twice every tick. Once with the phase `PRE` and onc
 
 ### JSON Config Loader Initialize Event
 
-The `JsonConfigLoaderInitializeEvent` is fired when the configuration loader is initialized. This Event is used to create your own type adapters for your configuration.
+The `JsonConfigLoaderInitializeEvent` is fired when the configuration loader is initialized. This event is used to create your own type adapters for your configuration.
 
 ### Server Disconnect Event
 
@@ -54,7 +50,7 @@ The `ServerSwitchEvent` will be fired when the user is on a server and then join
 
 ### Setting Initialize Event
 
-The `SettingInitializeEvent` is fired when an in-game setting was initialized; is used to modify setting Widgets at a later point (adding custom entries to a Dropdown for example). 
+The `SettingInitializeEvent` is fired when an in-game setting was initialized; is used to modify setting Widgets at a later point (adding custom entries to a Dropdown for example).
 **The listener has to be registered before the setting category is added!**
 
 ## List of (nearly) all Events
@@ -64,138 +60,237 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 
 | Event Name | Description |
 |------------|-------------|
-| **Addon Lifecycle Events** |
-| `AddonEnableEvent` | Fired right after an addon is detected |
-| `AddonPostEnableEvent` | Fired after LabyMod is fully initialized or right after an addon is enabled |
-| `GlobalAddonEnableEvent` | Fired when any addon is enabled |
+| **Addon Lifecycle Events** | |
+| `AddonEnableEvent` | Fired right after an addon is detected. Only fired in the respective addon's scope |
+| `AddonPostEnableEvent` | Fired after LabyMod is fully initialized or right after an addon is enabled at runtime |
+| `AddonUnloadEvent` | ~~Deprecated: Not fired anymore, addons cannot be unloaded at runtime~~ |
+| `GlobalAddonEnableEvent` | Fired when any addon is enabled. Can be used to detect other addons |
 | `GlobalAddonPostEnableEvent` | Fired after any addon is fully enabled |
-| **Block Entity Events** |
+| **Block Entity Events** | |
 | `BlockEntityPreLoadEvent` | Fired before a block entity is loaded |
-| `BlockEntityUpdateEvent` | Fired when a block entity is updated |
-| `SignBlockEntityPostLoadEvent` | Fired after a sign block entity is loaded |
-| **Chat Events** |
-| `ActionBarReceiveEvent` | Fired when an action bar message is received |
-| `ChatClearEvent` | Fired when the chat is cleared |
-| `ChatMessageAddEvent` | Fired when a message is added to the chat |
-| `ChatMessageGuessSenderEvent` | Fired when the sender of a chat message is being guessed |
+| `BlockEntityUpdateEvent` | Fired when a block entity's data is updated |
+| `SignBlockEntityPostLoadEvent` | Fired after a sign block entity has been loaded |
+| **Chat Events** | |
+| `ActionBarReceiveEvent` | Fired when an action bar message is received from the server |
+| `AdvancedChatReceiveEvent` | Fired when the advanced chat system receives a message |
+| `AdvancedChatReloadEvent` | Fired when the advanced chat configuration is reloaded |
+| `AdvancedChatTabMessageEvent` | Fired when a message is routed to an advanced chat tab |
+| `ChatClearEvent` | Fired when the chat history is cleared |
+| `ChatMessageAddEvent` | Fired when a message is added to the chat history |
+| `ChatMessageGuessSenderEvent` | Fired when LabyMod attempts to determine the sender of a chat message |
 | `ChatMessageSendEvent` | Fired when sending a chat message to the server. Allows modifying the message content, checking if it's a command, controlling whether it appears in chat history, or cancelling it entirely |
-| `ChatMessageUpdateEvent` | Fired when a chat message is updated |
-| `ChatReceiveEvent` | Fired when a message is received in chat. Allows accessing and modifying the message content or cancelling the message entirely |
-| `ChatScreenUpdateEvent` | Fired when the chat screen is updated |
-| `AdvancedChatReloadEvent` | Fired when advanced chat is reloaded |
-| `AdvancedChatTabMessageEvent` | Fired when a message is added to an advanced chat tab |
-| **Component Events** |
-| `ComponentDeserializeEvent` | Fired when a component is deserialized |
-| `ComponentSerializeEvent` | Fired when a component is serialized |
-| `ComponentFlattenerConstructEvent` | Fired when a component flattener is constructed |
-| **Player Events** |
-| `ClientHotbarSlotChangeEvent` | Fired when the player changes their hotbar slot |
-| `ClientPlayerAbilitiesUpdateEvent` | Fired when player abilities are updated |
-| `ClientPlayerInteractEvent` | Fired when the player interacts with the world |
-| `DamageBlockedEvent` | Fired when damage to a player is blocked |
-| `FieldOfViewModifierEvent` | Fired when the field of view is modified |
-| `CameraLockEvent` | Fired when the camera is locked |
-| `CameraUnlockEvent` | Fired when the camera is unlocked |
-| `InventorySetSlotEvent` | Fired when an inventory slot is set |
-| **GUI Events** |
-| `HudWidgetEvent` | Fired for HUD widget-related actions |
-| `ActivityInitializeEvent` | Fired when an activity is initialized |
-| `ActivityOpenEvent` | Fired when an activity is opened |
-| `FileDroppedEvent` | Fired when a file is dropped onto the game window |
-| `IngameMenuInitializeEvent` | Fired when the in-game menu is initialized |
-| `ScreenDisplayEvent` | Fired when a screen is displayed |
+| `ChatMessageUpdateEvent` | Fired when an existing chat message is updated (e.g. message editing) |
+| `ChatReceiveEvent` | Fired when a message is received from the server. Allows accessing and modifying the message content or cancelling the message entirely |
+| `ChatScreenUpdateEvent` | Fired when the chat screen UI is updated |
+| `ChatTabMessageEvent` | Fired when a message is processed for chat tab filtering |
+| **Component Events** | |
+| `ComponentDeserializeEvent` | Fired when a text component is deserialized from JSON |
+| `ComponentSerializeEvent` | Fired when a text component is serialized to JSON |
+| `ComponentFlattenerConstructEvent` | Fired when the component flattener is constructed. Used to customize component text extraction |
+| **Player Events** | |
+| `ClientHotbarSlotChangeEvent` | Fired when the player changes their selected hotbar slot |
+| `ClientPlayerAbilitiesUpdateEvent` | Fired when the player's abilities are updated (e.g. flying, creative mode) |
+| `ClientPlayerInteractEvent` | Fired when the player interacts with the world (attack, use item, pick block) |
+| `ClientPlayerTurnEvent` | Fired when the player's rotation changes |
+| `ClientPlayerUseItemOnBlockEvent` | Fired when the player uses an item on a block |
+| `FieldOfViewEvent` | Fired when the field of view is calculated |
+| `FieldOfViewModifierEvent` | Fired when a modifier is applied to the field of view (e.g. sprinting, potion effects) |
+| `FieldOfViewTickEvent` | Fired each tick when the field of view is recalculated |
+| `CameraLockEvent` | Fired when the camera is locked to a specific position |
+| `CameraUnlockEvent` | Fired when the camera lock is released |
+| `InventorySetSlotEvent` | Fired when an inventory slot is updated by the server |
+| **HUD Widget Events** | |
+| `HudWidgetCreatedEvent` | Fired when a new HUD widget instance is created |
+| `HudWidgetDestroyedEvent` | Fired when a HUD widget instance is destroyed |
+| `HudWidgetEvent` | Base event for HUD widget-related actions |
+| `HudWidgetMovedEvent` | Fired when a HUD widget is repositioned |
+| `HudWidgetRegisterEvent` | Fired when a HUD widget type is registered |
+| `HudWidgetUpdateRequestEvent` | Fired when a HUD widget update is requested |
+| **Screen/GUI Events** | |
+| `ActivityInitializeEvent` | Fired when a LabyMod activity is initialized |
+| `ActivityOpenEvent` | Fired when a LabyMod activity is opened |
+| `FileDroppedEvent` | Fired when a file is dragged and dropped onto the game window |
+| `IngameMenuInitializeEvent` | Fired when the in-game pause menu is initialized. Can be used to add custom buttons |
+| `ScreenDisplayEvent` | Fired when a screen is about to be displayed |
 | `ScreenOpenEvent` | Fired when a screen is opened |
-| `ScreenResizeEvent` | Fired when the screen is resized |
-| `ScreenUpdateVanillaWidgetEvent` | Fired when a vanilla widget is updated |
-| `VanillaWidgetReplacementEvent` | Fired when a vanilla widget is replaced |
-| `VersionedScreenInitEvent` | Fired when a versioned screen is initialized |
-| `PlayerListUpdateEvent` | Fired when the player list is updated |
-| `ServerBannerEvent` | Fired when a server banner is displayed |
-| `ThemeChangeEvent` | Fired when the theme is changed |
-| `ThemeLoadEvent` | Fired when a theme is loaded |
-| `ThemeRegisterEvent` | Fired when a theme is registered |
+| `ScreenResizeEvent` | Fired when the screen dimensions change |
+| `ScreenUpdateVanillaWidgetEvent` | Fired when a vanilla Minecraft widget is updated on a screen |
+| `VanillaWidgetReplacementEvent` | Fired when a vanilla Minecraft widget is being replaced by a LabyMod widget |
+| `VersionedScreenInitEvent` | Fired when a version-specific screen is initialized |
+| **Player List Events** | |
+| `PlayerListUpdateEvent` | Fired when the tab player list is updated |
+| `PlayerListUserUpdateEvent` | Fired when a specific player's entry in the player list is updated |
+| `ServerBannerEvent` | Fired when a server banner is rendered in the player list |
+| **Theme Events** | |
+| `ThemeChangeEvent` | Fired when the active theme is switched |
+| `ThemeLoadEvent` | Fired when a theme is loaded from disk |
+| `ThemeRegisterEvent` | Fired when a new theme is registered |
 | `ThemeUnregisterEvent` | Fired when a theme is unregistered |
-| `ThemeUpdateEvent` | Fired when a theme is updated |
+| `ThemeUpdateEvent` | Fired when a theme's properties are updated |
+| **Title Screen Events** | |
 | `TitleScreenLogoInitializeEvent` | Fired when the title screen logo is initialized |
-| `TitleScreenOpenedEvent` | Fired when the main menu is fully opened, after the open sequence is finished and all parts of the menu are initialized. Can detect if this is the first time the title screen is opened during the application's lifecycle |
-| `TitleScreenRenderEvent` | Fired when the title screen is rendered |
-| `TitleScreenSplashTextEvent` | Fired when the title screen splash text is displayed |
+| `TitleScreenOpenedEvent` | Fired when the main menu is fully opened and all parts are initialized. Can detect if this is the first time the title screen is opened during the application lifecycle |
+| `TitleScreenRenderEvent` | Fired during title screen rendering |
+| `TitleScreenSplashTextEvent` | Fired when the title screen splash text is generated |
+| **Window Events** | |
 | `WindowResizeEvent` | Fired when the game window is resized |
-| `WindowShowEvent` | Fired when the game window is shown |
-| **Input Events** |
-| `CharacterTypedEvent` | Fired when a character is typed |
-| `KeyEvent` | Fired when a keyboard key is pressed or released. Provides information about which key was affected and the action (press, release, repeat). Can be cancelled to prevent the key input from being processed |
-| `RegisterKeybindingEvent` | Fired when a keybinding is registered |
-| **Lifecycle Events** |
-| `GameFpsLimitEvent` | Fired when the FPS limit is changed |
-| `GameShutdownEvent` | Fired when the game is shutting down |
-| `GameTickEvent` | Fired twice every game tick (PRE and POST phases). Useful for performing periodic tasks or animations that need to be synchronized with the game's update cycle |
-| **Miscellaneous Events** |
+| `WindowShowEvent` | Fired when the game window becomes visible |
+| **Input Events** | |
+| `CharacterTypedEvent` | Fired when a character is typed via the keyboard |
+| `KeyEvent` | Fired when a keyboard key is pressed, released, or held. Provides key code and action type. Can be cancelled to prevent input processing |
+| `MouseButtonEvent` | Fired when a mouse button is pressed or released |
+| `MouseDragEvent` | Fired during a mouse drag operation |
+| `MouseEvent` | Base event for mouse-related input |
+| `MouseScrollEvent` | Fired when the mouse scroll wheel is used |
+| `RegisterKeybindingEvent` | Fired when a keybinding is registered in the input system |
+| **Lifecycle Events** | |
+| `GameFpsLimitEvent` | Fired when the FPS limit is applied |
+| `GameShutdownEvent` | Fired when the game is shutting down. Use for cleanup operations |
+| `GameTickEvent` | Fired twice every game tick (PRE and POST phases). PRE fires before Minecraft processes the tick, POST fires after. A tick is 50ms (20 ticks per second) |
+| `ShutdownEvent` | Fired during the shutdown sequence |
+| **Miscellaneous Events** | |
 | `CaptureScreenshotEvent` | Fired when a screenshot is captured |
-| `VanillaOptionsSaveEvent` | Fired when vanilla options are saved |
+| `ScreenshotNotificationEvent` | Fired when a screenshot notification is displayed to the player |
+| `VanillaOptionsSaveEvent` | Fired when vanilla Minecraft options are saved |
 | `WriteScreenshotEvent` | Fired when a screenshot is written to disk |
-| **Network Events** |
-| `PlayerInfoAddEvent` | Fired when player info is added |
-| `PlayerInfoRemoveEvent` | Fired when player info is removed |
-| `NetworkDisconnectEvent` | Fired when disconnecting from a network (deprecated) |
+| **Network Events** | |
+| `IntegratedServerStoppingEvent` | Fired when a singleplayer/LAN world is stopping |
+| `NetworkDisconnectEvent` | ~~Deprecated: Use `ServerDisconnectEvent` instead~~ |
+| `NetworkLoginEvent` | Fired during the network login phase |
+| `NetworkPayloadEvent` | Fired when a custom network payload (plugin message) is received |
 | `NetworkServerSwitchEvent` | Fired when switching servers within a network |
-| `NetworkSwitchEvent` | Fired when switching networks |
+| `NetworkSwitchEvent` | Fired when switching between network types |
+| `PlayerInfoAddEvent` | Fired when a player is added to the player info list |
+| `PlayerInfoRemoveEvent` | Fired when a player is removed from the player info list |
+| `PlayerInfoUpdateEvent` | Fired when a player's info is updated (skin, display name, latency, etc.) |
 | `ServerDisconnectEvent` | Fired when the connection to a server closes (disconnect, kick, or network interruption). Provides access to server data for cleanup operations |
-| `ServerJoinEvent` | Fired when the client is ready to send packets to the server/network after joining |
+| `ServerJoinEvent` | Fired when the client is ready to send packets to the server after joining. Contains the ServerData |
+| `ServerKickEvent` | Fired when the player is kicked from a server. Provides access to the kick reason |
+| `ServerLobbyEvent` | Fired when the player enters or leaves a server lobby |
+| `ServerLoginEvent` | Fired during the server login process |
 | `ServerSwitchEvent` | Fired when switching between different server networks without fully disconnecting. Provides access to both old and new server data |
-| `SubServerSwitchEvent` | Fired when switching between sub-servers within the same network (e.g., moving between game modes on a BungeeCord/Velocity network) |
-| **Render Events** |
-| `ConfigureMojangShaderEvent` | Fired when Mojang shaders are configured |
-| `PlayerNameTagRenderEvent` | Fired when a player name tag is rendered |
-| `RenderEvent` | Fired during rendering |
-| `RenderTypeAttachmentEvent` | Fired when a render type is attached |
-| `CameraRotationEvent` | Fired when the camera rotates |
-| `EntityRenderEvent` | Fired when an entity is rendered |
+| `SubServerSwitchEvent` | Fired when switching between sub-servers within the same network (e.g., moving between game modes on a BungeeCord/Velocity proxy) |
+| **Render Events** | |
+| `CameraRotationEvent` | Fired when the camera rotation is calculated |
+| `CameraSetupEvent` | Fired during camera setup before rendering |
+| `EntityRenderEvent` | Fired when an entity is being rendered |
 | `EntityRenderPassEvent` | Fired during an entity render pass |
-| `PlayerItemRenderContextEvent` | Fired when rendering a player's item |
-| `HumanoidModelAnimateEvent` | Fired when a humanoid model is animated |
-| `HudWidgetDropzoneElementShiftEvent` | Fired when a HUD widget dropzone element is shifted |
-| `PostProcessingScreenEvent` | Fired during post-processing of the screen |
-| `ShadowRenderPassContextEvent` | Fired during shadow rendering |
-| `RenderBlockSelectionBoxEvent` | Fired when rendering the block selection box |
-| `RenderWorldEvent` | Fired when the world is rendered |
-| **Resource Events** |
-| `ReleaseTextureEvent` | Fired when a texture is released |
+| `EntityRenderStateCreationEvent` | Fired when an entity's render state is created |
+| `GameRenderEvent` | Fired during the main game render loop |
+| `HumanoidModelAnimateEvent` | Fired when a humanoid model's animation is calculated |
+| `HumanoidModelPoseAnimationEvent` | Fired when a humanoid model's pose animation is applied |
+| `HudWidgetDropzoneElementShiftEvent` | Fired when a HUD widget dropzone element position is shifted |
+| `IngameOverlayElementRenderEvent` | Fired when an individual in-game overlay element is rendered (hotbar, health, etc.) |
+| `IngameOverlayRenderEvent` | Fired during in-game overlay rendering |
+| `ItemInHandLayerRenderEvent` | Fired when the item-in-hand render layer is processed |
+| `PlayerCapeRenderEvent` | Fired when a player's cape is rendered |
+| `PlayerItemRenderContextEvent` | Fired when a player's held item render context is set up |
+| `PlayerModelRenderEvent` | Fired when a player model is rendered |
+| `PlayerModelRenderHandEvent` | Fired when a player model's hand is rendered |
+| `PlayerNameTagRenderEvent` | Fired when a player's name tag is rendered above their head |
+| `NameTagBackgroundRenderEvent` | Fired when the background of a name tag is rendered |
+| `PostProcessingScreenEvent` | Fired during post-processing effects on the screen |
+| `RenderBlockSelectionBoxEvent` | Fired when the block selection highlight box is rendered |
+| `RenderEvent` | Base event fired during the render cycle |
+| `RenderFirstPersonItemInHandEvent` | Fired when the first-person hand/item model is rendered |
+| `RenderHandEvent` | Fired when the player's hand is rendered |
+| `RenderTypeAttachmentEvent` | Fired when a render type attachment is processed |
+| `RenderWorldEvent` | Fired during world rendering |
+| `ScreenRenderEvent` | Fired during screen/GUI rendering |
+| `ShaderPipelineContextEvent` | Fired when the shader pipeline context is set up (includes shadow render pass) |
+| `StringRenderEvent` | Fired when a text string is rendered |
+| `StringWidthEvent` | Fired when the width of a text string is calculated |
+| `UpdateLightmapTextureEvent` | Fired when the lightmap texture is updated |
+| **Resource Events** | |
 | `IncompatibleResourcePacksEvent` | Fired when incompatible resource packs are detected |
-| `ResourceReloadEvent` | Fired when resources are reloaded |
 | `RegisterResourceTransformerEvent` | Fired when a resource transformer is registered |
-| **Scoreboard Events** |
-| `ScoreboardObjectiveUpdateEvent` | Fired when a scoreboard objective is updated |
-| `ScoreboardScoreUpdateEvent` | Fired when a scoreboard score is updated |
-| `ScoreboardTeamUpdateEvent` | Fired when a scoreboard team is updated |
-| **Session Events** |
-| `SessionUpdateEvent` | Fired when the session is updated |
-| **World Events** |
-| `DimensionChangeEvent` | Fired when the dimension changes |
-| `EntityDestructEvent` | Fired when an entity is destroyed |
-| `EntitySpawnEvent` | Fired when an entity spawns |
-| `ItemStackTooltipEvent` | Fired when an item stack tooltip is displayed |
-| `WorldLeaveEvent` | Fired when leaving a world |
-| `BlockUpdateEvent` | Fired when a block is updated |
-| `ChunkEvent` | Fired for chunk-related actions |
-| `LightUpdateEvent` | Fired when lighting is updated |
-| **Server API Events** |
+| `ReleaseTextureEvent` | Fired when a texture resource is released from memory |
+| `ResourceReloadEvent` | Fired when game resources are reloaded |
+| **Scoreboard Events** | |
+| `ScoreboardObjectiveUpdateEvent` | Fired when a scoreboard objective is added, updated, or removed |
+| `ScoreboardScoreUpdateEvent` | Fired when a scoreboard score value changes |
+| `ScoreboardTeamEntryAddEvent` | Fired when an entry is added to a scoreboard team |
+| `ScoreboardTeamEntryRemoveEvent` | Fired when an entry is removed from a scoreboard team |
+| `ScoreboardTeamUpdateEvent` | Fired when a scoreboard team's properties are updated |
+| **Session Events** | |
+| `SessionUpdateEvent` | Fired when the player's session data is updated (e.g. account switch) |
+| **World Events** | |
+| `BlockUpdateEvent` | Fired when a block in the world is updated |
+| `ChunkEvent` | Fired for chunk load/unload operations |
+| `DimensionChangeEvent` | Fired when the player changes dimensions (e.g. Overworld to Nether) |
+| `EntityDestructEvent` | Fired when an entity is removed from the world |
+| `EntitySpawnEvent` | Fired when an entity spawns in the world |
+| `ItemStackTooltipEvent` | Fired when an item stack tooltip is generated. Can be used to add or modify tooltip lines |
+| `LightUpdateEvent` | Fired when lighting is recalculated for a chunk section |
+| `PrepareWorldSnapshotEvent` | Fired when a world snapshot is being prepared |
+| `SubmitWorldSnapshotEvent` | Fired when a world snapshot is submitted |
+| `WorldEnterEvent` | Fired when the player enters a world |
+| `WorldLeaveEvent` | Fired when the player leaves a world |
+| `WorldLoadEvent` | Fired when a world is loaded |
+| **Server API Events** | |
+| `EconomyUpdateEvent` | Fired when economy data is updated via the LabyMod Server API |
+| `PermissionStateChangeEvent` | Fired when a permission state changes via the LabyMod Server API |
 | `ServerFeatureUpdateEvent` | Fired when the server enables or disables features via the LabyMod Protocol. Can be fired at any point during the session |
-| **LabyMod Events** |
-| `LabyModRefreshEvent` | Fired when LabyMod is refreshed |
-| `ServiceLoadEvent` | Fired when a service is loaded |
-| `SubscribeMethodRegisterEvent` | Fired when a subscribe method is registered |
-| `ConfigurationLoadEvent` | Fired when a configuration is loaded |
-| `ConfigurationSaveEvent` | Fired when a configuration is saved |
-| `ConfigurationVersionUpdateEvent` | Fired when a configuration version is updated |
-| `SettingInitializeEvent` | Fired when a setting is initialized |
-| `SettingResetEvent` | Fired when a setting is reset |
-| `SettingWidgetInitializeEvent` | Fired when a setting widget is initialized |
-| `ImGuiInitializeEvent` | Fired when ImGui is initialized |
+| **Configuration Events** | |
+| `ConfigurationLoadEvent` | Fired when a configuration file is loaded |
+| `ConfigurationSaveEvent` | Fired when a configuration file is saved |
+| `ConfigurationVersionUpdateEvent` | Fired when a configuration is migrated to a newer version |
+| `JsonConfigLoaderInitializeEvent` | Fired when the JSON config loader is initialized. Used to register custom type adapters |
+| `SettingCreateEvent` | Fired when a new setting is created |
+| `SettingInitializeEvent` | Fired when a setting is initialized. Used to modify setting widgets (e.g. adding custom dropdown entries). **The listener has to be registered before the setting category is added!** |
+| `SettingResetEvent` | Fired when a setting is reset to its default value |
+| `SettingUpdateEvent` | ~~Deprecated: Currently broken~~ |
+| `SettingWidgetInitializeEvent` | Fired when a setting's UI widget is initialized |
+| **LabyMod Core Events** | |
+| `LabyModRefreshEvent` | Fired when LabyMod refreshes its state |
+| `ServiceLoadEvent` | Fired when a LabyMod service is loaded |
+| `SubscribeMethodRegisterEvent` | Fired when an event subscriber method is registered |
+| `ImGuiInitializeEvent` | Fired when the ImGui debug overlay is initialized |
+| **Discord RPC Events** | |
+| `DiscordActivityServerUpdateEvent` | Fired when the Discord Rich Presence server information is updated |
+| `DiscordActivityUpdateEvent` | Fired when the Discord Rich Presence activity is updated |
+| **Notification Events** | |
+| `PopNotificationEvent` | Fired when a notification is removed from the notification stack |
+| `PushNotificationEvent` | Fired when a notification is pushed to the player |
+| `UpdateNotificationEvent` | Fired when an existing notification is updated |
+| **User Events** | |
+| `UserDiscoverEvent` | Fired when a LabyMod user is discovered in the session |
+| `UserFamiliarEvent` | Fired when a familiar LabyMod user is encountered |
+| `UserUpdateDataEvent` | Fired when a LabyMod user's cosmetic or profile data is updated |
+| **LabyConnect Events** | |
+| `LabyConnectEvent` | Base event for LabyConnect-related actions |
+| `LabyConnectStateUpdateEvent` | Fired when the LabyConnect connection state changes |
+| `LabyConnectBroadcastEvent` | Fired when a broadcast is received via LabyConnect |
+| `LabyConnectDisconnectEvent` | Fired when disconnected from LabyConnect |
+| `LabyConnectPlayEmoteEvent` | Fired when an emote is played via LabyConnect |
+| `LabyConnectSprayEvent` | Fired when a spray is used via LabyConnect |
+| `LabyConnectTokenEvent` | Fired when a LabyConnect token is received |
+| `LabyConnectUpdateSettingEvent` | Fired when a LabyConnect setting is updated |
+| `LabyConnectChatDropdownInitializeEvent` | Fired when a LabyConnect chat dropdown menu is initialized |
+| `LabyConnectChatEvent` | Base event for LabyConnect chat actions |
+| `LabyConnectChatInitializeEvent` | Fired when the LabyConnect chat is initialized |
 | `LabyConnectChatMessageDeleteEvent` | Fired when a LabyConnect chat message is deleted |
-| `LabyConnectEvent` | Fired for LabyConnect-related actions |
-| `LabyConnectChatDropdownInitializeEvent` | Fired when a LabyConnect chat dropdown is initialized |
-| `LabyConnectChatInitializeEvent` | Fired when LabyConnect chat is initialized |
+| `LabyConnectChatMessageEvent` | Fired when a LabyConnect chat message is received |
+| `LabyConnectChatMessageReadEvent` | Fired when a LabyConnect chat message is marked as read |
+| `LabyConnectFriendAddEvent` | Fired when a friend is added via LabyConnect |
+| `LabyConnectFriendRemoveEvent` | Fired when a friend is removed via LabyConnect |
+| `LabyConnectFriendNoteUpdateEvent` | Fired when a friend's note is updated |
+| `LabyConnectFriendPinUpdateEvent` | Fired when a friend is pinned or unpinned |
+| `LabyConnectFriendServerEvent` | Fired when a friend's server information changes |
+| `LabyConnectFriendStatusEvent` | Fired when a friend's online status changes |
+| `LabyConnectIncomingFriendRequestAddEvent` | Fired when an incoming friend request is received |
+| `LabyConnectIncomingFriendRequestRemoveEvent` | Fired when an incoming friend request is removed |
+| `LabyConnectOutgoingFriendRequestAddEvent` | Fired when an outgoing friend request is sent |
+| `LabyConnectOutgoingFriendRequestRemoveEvent` | Fired when an outgoing friend request is removed |
+| **Mod Loader Events** | |
+| `ModLoadEvent` | Fired when a mod is loaded by the mod loader |
+| `ModLoaderDiscoveryEvent` | Fired when the mod loader discovers available mods |
+| `ModLoaderInitializeEvent` | Fired when the mod loader is initialized |
+| **Laby3D Render Events** | |
+| `RenderDeviceInitializedEvent` | Fired when the Laby3D render device is initialized |
+| `RenderStateLinkerSetupEvent` | Fired when the Laby3D render state linker is set up |
+| `UniformBlockRegistrationEvent` | Fired when a Laby3D uniform block is registered |
+| `SubmissionRendererRegistrationEvent` | Fired when a Laby3D submission renderer is registered |
 
 ## Create Your Very Own Events
 
