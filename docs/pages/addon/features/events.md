@@ -171,6 +171,7 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `ServerSwitchEvent` | Fired when switching between different server networks without fully disconnecting. Provides access to both old and new server data |
 | `SubServerSwitchEvent` | Fired when switching between sub-servers within the same network (e.g., moving between game modes on a BungeeCord/Velocity proxy) |
 | **Render Events** | |
+| `CameraOverlayRenderEvent` | Fired when a camera overlay texture is rendered (pumpkin blur, powder snow outline). Can be cancelled or have its opacity modified in the `PRE` phase |
 | `CameraRotationEvent` | Fired when the camera rotation is calculated |
 | `CameraSetupEvent` | Fired during camera setup before rendering |
 | `EntityRenderEvent` | Fired when an entity is being rendered |
