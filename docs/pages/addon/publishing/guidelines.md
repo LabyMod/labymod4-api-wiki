@@ -26,3 +26,10 @@ Before you can submit an addon to our addon store, make sure you are following t
 6. You need to use our <a href="/pages/addon/features/internationalization/" target="_blank">Internationalization system</a> for every text the user sees.
     1. Excluded from this are strings that are the same for every language (like for example the prefix of commands).
     2. You are allowed to write f.e. German strings in the `en_us.json`, if there is no reason for international players to use your addon. For example a server addon for a server that is region locked or has no international players. This has to be clarified in the addon description.
+7. Build & CI requirements.
+    1. Your GitHub workflow must match the one from our <a href="https://github.com/LabyMod/addon-template" target="_blank">addon-template</a>. Addons with a diverging workflow will not be accepted.
+    2. `gradle/wrapper/gradle-wrapper.properties` must contain a `distributionSha256Sum` entry. This verifies the integrity of the downloaded Gradle distribution. Add a line like:
+        ```properties
+        distributionSha256Sum=<sha256 of the distribution zip>
+        ```
+        The matching checksum for your `distributionUrl` can be found on the <a href="https://gradle.org/release-checksums/" target="_blank">Gradle release checksums page</a> (use the "Binary-only (-bin) ZIP Checksum"). You can also copy the full `gradle-wrapper.properties` from our <a href="https://github.com/LabyMod/addon-template/blob/master/gradle/wrapper/gradle-wrapper.properties" target="_blank">addon-template</a>.
