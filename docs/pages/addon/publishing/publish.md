@@ -1,5 +1,5 @@
 On this page, we're explaining what exactly you have to do to publish your addon. <br>
-Before publishing, please make sure that you're following our <a href="/pages/addon/publishing/guidelines" target="_blank">Addon Store Guidelines</a>.
+Before publishing, please make sure that you're following our <a href="/pages/addon/publishing/guidelines" target="_blank">Addon Store Guidelines</a> and that you have <a href="/pages/addon/publishing/testing" target="_blank">tested your addon in the production environment</a>.
 
 ## Upload to GitHub or GitLab
 

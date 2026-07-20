@@ -76,6 +76,7 @@ nav:
           - World Objects: pages/addon/rendering/world-objects.md
       - Publishing:
           - Guidelines: pages/addon/publishing/guidelines.md
+          - Test in the Production Environment: pages/addon/publishing/testing.md
           - Publish Your Addon: pages/addon/publishing/publish.md
       - Troubleshoot: pages/addon/troubleshoot.md
       - Additional Information: pages/addon/additional-infos.md
