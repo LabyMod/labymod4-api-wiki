@@ -91,6 +91,7 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `ClientHotbarSlotChangeEvent` | Fired when the player changes their selected hotbar slot |
 | `ClientPlayerAbilitiesUpdateEvent` | Fired when the player's abilities are updated (e.g. flying, creative mode) |
 | `ClientPlayerInteractEvent` | Fired when the player interacts with the world (attack, use item, pick block) |
+| `ClientPlayerMountEvent` | Fired the moment the player starts to ride an entity, even if the ride is over again before the next tick |
 | `ClientPlayerTurnEvent` | Fired when the player's rotation changes |
 | `ClientPlayerUseItemOnBlockEvent` | Fired when the player uses an item on a block |
 | `FieldOfViewEvent` | Fired when the field of view is calculated |

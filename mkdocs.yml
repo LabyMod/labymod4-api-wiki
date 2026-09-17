@@ -64,6 +64,7 @@ nav:
           - Write Version Dependent Code: pages/addon/features/version-dependent.md
           - Hud Widgets: pages/addon/features/hud-widgets.md
           - Server Features: pages/addon/features/server-features.md
+          - Launcher Clips: pages/addon/features/clips.md
       - Activity System:
           - What are Activities?: pages/addon/activities/activity.md
           - Use and Create Widgets: pages/addon/activities/widgets.md
