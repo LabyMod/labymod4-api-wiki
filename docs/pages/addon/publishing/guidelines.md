@@ -7,7 +7,7 @@ Before you can submit an addon to our addon store, make sure you are following t
 
 1. Addons cannot impact the game experience negatively, this includes performance.
     1. Don't create objects every tick or frame if you can cache them.
-    2. Do not use `java.util.stream.Stream`.
+    2. Do not use `java.util.stream.Stream`. See [Why no streams?](#why-no-streams)
     3. Do not consume commands without providing a response.
 2. Respect the privacy of your users.
     1. Do not use the player's session identifier maliciously.
@@ -33,3 +33,109 @@ Before you can submit an addon to our addon store, make sure you are following t
         distributionSha256Sum=<sha256 of the distribution zip>
         ```
         The matching checksum for your `distributionUrl` can be found on the <a href="https://gradle.org/release-checksums/" target="_blank">Gradle release checksums page</a> (use the "Binary-only (-bin) ZIP Checksum"). You can also copy the full `gradle-wrapper.properties` from our <a href="https://github.com/LabyMod/addon-template/blob/master/gradle/wrapper/gradle-wrapper.properties" target="_blank">addon-template</a>.
+
+## Why no streams?
+
+We know streams are nicer to read. They are also slower than a plain loop, and addon code often runs every tick or
+every frame. LabyMod can run at 1000 to 2000 FPS, which gives the whole game a millisecond or less per frame. The rule
+covers `IntStream`, `LongStream` and `DoubleStream` too.
+
+**Allocations.** Every pipeline creates short-lived objects, such as the stream stages, a spliterator, capturing
+lambdas, `Optional` results and collector internals. At 2000 FPS, one stream in a render method creates more than ten
+thousand objects per second, and most addons don't stop at one. The garbage collector has to clean all of that up, and
+players notice it as frame drops and stutters. The JIT only removes these allocations if it manages to inline the whole
+pipeline, and often it doesn't.
+
+**JIT optimization.** Minecraft, LabyMod and every installed addon share the same stream implementation. Its internal
+call sites see dozens of different lambda types, so the JIT often gives up on inlining them. A loop puts your logic
+directly into your method, so there is nothing left for the JIT to inline.
+
+**Boxing.** `Stream<Integer>` and `Stream<Double>` wrap every value in an object. This is easy to miss in `map(...)`
+and `reduce(...)`.
+
+**Debugging.** An exception inside a stream produces a long stack trace full of JDK internals.
+
+A stream that runs once when your addon enables won't hurt anyone. We still ban streams everywhere, because nobody can
+reliably tell which code ends up in a hot path. Code that runs once today can end up in a tick handler next month. If
+you have a good reason to use a stream anyway, explain it in a JavaDoc as described in the note at the top of this page.
+
+### Examples
+
+**Filtering a list**
+
+=== ":octicons-x-16: Stream"
+    ```java
+    List<Waypoint> visible = waypoints.stream()
+        .filter(Waypoint::isVisible)
+        .collect(Collectors.toList());
+    ```
+
+=== ":octicons-check-16: Loop"
+    ```java
+    List<Waypoint> visible = new ArrayList<>();
+    for (Waypoint waypoint : waypoints) {
+        if (waypoint.isVisible()) {
+            visible.add(waypoint);
+        }
+    }
+    ```
+
+If this runs every frame, keep the list as a field and call `clear()` instead of creating a new one each time.
+
+**Checking if any element matches**
+
+=== ":octicons-x-16: Stream"
+    ```java
+    boolean hasFriend = players.stream()
+        .anyMatch(player -> friends.contains(player.getUniqueId()));
+    ```
+
+=== ":octicons-check-16: Loop"
+    ```java
+    boolean hasFriend = false;
+    for (Player player : players) {
+        if (friends.contains(player.getUniqueId())) {
+            hasFriend = true;
+            break;
+        }
+    }
+    ```
+
+**Summing values**
+
+=== ":octicons-x-16: Stream"
+    ```java
+    // Boxes every count into an Integer
+    int total = items.stream()
+        .map(Item::getCount)
+        .reduce(0, Integer::sum);
+    ```
+
+=== ":octicons-check-16: Loop"
+    ```java
+    int total = 0;
+    for (Item item : items) {
+        total += item.getCount();
+    }
+    ```
+
+**Finding the closest element**
+
+=== ":octicons-x-16: Stream"
+    ```java
+    Optional<Entity> closest = entities.stream()
+        .min(Comparator.comparingDouble(entity -> entity.distanceTo(origin)));
+    ```
+
+=== ":octicons-check-16: Loop"
+    ```java
+    Entity closest = null;
+    double closestDistance = Double.MAX_VALUE;
+    for (Entity entity : entities) {
+        double distance = entity.distanceTo(origin);
+        if (distance < closestDistance) {
+            closestDistance = distance;
+            closest = entity;
+        }
+    }
+    ```
