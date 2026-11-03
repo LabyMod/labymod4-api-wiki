@@ -1,4 +1,4 @@
-The `PlayingGameModePacket` is a client-bound packet that sends the current game mode to the player's LabyMod Chat friends.
+The `PlayingGameModePacket` is a client-bound packet that sends the current game mode to the player's Laby Chat friends.
 
 ![Example Playing Game Mode](../../../../assets/files/serverapi/game-mode.png)
 

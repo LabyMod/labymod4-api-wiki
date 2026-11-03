@@ -1,5 +1,5 @@
 !!! info
-    The World Object API has been refactored. The new API described here is available starting with the next LabyMod version.
+    The World Object API has been refactored. The new API described here is available starting with the next Laby Client version.
 
 World Objects allow you to render custom 3D content at fixed positions in the Minecraft world.
 The system uses immutable snapshots to decouple game-state from rendering, preparing for

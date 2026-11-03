@@ -18,8 +18,8 @@ VoiceChatMute voiceChatMute = VoiceChatMute.create(
 
 The packet can either be sent via the `VoiceChatPlayer` or the `AddonProtocol` of the `VoiceChatIntegration`
 
-If you are using the `VoiceChatPlayer` to mute a player, the mute will automatically be sent to every LabyMod player on 
-the server. LabyMod players connecting to the server will also be sent every mute that is currently active automatically.
+If you are using the `VoiceChatPlayer` to mute a player, the mute will automatically be sent to every Laby Client player on 
+the server. Laby Client players connecting to the server will also be sent every mute that is currently active automatically.
 
 ### Via VoiceChatPlayer (Recommended)
 
@@ -65,7 +65,7 @@ AddonProtocol addonProtocol = voiceChatIntegration.voiceChatProtocol();
 addonProtocol.sendPacket(uniqueId, new VoiceChatMutePacket(mutes));
 ```
 
-### Via the LabyMod Player
+### Via the LabyModPlayer
 
 While not recommended, it is also possible to send the packet directly via the `LabyModPlayer`. This will basically skip the "protocol-getting" process, as it will search for the protocol automatically. 
 

@@ -1,8 +1,8 @@
-Markers are a feature of LabyMod that allows players to place markers on the screen. These markers can be used to highlight certain areas or entities in the game. 
+Markers are a feature of the Laby Client that allows players to place markers on the screen. These markers can be used to highlight certain areas or entities in the game. 
 
 ## Set Maker Send Type
 
-The send type is sent via the `MarkerPacket`. By default, Markers are only sent to LabyMod friends of the player. You can change this behaviour so that markers are sent to the server via the Server API, you then can handle the Marker and possibly forward them to other players.
+The send type is sent via the `MarkerPacket`. By default, Markers are only sent to Laby Chat friends of the player. You can change this behaviour so that markers are sent to the server via the Server API, you then can handle the Marker and possibly forward them to other players.
 
 The packet can either be sent via the `LabyModPlayer` object of the player, or directly via the `LabyModProtocol`.
 

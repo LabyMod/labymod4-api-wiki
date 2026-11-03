@@ -1,13 +1,13 @@
-The `UpdateFeaturePacket` is a client-bound packet that allows servers to enable or disable LabyMod features for a player. Multiple features can be toggled in a single packet.
+The `UpdateFeaturePacket` is a client-bound packet that allows servers to enable or disable Laby Client features for a player. Multiple features can be toggled in a single packet.
 
 ???+ note "Note"
-    The list of available features is not fixed. New features can be added at any time by LabyMod or by addons that register custom features. Use `Feature.of("identifier")` to reference any feature by its identifier.
+    The list of available features is not fixed. New features can be added at any time by Laby or by addons that register custom features. Use `Feature.of("identifier")` to reference any feature by its identifier.
 
 ## Available Features
 
 | Feature | Identifier | Description |
 |---------|-----------|-------------|
-| Fancy Font | `fancy_font` | Enables or disables the LabyMod fancy font |
+| Fancy Font | `fancy_font` | Enables or disables the Laby Client fancy font |
 
 ## Enabling a Feature
 

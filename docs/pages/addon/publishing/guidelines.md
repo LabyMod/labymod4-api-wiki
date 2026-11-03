@@ -18,9 +18,9 @@ Before you can submit an addon to our addon store, make sure you are following t
 5. Make sure your addon is compatible and remains so for the foreseeable future.
     1. Do not use deprecated methods and/or classes that already have a replacement.
     2. Do not use Reflection in any way. If you want to get access to a field or method that is private or protected, use mixin or an accesswidener.
-    3. Do not try to modify the LabyMod source in any way. If you are missing a sub-feature of one of our official features, suggest it <a href="https://www.labymod.net/ideas#category=client" target="_blank">here</a>.
+    3. Do not try to modify the Laby Client source in any way. If you are missing a sub-feature of one of our official features, suggest it <a href="https://www.labymod.net/ideas#category=client" target="_blank">here</a>.
     4. If you're injecting code via mixin, don't overdo it. Replacing a method in its entirety can cause incompatibilities.
-    5. Do not access LabyMod core packages, as using them may break your addon at any time. If you need access to LabyMod internal methods, let us know <a href="https://labymod.net/dc/dev" target="_blank">on our development Discord</a>.
+    5. Do not access Laby Client core packages, as using them may break your addon at any time. If you need access to Laby Client internal methods, let us know <a href="https://labymod.net/dc/dev" target="_blank">on our development Discord</a>.
     6. Do not use legacy color codes
     7. Do not use System.out.println or similar methods.
 6. You need to use our <a href="/pages/addon/features/internationalization/" target="_blank">Internationalization system</a> for every text the user sees.
@@ -37,7 +37,7 @@ Before you can submit an addon to our addon store, make sure you are following t
 ## Why no streams?
 
 We know streams are nicer to read. They are also slower than a plain loop, and addon code often runs every tick or
-every frame. LabyMod can run at 1000 to 2000 FPS, which gives the whole game a millisecond or less per frame. The rule
+every frame. The Laby Client can run at 1000 to 2000 FPS, which gives the whole game a millisecond or less per frame. The rule
 covers `IntStream`, `LongStream` and `DoubleStream` too.
 
 **Allocations.** Every pipeline creates short-lived objects, such as the stream stages, a spliterator, capturing
@@ -46,7 +46,7 @@ thousand objects per second, and most addons don't stop at one. The garbage coll
 players notice it as frame drops and stutters. The JIT only removes these allocations if it manages to inline the whole
 pipeline, and often it doesn't.
 
-**JIT optimization.** Minecraft, LabyMod and every installed addon share the same stream implementation. Its internal
+**JIT optimization.** Minecraft, the Laby Client and every installed addon share the same stream implementation. Its internal
 call sites see dozens of different lambda types, so the JIT often gives up on inlining them. A loop puts your logic
 directly into your method, so there is nothing left for the JIT to inline.
 

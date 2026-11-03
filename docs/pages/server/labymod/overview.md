@@ -1,4 +1,4 @@
-The following features are currently available in the LabyMod Protocol:
+The following features are currently available in the Laby Client Protocol:
 
 ## Server Displays
 
@@ -21,7 +21,7 @@ The following features are currently available in the LabyMod Protocol:
 - [Addon Recommendations](moderation/addon-recommendation.md)
 - [Get the Installed Addons](moderation/installed-addons.md)
 - [Disable Addons](moderation/disable-addons.md)
-- [Get the LabyMod Version](moderation/labymod-version.md)
+- [Get the Laby Client Version](moderation/labymod-version.md)
 - [Permissions](moderation/permissions.md)
 
 ## Supplements

@@ -1,4 +1,4 @@
-With LabyMod 4 we've improved the way to develop addons. 
+With the Laby Client we've improved the way to develop addons. 
 You now have one project per addon; this allows you to write version-independent code in the same project as version-dependent code without needing to copy & paste the version-independent code for every version.
 
 Here are some of the changes with our new Addon API:

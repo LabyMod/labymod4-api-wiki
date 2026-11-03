@@ -1,6 +1,6 @@
-# LabyMod 4 API Wiki
+# Laby Client API Wiki
 
-This is the official wiki for the **LabyMod 4 API**.
+This is the official wiki for the **Laby Client API**.
 It contains guides, documentation, and examples on how to use and extend the API.
 
 ## Contributing

@@ -267,7 +267,7 @@ These are some example files showing a few of the functions mentioned before.
 ## Mark config options as introduced in a specific update
 
 Sometimes you add a new setting to your config and want to highlight it to your users as part of an update.
-To achieve this, LabyMod provides **revisions**. A revision acts like a milestone: it documents an update with a version and associates it with a release date. Config options can then be annotated with this revision to automatically display a **“new” badge** for a limited time.
+To achieve this, Laby Client provides **revisions**. A revision acts like a milestone: it documents an update with a version and associates it with a release date. Config options can then be annotated with this revision to automatically display a **“new” badge** for a limited time.
 
 ### Create and register a revision
 
@@ -289,7 +289,7 @@ To do this, annotate a config option with the `@IntroducedIn` annotation.
 * The `namespace` parameter should match the namespace you registered.
 * The `value` parameter should match the revision’s version string.
 
-And that’s it - LabyMod will now automatically mark this setting as **new** for your users.
+And that’s it - Laby Client will now automatically mark this setting as **new** for your users.
 
 ### Example of applying a revision
 

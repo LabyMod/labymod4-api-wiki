@@ -1,6 +1,6 @@
 # Create Commands
 
-With LabyMod 4, you can easily create custom client-side commands. This page will show you how.
+With the Laby Client, you can easily create custom client-side commands. This page will show you how.
 
 ???+ info "Command suggestions"
     Command suggestions are not yet supported. This means that commands will not appear as valid suggestions in the chat. However, you can still enter and execute them normally. Support for command suggestions may be added in the future.
@@ -9,9 +9,9 @@ With LabyMod 4, you can easily create custom client-side commands. This page wil
 The first parameter in the super constructor call is the prefix, see it as the name of your command. Every parameter after is an alias and thus optional.
 
 ### The Execute Method
-The execute method contains the code that is executed if the player is using your command. If you return `true`, the command will be consumed by LabyMod. If you return `false`, the command will not be consumed and will be sent to the server.
+The execute method contains the code that is executed if the player is using your command. If you return `true`, the command will be consumed by the Laby Client. If you return `false`, the command will not be consumed and will be sent to the server.
 
-Before you're able to use and test your command in-game, you'll need to register the command by calling  `this.registerCommand(new ExampleCommand());` in your main class. You don't need to do anything else, after registering the command and restarting LabyMod you can submit "/notify" or "/alias" in the ingame-chat and your command will be executed.
+Before you're able to use and test your command in-game, you'll need to register the command by calling  `this.registerCommand(new ExampleCommand());` in your main class. You don't need to do anything else, after registering the command and restarting Laby Client you can submit "/notify" or "/alias" in the ingame-chat and your command will be executed.
 
 ### Subcommands
 You can also add subcommands to your command. To do so, you'll need to create a new class that inherits from `SubCommand` and add it to your command by calling `this.withSubCommand(new ExampleSubCommand());` in your command's constructor. You can set the sub command's name and aliases the same way you set the command's name with the [super](#the-super-method) constructor call.

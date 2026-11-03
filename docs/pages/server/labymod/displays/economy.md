@@ -1,5 +1,5 @@
 The `EconomyDisplayPacket` is a client-bound packet that allows servers to display balance information of multiple
-virtual currencies in the HUD of the LabyMod player.
+virtual currencies in the HUD of the Laby Client player.
 
 ![Example Economy Display](../../../../assets/files/serverapi/economy_display.gif)
 

@@ -1,7 +1,7 @@
-# LabyMod 4 Developer Portal
+# Laby Client Developer Portal
 
-Welcome to the Developer Portal of LabyMod 4. <br/>
-This website serves as a hub for everything related to the LabyMod 4, directed at developers. Whether you're looking for
+Welcome to the Developer Portal of the Laby Client. <br/>
+This website serves as a hub for everything related to the Laby Client, directed at developers. Whether you're looking for
 information on how to create addons or utilize our server API, you'll find it here.
 
 Have you found something missing from this wiki that you think is important, or are you unhappy with something?

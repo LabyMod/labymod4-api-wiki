@@ -1,9 +1,9 @@
-Integrations are an integral part of the LabyMod 4 Server API. They provide a way to extend the server API with
-additional features and functionalities. Integrations can be used to interact with LabyMod addons seamlessly.
+Integrations are an integral part of the Laby Client Server API. They provide a way to extend the server API with
+additional features and functionalities. Integrations can be used to interact with Laby Client addons seamlessly.
 
 ## Official Integrations
 
-We provide official integrations for addons developed by LabyMod utilizing the Server API. Their source code is
+We provide official integrations for addons developed by Laby utilizing the Server API. Their source code is
 available on [GitHub](https://github.com/LabyMod/labymod4-server-api-integrations).
 
 ## Create an Integration
@@ -16,7 +16,7 @@ artifact. <br/>
 Create a class that implements the interface `LabyModProtocolIntegration`.
 The interface provides two methods, `initialize(AbstractLabyModProtocolService)` and
 `createIntegrationPlayer(AbstractLabyModPlayer<?>)`. `initialize` is called when the integration is loaded and
-implementing this is required. `createIntegrationPlayer` is called when a LabyMod player connects to the server and
+implementing this is required. `createIntegrationPlayer` is called when a Laby Client player connects to the server and
 implementing it is optional.
 
 ```java

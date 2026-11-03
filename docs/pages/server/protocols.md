@@ -1,17 +1,17 @@
 Protocols are collections of packets that are used to communicate between the client and the server. <br/>
 Addons can create custom protocols to send and receive custom packets. <br/>
-The LabyMod 4 Server API provides the LabyMod Protocol that is used to communicate with the LabyMod client.
+The Laby Client Server API provides the Laby Client Protocol that is used to communicate with the Laby Client.
 
-## The LabyMod Protocol
+## The Laby Client Protocol
 
-The LabyMod Protocol is the default protocol, it contains all official features that servers can use to customize the
-experience of LabyMod players.
+The Laby Client Protocol is the default protocol, it contains all official features that servers can use to customize the
+experience of Laby Client players.
 
 A collection of all available features can be found [here](labymod/overview.md).
 
 ### Registering Handlers
 
-To register a packet handler in the LabyMod Protocol, you first need to create a new class implementing the
+To register a packet handler in the Laby Client Protocol, you first need to create a new class implementing the
 `PacketHandler` interface. We'll use the [VersionLoginPacket](labymod/moderation/labymod-version.md) in the
 following example.
 
@@ -37,7 +37,7 @@ public class VersionLoginPacketHandler implements PacketHandler<VersionLoginPack
 }
 ```
 
-After creating the handler, you can register it in the LabyMod Protocol.
+After creating the handler, you can register it in the Laby Client Protocol.
 
 ```java
 // Get the LabyModProtocol

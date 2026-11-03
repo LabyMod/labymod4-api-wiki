@@ -2,7 +2,7 @@ The VoiceChat integration provides a way to manage the voice chat server-side.
 
 ## Adding the Dependency
 
-The VoiceChat integration is shipped with all official [server platform integration artifacts](../../index.md#adding-the-labymod-4-server-api-as-a-dependency). If you are using the `core` artifact, you can add the following dependency to your project:
+The VoiceChat integration is shipped with all official [server platform integration artifacts](../../index.md#adding-the-laby-client-server-api-as-a-dependency). If you are using the `core` artifact, you can add the following dependency to your project:
 
 ???+ danger "Important Note"
 

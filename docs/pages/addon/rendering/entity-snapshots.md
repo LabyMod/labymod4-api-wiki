@@ -4,11 +4,11 @@ taking e.g. the position of a player during the rendering of a frame. This great
 improves thread safety, but one must know how to make proper use of it.
 
 In this section we want to introduce you to how you can add your own custom data to
-the LabyMod state of an Entity which you can then use during rendering.
+the Laby Client state of an Entity which you can then use during rendering.
 
 ## Snapshot extras
 
-A LabyMod Snapshot consists of a Map with data called Extras. After its creation it
+A Laby Client Snapshot consists of a Map with data called Extras. After its creation it
 cannot be modified anymore, it is **immutable**.
 
 Typically, an addon that uses the snapshot feature contains two types in its api module:

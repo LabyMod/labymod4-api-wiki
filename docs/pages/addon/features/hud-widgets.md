@@ -40,11 +40,11 @@ public class ExampleAddon extends LabyAddon<ExampleConfiguration> {
 
 # Different HudWidget Types
 
-LabyMod provides different Widget types that help you to easily create HudWidgets.
+The Laby Client provides different Widget types that help you to easily create HudWidgets.
 
 + TextHudWidget - a simple text widget that supports multiple lines
 + ItemHudWidget - an item widget with that you can display an image with a text next to it
-+ SimpleHudWidget - a widget that render custom icons/text etc. - an example can be found in the <a href="https://github.com/labymod-addons/teamspeak/blob/master/core/src/main/java/net/labymod/addons/teamspeak/core/hud/TeamSpeakHudWidget.java" target="_blank">Teamspeak LabyMod Addon</a>
++ SimpleHudWidget - a widget that render custom icons/text etc. - an example can be found in the <a href="https://github.com/labymod-addons/teamspeak/blob/master/core/src/main/java/net/labymod/addons/teamspeak/core/hud/TeamSpeakHudWidget.java" target="_blank">Teamspeak Laby Client Addon</a>
 
   
 # Example TextHudWidget

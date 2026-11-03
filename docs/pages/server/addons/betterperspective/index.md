@@ -2,7 +2,7 @@ The BetterPerspective integration provides the unlock camera permission.
 
 ## Adding the Dependency
 
-The BetterPerspective integration is shipped with all official [server platform integration artifacts](../../index.md#adding-the-labymod-4-server-api-as-a-dependency). If you are using the `core` artifact, you can add the following dependency to your project:
+The BetterPerspective integration is shipped with all official [server platform integration artifacts](../../index.md#adding-the-laby-client-server-api-as-a-dependency). If you are using the `core` artifact, you can add the following dependency to your project:
 
 ???+ danger "Important Note"
 

@@ -1,17 +1,17 @@
-In contrast to the LabyMod 3 Server API, the LabyMod 4 Server API doesn't communicate with JsonElements. Instead, it
+In contrast to the LabyMod 3 Server API, the Laby Client Server API doesn't communicate with JsonElements. Instead, it
 writes data directory into a ByteBuffer. This is a more efficient way of communication and allows for more flexibility
 in the data that can be sent.
 
 The downside of this is that it is even more important to read and write packets correctly. Therefore, it is
 recommended to share the classes on the server and client-side. The `core` artifact for example, is also shared between 
-the implementation in LabyMod 4 and the server.
+the implementation in the Laby Client and the server.
 
 For an easier process of creating packets, we provide the classes `PayloadReader` and `PayloadWriter`. Both contain
 a variety of methods to read and write data from and to the ByteBuffer for any types thinkable. From collections and
 arrays to nullable objects.
 
 If you are still unsure if you are doing everything correctly, please don't hesitate to check out the Packets of the
-LabyMod Protocol
+Laby Client Protocol
 on [GitHub](https://github.com/LabyMod/labymod4-server-api/tree/master/core/src/main/java/net/labymod/serverapi/core/packet)
 or ask on [our Discord Server for Developers](https://labymod.net/dc/dev).
 

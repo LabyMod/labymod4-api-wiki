@@ -1,7 +1,7 @@
-The Laby Launcher records the game in the background and can save the last moments as a clip. LabyMod asks for such a clip on its own when something clip-worthy happens, a clutch for example. With the `ClipService` your addon can do the same: ask for a clip right after a moment your addon knows about, and keep those clips together in a folder of their own.
+The Laby Launcher records the game in the background and can save the last moments as a clip. The Laby Client asks for such a clip on its own when something clip-worthy happens, a clutch for example. With the `ClipService` your addon can do the same: ask for a clip right after a moment your addon knows about, and keep those clips together in a folder of their own.
 
 ???+ note "Note"
-    The clip API is available since LabyMod 4.6.22. Clips only work when the game was started from a Laby Launcher that has clips turned on, and when the user has the **Clip Events** setting enabled. Your addon never has to check for the launcher itself, `isAvailable()` answers all of it at once.
+    The clip API is available since Laby Client 4.6.22. Clips only work when the game was started from a Laby Launcher that has clips turned on, and when the user has the **Clip Events** setting enabled. Your addon never has to check for the launcher itself, `isAvailable()` answers all of it at once.
 
 ## Getting the Service
 
@@ -15,7 +15,7 @@ ClipService clips = Laby.references().clipService();
 
 The launcher always holds the last moments of gameplay. A request tells it to keep what led up to **now**, so ask right **after** the moment, not before it.
 
-Every clip has a type. Use a `ResourceLocation` in the namespace of your addon, so your events can never be mixed up with the ones of LabyMod or of another addon.
+Every clip has a type. Use a `ResourceLocation` in the namespace of your addon, so your events can never be mixed up with the ones of the Laby Client or of another addon.
 
 === ":octicons-file-code-16: ExampleListener"
     ```java
@@ -46,7 +46,7 @@ Every clip has a type. Use a `ResourceLocation` in the namespace of your addon, 
 `requestClip` returns `true` if the request was sent. It returns `false` if clips are not available, or if the cooldown of the user has not passed yet.
 
 ???+ warning "Important Note"
-    The user sets a cooldown between two clips in the **Clip Events** settings, and it counts for every source together. A clutch clipped by LabyMod and an event of your addon in the same moment are still one clip. Do not try to work around it, and do not request clips for things that happen all the time.
+    The user sets a cooldown between two clips in the **Clip Events** settings, and it counts for every source together. A clutch clipped by the Laby Client and an event of your addon in the same moment are still one clip. Do not try to work around it, and do not request clips for things that happen all the time.
 
 If you need neither detail nor a folder, the short form is enough:
 

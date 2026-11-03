@@ -1,4 +1,4 @@
-site_name: LabyMod 4 Developer Portal
+site_name: Laby Client Developer Portal
 repo_url: https://github.com/LabyMod/labymod4-api-wiki/
 repo_name: LabyMod/labymod4-api-wiki
 edit_uri: https://github.com/LabyMod/labymod4-api-wiki/tree/master/docs/
@@ -17,7 +17,7 @@ nav:
       - Creating Packets: pages/server/packets.md
       - Creating Integrations: pages/server/integrations.md
       - Events: pages/server/events.md
-      - LabyMod Protocol:
+      - Laby Client Protocol:
           - Overview: pages/server/labymod/overview.md
           - Server Displays:
               - Economy Display: pages/server/labymod/displays/economy.md
@@ -38,7 +38,7 @@ nav:
               - Addon Recommendations: pages/server/labymod/moderation/addon-recommendation.md
               - Get Installed Addons: pages/server/labymod/moderation/installed-addons.md
               - Disable Addons: pages/server/labymod/moderation/disable-addons.md
-              - Get LabyMod Version: pages/server/labymod/moderation/labymod-version.md
+              - Get Laby Client Version: pages/server/labymod/moderation/labymod-version.md
               - Permissions: pages/server/labymod/moderation/permissions.md
           - Minecraft Supplements:
               - Input Prompt: pages/server/labymod/supplements/input-prompt.md
@@ -55,7 +55,7 @@ nav:
       - Addon API Introduction: pages/addon/index.md
       - Setup:
           - First Steps: pages/addon/setup/first-steps.md
-          - Your First LabyMod 4 Addon: pages/addon/setup/setup.md
+          - Your First Laby Client Addon: pages/addon/setup/setup.md
       - Features:
           - Creating a Configuration: pages/addon/features/config.md
           - Custom Setting types: pages/addon/features/custom-settings.md

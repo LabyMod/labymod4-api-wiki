@@ -1,4 +1,4 @@
-When using an official platform-implementation of the LabyMod Server API, you can listen to the following events that
+When using an official platform-implementation of the Laby Client Server API, you can listen to the following events that
 are fired by the API:
 
 ## LabyModPlayerJoinEvent
@@ -26,7 +26,7 @@ The following methods are available in this event:
 - `#protocol()` - The protocol that the packet has been sent with.
 - `#getReceiver()` - Returns the unique id player that the packet has been sent to.
 - `#getLabyModPlayer()` - Returns the `LabyModPlayer` object of the player that the packet has been sent to. **Can
-  be `null` if it's not a LabyMod player.**
+  be `null` if it's not a Laby Client player.**
 
 ## LabyModPacketReceiveEvent
 
@@ -40,7 +40,7 @@ The following methods are available in this event:
 - `#protocol()` - The protocol that the packet was received on.
 - `#getSender()` - Returns the unique id player that has sent the packet.
 - `#getLabyModPlayer()` - Returns the `LabyModPlayer` object of the player that has sent the packet. **Can be `null` if
-  it's not a LabyMod player.**
+  it's not a Laby Client player.**
 
 ## LabyModInstalledAddonsUpdateEvent
 
