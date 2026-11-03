@@ -1,17 +1,17 @@
-Servers can enable or disable specific features for connected LabyMod players. As an addon developer, you can listen for these feature updates and query the current state at any time.
+Servers can enable or disable specific features for connected Laby Client players. As an addon developer, you can listen for these feature updates and query the current state at any time.
 
 ## Available Features
 
 | Feature | Identifier | Description |
 |---------|-----------|-------------|
-| Fancy Font | `fancy_font` | Controls whether the LabyMod fancy font is allowed |
+| Fancy Font | `fancy_font` | Controls whether the Laby Client fancy font is allowed |
 
 ???+ note "Note"
     The list of available features is not fixed. New features can be added at any time. Use `Feature.of("identifier")` to reference any feature by its string identifier.
 
 ## Listening for Feature Updates
 
-When a server toggles a feature, LabyMod fires a `ServerFeatureUpdateEvent`. This event can be fired at any point during the session, not just on login. It only contains the features that changed, not the full set of active features.
+When a server toggles a feature, Laby Client fires a `ServerFeatureUpdateEvent`. This event can be fired at any point during the session, not just on login. It only contains the features that changed, not the full set of active features.
 
 === ":octicons-file-code-16: FeatureListener"
     ``` java

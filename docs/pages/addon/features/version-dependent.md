@@ -39,7 +39,7 @@ with `Minecraft.getInstance().gui.getChat()` and add our component with `addMess
 
 To access our `VersionedExampleChatExecutor` from the core module, we need to add a private instance of the `ExampleChatExecutor` with a getter to our `ExampleAddon` class. Then we assign the instance in our `ExampleAddon#enable` method using `((DefaultReferenceStorage) this.referenceStorageAccessor).exampleChatExecutor()`. If the function does not exist, we need to run a gradle build to add the class to our reference storage. We can now access the instance from the core module with `ExampleAddon#chatExecutor()`. Now we can require an `ExampleAddon` instance as a parameter in our `ExamplePingCommand` and pass `this` to the constructor of the command in the `ExampleAddon#enable`. Then we can access the `VersionedExampleChatExecutor` instance from the command and call the `displayMessageInChat` method with `"Pong!"` as an argument.
 
-After starting LabyMod 4, joining a server, and executing "/pong", we'll see a colorless "Pong!". Now, if we want that
+After starting the Laby Client, joining a server, and executing "/pong", we'll see a colorless "Pong!". Now, if we want that
 message colored, we need to replace `String` in our interface with `Component`. Instead of using `Command.literal`, we
 get the `ComponentMapper` via `Laby.labyApi().minecraft().componentMapper()` and call `toMinecraftComponent(component)`.
 Now our component from the Adventure Component library was mapped to a Minecraft Component, and
@@ -148,14 +148,14 @@ When creating a mixin, the **location** is critical. Navigate to the `game-runne
 org/example/{version}/mixins
 ```
 
-You may create mixins in this package or in subpackages. You do **not** need to register them manually in a configuration file - LabyMod will automatically detect and apply them. LabyMod also supports [MixinExtras](https://github.com/LlamaLad7/MixinExtras) annotations, which can simplify common injection patterns.
+You may create mixins in this package or in subpackages. You do **not** need to register them manually in a configuration file - Laby Client will automatically detect and apply them. The Laby Client also supports [MixinExtras](https://github.com/LlamaLad7/MixinExtras) annotations, which can simplify common injection patterns.
 
 For further reading:
 
 * [SpongePowered Mixin Documentation](https://github.com/SpongePowered/Mixin/wiki)
 * [MixinExtras Wiki](https://github.com/LlamaLad7/MixinExtras/wiki)
 
-This section does not attempt to explain all of Mixin in detail - it focuses only on how to correctly load and use them with LabyMod.
+This section does not attempt to explain all of Mixin in detail - it focuses only on how to correctly load and use them with the Laby Client.
 
 ### Example: Logging Every Tick
 

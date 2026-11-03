@@ -4,7 +4,7 @@ The `VoiceChatUnmutePacket` is a client-bound packet provided by the VoiceChat i
 
 The packet can either be sent via the `VoiceChatPlayer` or the `AddonProtocol` of the `VoiceChatIntegration`
 
-If you are using the `VoiceChatPlayer` to unmute a player, the unmute will automatically be sent to every LabyMod player on
+If you are using the `VoiceChatPlayer` to unmute a player, the unmute will automatically be sent to every Laby Client player on
 the server. 
 
 ### Via VoiceChatPlayer (Recommended)
@@ -45,7 +45,7 @@ AddonProtocol addonProtocol = voiceChatIntegration.voiceChatProtocol();
 addonProtocol.sendPacket(uniqueId, new VoiceChatUnmutePacket(uniqueId));
 ```
 
-### Via the LabyMod Player
+### Via the LabyModPlayer
 
 While not recommended, it is also possible to send the packet directly via the `LabyModPlayer`. This will basically skip the "protocol-getting" process, as it will search for the protocol automatically.
 

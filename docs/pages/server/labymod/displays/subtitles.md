@@ -15,8 +15,8 @@ The following methods are available to update the values of an Economy Display:
 
 The `LabyModPlayer` class provides a range of methods to manage the subtitles.
 
-Additionally, if you use the methods below, subtitles are automatically sent to every other LabyMod player on the
-server. LabyMod players connecting to the server will also be sent every subtitle that is currently active
+Additionally, if you use the methods below, subtitles are automatically sent to every other Laby Client player on the
+server. Laby Client players connecting to the server will also be sent every subtitle that is currently active
 automatically.
 
 ### Updating the Subtitle

@@ -1,4 +1,4 @@
-With LabyMod 4 we not only deliver more Events, but they are also very similar to use, like the events of Minecraft server software like Bukkit and BungeeCord.
+With the Laby Client we not only deliver more Events, but they are also very similar to use, like the events of Minecraft server software like Bukkit and BungeeCord.
 
 ## The Most Important Events
 
@@ -10,11 +10,11 @@ The `AddonEnableEvent` is fired right after we detected your addon. This event i
 
 ### Addon Post Enable Event
 
-The exact moment when the `AddonPostEnableEvent` is fired depends on the current state of LabyMod. Suppose your addon is loaded directly after the game start (for example while in the addon develop environment or when the addon has been installed before). In that case, the event will be fired as soon as LabyMod itself has been fully initialized. But if your addon is enabled while LabyMod is already initialized (when a user downloads your addon via the addon store), the event will be fired right after we enabled it.
+The exact moment when the `AddonPostEnableEvent` is fired depends on the current state of the Laby Client. Suppose your addon is loaded directly after the game start (for example while in the addon develop environment or when the addon has been installed before). In that case, the event will be fired as soon as Laby Client itself has been fully initialized. But if your addon is enabled while Laby Client is already initialized (when a user downloads your addon via the addon store), the event will be fired right after we enabled it.
 
 ### Global Addon Post Enable Event
 
-The `GlobalAddonPostEnableEvent` is called if an addon has been enabled. Same as `AddonPostEnableEvent`, the moment the event is fired depends on the current state of LabyMod. Can be used to detect if another addon has been enabled.
+The `GlobalAddonPostEnableEvent` is called if an addon has been enabled. Same as `AddonPostEnableEvent`, the moment the event is fired depends on the current state of the Laby Client. Can be used to detect if another addon has been enabled.
 
 ### Chat Message Send Event
 
@@ -56,13 +56,13 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 ## List of (nearly) all Events
 ???+ information "Note"
 
-    LabyMod 4 is constantly being developed and new events are added on a regular basis. This list is therefore not guaranteed to be complete.
+    The Laby Client is constantly being developed and new events are added on a regular basis. This list is therefore not guaranteed to be complete.
 
 | Event Name | Description |
 |------------|-------------|
 | **Addon Lifecycle Events** | |
 | `AddonEnableEvent` | Fired right after an addon is detected. Only fired in the respective addon's scope |
-| `AddonPostEnableEvent` | Fired after LabyMod is fully initialized or right after an addon is enabled at runtime |
+| `AddonPostEnableEvent` | Fired after the Laby Client is fully initialized or right after an addon is enabled at runtime |
 | `AddonUnloadEvent` | ~~Deprecated: Not fired anymore, addons cannot be unloaded at runtime~~ |
 | `GlobalAddonEnableEvent` | Fired when any addon is enabled. Can be used to detect other addons |
 | `GlobalAddonPostEnableEvent` | Fired after any addon is fully enabled |
@@ -77,7 +77,7 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `AdvancedChatTabMessageEvent` | Fired when a message is routed to an advanced chat tab |
 | `ChatClearEvent` | Fired when the chat history is cleared |
 | `ChatMessageAddEvent` | Fired when a message is added to the chat history |
-| `ChatMessageGuessSenderEvent` | Fired when LabyMod attempts to determine the sender of a chat message |
+| `ChatMessageGuessSenderEvent` | Fired when the Laby Client attempts to determine the sender of a chat message |
 | `ChatMessageSendEvent` | Fired when sending a chat message to the server. Allows modifying the message content, checking if it's a command, controlling whether it appears in chat history, or cancelling it entirely |
 | `ChatMessageUpdateEvent` | Fired when an existing chat message is updated (e.g. message editing) |
 | `ChatReceiveEvent` | Fired when a message is received from the server. Allows accessing and modifying the message content or cancelling the message entirely |
@@ -108,15 +108,15 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `HudWidgetRegisterEvent` | Fired when a HUD widget type is registered |
 | `HudWidgetUpdateRequestEvent` | Fired when a HUD widget update is requested |
 | **Screen/GUI Events** | |
-| `ActivityInitializeEvent` | Fired when a LabyMod activity is initialized |
-| `ActivityOpenEvent` | Fired when a LabyMod activity is opened |
+| `ActivityInitializeEvent` | Fired when a Laby Client activity is initialized |
+| `ActivityOpenEvent` | Fired when a Laby Client activity is opened |
 | `FileDroppedEvent` | Fired when a file is dragged and dropped onto the game window |
 | `IngameMenuInitializeEvent` | Fired when the in-game pause menu is initialized. Can be used to add custom buttons |
 | `ScreenDisplayEvent` | Fired when a screen is about to be displayed |
 | `ScreenOpenEvent` | Fired when a screen is opened |
 | `ScreenResizeEvent` | Fired when the screen dimensions change |
 | `ScreenUpdateVanillaWidgetEvent` | Fired when a vanilla Minecraft widget is updated on a screen |
-| `VanillaWidgetReplacementEvent` | Fired when a vanilla Minecraft widget is being replaced by a LabyMod widget |
+| `VanillaWidgetReplacementEvent` | Fired when a vanilla Minecraft widget is being replaced by a Laby Client widget |
 | `VersionedScreenInitEvent` | Fired when a version-specific screen is initialized |
 | **Player List Events** | |
 | `PlayerListUpdateEvent` | Fired when the tab player list is updated |
@@ -230,9 +230,9 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `WorldLeaveEvent` | Fired when the player leaves a world |
 | `WorldLoadEvent` | Fired when a world is loaded |
 | **Server API Events** | |
-| `EconomyUpdateEvent` | Fired when economy data is updated via the LabyMod Server API |
-| `PermissionStateChangeEvent` | Fired when a permission state changes via the LabyMod Server API |
-| `ServerFeatureUpdateEvent` | Fired when the server enables or disables features via the LabyMod Protocol. Can be fired at any point during the session |
+| `EconomyUpdateEvent` | Fired when economy data is updated via the Laby Client Server API |
+| `PermissionStateChangeEvent` | Fired when a permission state changes via the Laby Client Server API |
+| `ServerFeatureUpdateEvent` | Fired when the server enables or disables features via the Laby Client Protocol. Can be fired at any point during the session |
 | **Configuration Events** | |
 | `ConfigurationLoadEvent` | Fired when a configuration file is loaded |
 | `ConfigurationSaveEvent` | Fired when a configuration file is saved |
@@ -243,9 +243,9 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `SettingResetEvent` | Fired when a setting is reset to its default value |
 | `SettingUpdateEvent` | ~~Deprecated: Currently broken~~ |
 | `SettingWidgetInitializeEvent` | Fired when a setting's UI widget is initialized |
-| **LabyMod Core Events** | |
-| `LabyModRefreshEvent` | Fired when LabyMod refreshes its state |
-| `ServiceLoadEvent` | Fired when a LabyMod service is loaded |
+| **Laby Client Core Events** | |
+| `LabyModRefreshEvent` | Fired when the Laby Client refreshes its state |
+| `ServiceLoadEvent` | Fired when a Laby Client service is loaded |
 | `SubscribeMethodRegisterEvent` | Fired when an event subscriber method is registered |
 | `ImGuiInitializeEvent` | Fired when the ImGui debug overlay is initialized |
 | **Discord RPC Events** | |
@@ -256,9 +256,9 @@ The `SettingInitializeEvent` is fired when an in-game setting was initialized; i
 | `PushNotificationEvent` | Fired when a notification is pushed to the player |
 | `UpdateNotificationEvent` | Fired when an existing notification is updated |
 | **User Events** | |
-| `UserDiscoverEvent` | Fired when a LabyMod user is discovered in the session |
-| `UserFamiliarEvent` | Fired when a familiar LabyMod user is encountered |
-| `UserUpdateDataEvent` | Fired when a LabyMod user's cosmetic or profile data is updated |
+| `UserDiscoverEvent` | Fired when a Laby Client user is discovered in the session |
+| `UserFamiliarEvent` | Fired when a familiar Laby Client user is encountered |
+| `UserUpdateDataEvent` | Fired when a Laby Client user's cosmetic or profile data is updated |
 | **LabyConnect Events** | |
 | `LabyConnectEvent` | Base event for LabyConnect-related actions |
 | `LabyConnectStateUpdateEvent` | Fired when the LabyConnect connection state changes |

@@ -4,8 +4,8 @@ The `TabListFlagPacket` is a client-bound packet that allows servers to display 
 
 The `LabyModPlayer` class provides a method to manage the tab list flags.
 
-Additionally, if you use the method below, flags are automatically sent to every LabyMod player on the
-server. LabyMod players connecting to the server will also be sent every flag that is currently active
+Additionally, if you use the method below, flags are automatically sent to every Laby Client player on the
+server. Laby Client players connecting to the server will also be sent every flag that is currently active
 automatically.
 
 ```java

@@ -1,9 +1,9 @@
-All you need to do to start your Addon is done. You should be able to start your Addon with LabyMod 4 right after you've imported the Gradle project, but there are a few things left that you shouldn't forget.
+All you need to do to start your Addon is done. You should be able to start your Addon with the Laby Client right after you've imported the Gradle project, but there are a few things left that you shouldn't forget.
 
 To name a few of them:
 
 + **Basic Information**: not only those who will test your Addon would benefit from providing some information, but we do too. Some information is crucial to guarantee a seamless experience
-+ **Understanding the Example**: you could start with coding stuff for your Addon, but we've written an example addon to show you the basics of how LabyMod 4 addons work.
++ **Understanding the Example**: you could start with coding stuff for your Addon, but we've written an example addon to show you the basics of how Laby Client addons work.
 
 ## Provide information about your Addon
 Head inside the `build.gradle.kts` and search for the block called `labyMod`. <br>
@@ -24,7 +24,7 @@ Head to `core/src/main/java` in your root project folder. You'll find some examp
 
 ### The Main Class
 
-The most important thing about the main addon class is the `AddonMain` annotation. This annotation allows us to automatically generate the `addon.json`, basically the identifier of your Addon. That means without this file, LabyMod can't recognize your Addon, and thus it won't start.
+The most important thing about the main addon class is the `AddonMain` annotation. This annotation allows us to automatically generate the `addon.json`, basically the identifier of your Addon. That means without this file, Laby Client can't recognize your Addon, and thus it won't start.
 
 Now there are two ways to use this main class:
 
@@ -40,7 +40,7 @@ We've written a Superclass for an easier and more convenient way to develop addo
  3. in the body of the same getter `configuraionClass` by changing the returned value to `CONFIGURATION.class`
 
 
-Looking at the method `enable`, you'll see we used a method called `registerSettingCategory`. This method registers a new category in the LabyMod Settings, allowing users to enable/disable or configure other things regarding your Addon.
+Looking at the method `enable`, you'll see we used a method called `registerSettingCategory`. This method registers a new category in the Laby Client settings, allowing users to enable/disable or configure other things regarding your Addon.
 
 Registering commands and listeners can be done by calling `registerListener` and `registerCommand` and providing the already initialized object.
 
@@ -76,7 +76,7 @@ Inside the event, we access the field with our addon main instance; with this in
 
 ### The Command
 
-With the LabyMod 4 API, you can add your own commands with a simple-to-use command system. More on how to create own commands [here](../features/commands.md).
+With the Laby Client API, you can add your own commands with a simple-to-use command system. More on how to create own commands [here](../features/commands.md).
 
 What we do in this class is as simple and basic as the command system in general. We are inheriting the class `Command`, creating the constructor of our class, and calling the constructor of the superclass with the main prefix of the command (in our case, `ping`) and the aliases (in this case, just `pong`).
 
@@ -86,6 +86,6 @@ FINISH AFTER THE COMMAND SYSTEM IS FINISHED
 
 ### The Internationalization File
 
-Go to the module called `core` and then navigate down to `src/main/resources/assets/example/i18n/` (the `example` folder has to be named after the namespace you set in your `build.gradle.kts`) and you should see a file with the name `en_us.json`. This is the default file for internationalization, as English is the default language. To dive deeper in the internationalization of LabyMod go to [this article](../features/internationalization.md).
+Go to the module called `core` and then navigate down to `src/main/resources/assets/example/i18n/` (the `example` folder has to be named after the namespace you set in your `build.gradle.kts`) and you should see a file with the name `en_us.json`. This is the default file for internationalization, as English is the default language. To dive deeper in the internationalization of the Laby Client go to [this article](../features/internationalization.md).
 
 First, we created a new JSON Object called `example`, this has to reflect the namespace that you set in your `build.gradle.kts`; after that, we created another JSON Object called `settings`, which implies that the following lines are for the settings. Now we created another JSON Object with the key `enabled`, as this is the name of the field in our configuration; you will find another String with the key `name`. This is the name of the Setting Widget `enabled`.

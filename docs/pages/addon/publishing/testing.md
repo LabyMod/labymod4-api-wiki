@@ -1,4 +1,4 @@
-While developing, you usually start your addon via the development run in your IDE. But before publishing (or sharing your addon with testers), you should always verify that it also works in the production environment - the LabyMod 4 client normal users are playing with.
+While developing, you usually start your addon via the development run in your IDE. But before publishing (or sharing your addon with testers), you should always verify that it also works in the production environment - the Laby Client normal users are playing with.
 
 ## Build the Release Jar
 
@@ -17,13 +17,13 @@ The task `createReleaseJar` bundles your addon (including all version-dependent 
 
 ## Install the Addon in the Production Client
 
-Place the release jar in the `addons` folder of your LabyMod 4 installation. By default, you'll find it at:
+Place the release jar in the `addons` folder of your Laby Client installation. By default, you'll find it at:
 
 + **Windows**: `%APPDATA%\.minecraft\labymod-neo\addons`
 + **Linux**: `~/.minecraft/labymod-neo/addons`
 + **macOS**: `~/Library/Application Support/minecraft/labymod-neo/addons`
 
-Now start LabyMod 4 via the <a href="https://www.labymod.net/en/download" target="_blank">Launcher</a>. Your addon will be loaded like any addon installed via the addon store and shows up in the addon list in the LabyMod settings.
+Now start the Laby Client via the <a href="https://www.labymod.net/en/download" target="_blank">Launcher</a>. Your addon will be loaded like any addon installed via the addon store and shows up in the addon list in the Laby Client settings.
 
 To test a new build, replace the jar in the `addons` folder and restart the client.
 

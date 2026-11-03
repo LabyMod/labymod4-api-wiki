@@ -17,13 +17,13 @@ There are two types of themes:
 ### Root themes
 
 Root themes have no parent, everything that is not implemented is not there. This means that in this type of theme
-everything needs to be implemented. Usually this is just the vanilla theme as this is maintained by LabyMod and
+everything needs to be implemented. Usually this is just the vanilla theme as this is maintained by Laby and
 implemented
 by every addon using the Activity System.
 
 ### Extending themes
 
-Extending themes are themes based off of another theme, for example the LabyMod fancy theme extends the vanilla theme.
+Extending themes are themes based off of another theme, for example the Laby Client fancy theme extends the vanilla theme.
 Everything that is not implemented will be inherited from its parent theme. When creating your own theme, you may want
 to extend the vanilla theme, or you can also extend any other extending theme like the fancy theme.
 
@@ -37,7 +37,7 @@ in `assets/<my namespace>/themes/<theme>` with the following structure:
 
 ![Theme-File-Tree](../../../assets/files/screenshots/theme-file-structure.png)
 
-Usually you don't need to access these files directly because LabyMod handles it for stuff like LSS stylesheets,
+Usually you don't need to access these files directly because Laby Client handles it for stuff like LSS stylesheets,
 icons in the settings and hud widgets. If you still need to access a ThemeFile, it works like this:
 
 ```java
@@ -53,10 +53,10 @@ Coming from [Understand LSS](lss.md) you already know how to create LSS styleshe
 vanilla theme by putting them in `assets/example/themes/vanilla/lss/`. When implementing the fancy theme, you now want
 to put your new LSS stylesheets in `assets/example/themes/fancy/lss/` and name them exactly the same.
 
-Having done this, LabyMod will now select the LSS stylesheets from the fancy theme. If a stylesheet doesn't exist in
-the fancy theme, LabyMod will fall back to the stylesheet from the vanilla theme. The behavior is exactly the same for
+Having done this, Laby Client will now select the LSS stylesheets from the fancy theme. If a stylesheet doesn't exist in
+the fancy theme, Laby Client will fall back to the stylesheet from the vanilla theme. The behavior is exactly the same for
 textures, you may have defined your textures for your settings in `assets/example/themes/vanilla/textures/settings.png`,
-now you can create a file with the same name in the directory for the fancy theme and LabyMod will find it
+now you can create a file with the same name in the directory for the fancy theme and Laby Client will find it
 automatically.
 
 ### Theme your activity

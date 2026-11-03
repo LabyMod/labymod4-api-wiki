@@ -36,7 +36,7 @@ AddonProtocol addonProtocol = voiceChatIntegration.voiceChatProtocol();
 addonProtocol.sendPacket(uniqueId, new VoiceChatOpenChannelsPacket());
 ```
 
-### Via the LabyMod Player
+### Via the LabyModPlayer
 
 While not recommended, it is also possible to send the packet directly via the `LabyModPlayer`. This will basically skip the "protocol-getting" process, as it will search for the protocol automatically. <br/>
 

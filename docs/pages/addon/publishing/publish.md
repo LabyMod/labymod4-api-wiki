@@ -10,16 +10,16 @@ If you want to upload your addon to your own GitLab instance, write an email to 
 
 ## Publishing to the Addon Store
 
-We use <a href="https://flintmc.net" target="_blank">FlintMC</a> as the back end (and web view) for our addon store. If you find any bugs, you can create a bug report on <a href="https://labymod.net/ideas#category=webbugs">our Idea platform</a>.
+Addons are managed in the <a href="https://laby.net/organizations" target="_blank">Developer Portal on Laby.net</a>, which is also the back end of our addon store. If you find any bugs, you can create a bug report on <a href="https://labymod.net/ideas#category=webbugs">our Idea platform</a>.
 
 ## Version Compatibility
 
-We're using version ranges to verify the compatibility of an addon with LabyMod 4 and the Minecraft version the user is playing with. 
+We're using version ranges to verify the compatibility of an addon with the Laby Client and the Minecraft version the user is playing with. 
 
 ### The Star
 
 The version `*` indicates compatibility with all versions (even unreleased ones).<br>
-<b>Don't use the star unless you're only using version-independent things from the official LabyMod 4 Addon API.</b>
+<b>Don't use the star unless you're only using version-independent things from the official Laby Client Addon API.</b>
 
 ### Single Version 
 

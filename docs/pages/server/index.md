@@ -1,8 +1,8 @@
 ???+ danger "Important Note"
 
-    You'll need Java Development Kit (JDK) 8 or higher to be able to use the LabyMod 4 Server API (the Velocity platform-specific implementation requires JDK 17 or higher)
+    You'll need Java Development Kit (JDK) 8 or higher to be able to use the Laby Client Server API (the Velocity platform-specific implementation requires JDK 17 or higher)
 
-## Adding the LabyMod Repository
+## Adding the Laby Repository
 
 === ":octicons-file-code-16: Gradle (Kotlin DSL)"
 
@@ -37,16 +37,16 @@
     </repositories>
     ```
 
-## Adding the LabyMod 4 Server API as a Dependency
+## Adding the Laby Client Server API as a Dependency
 
 Depending on the actual artifact you want to use, you have to add the following dependency to your project. Listed below are the available artifacts and their use cases:
 
-- `api` - The protocol itself without any LabyMod-specific code. Useful if you want to just use the protocol.
-- `core` - The LabyMod implementation of the protocol, containing all packets and models to interact with the LabyMod client. Use this if you want to communicate with the LabyMod 4 Server API platform-independently.
-- `server-bukkit` - The platform-specific implementation of the LabyMod Protocol for Servers running on Bukkit (Spigot, Paper, etc.).
-- `server-bungeecord` - The platform-specific implementation of the LabyMod Protocol for Servers running on BungeeCord.
-- `server-minestom` - The platform-specific implementation of the LabyMod Protocol for Servers running on Minestom.
-- `server-velocity` - The platform-specific implementation of the LabyMod Protocol for Servers running on Velocity.
+- `api` - The protocol itself without any Laby Client-specific code. Useful if you want to just use the protocol.
+- `core` - The Laby Client implementation of the protocol, containing all packets and models to interact with the Laby Client. Use this if you want to communicate with the Laby Client Server API platform-independently.
+- `server-bukkit` - The platform-specific implementation of the Laby Client Protocol for Servers running on Bukkit (Spigot, Paper, etc.).
+- `server-bungeecord` - The platform-specific implementation of the Laby Client Protocol for Servers running on BungeeCord.
+- `server-minestom` - The platform-specific implementation of the Laby Client Protocol for Servers running on Minestom.
+- `server-velocity` - The platform-specific implementation of the Laby Client Protocol for Servers running on Velocity.
 - `server-common` - Contains shared classes and utilities used across different server implementations to ensure consistent behavior and reduce code duplication. Use this if you want to create your own platform implementation.
 
 ???+ danger "Important Note"
@@ -101,20 +101,20 @@ Server API run as a separate plugin.
     ```yaml
     depend: [LabyModServerAPI]
     ```
-5. You're now ready to use the LabyMod 4 Server API in your Bukkit plugin.
+5. You're now ready to use the Laby Client Server API in your Bukkit plugin.
 
 #### Shading the Server API into Your Plugin
 
 1. Add the `server-bukkit` dependency to your project's dependencies as described above.
 2. Configure shadow in your project's `build.gradle` or `pom.xml` to shade the `server-bukkit` dependency into your plugin.
-3. Initialize the LabyMod 4 Server API in your plugin's `onEnable` method:
+3. Initialize the Laby Client Server API in your plugin's `onEnable` method:
     ```java
     @Override
     public void onEnable() {
         LabyModProtocolService.initialize(this);
     }
     ```
-4. You're now ready to use the LabyMod 4 Server API in your Bukkit plugin.
+4. You're now ready to use the Laby Client Server API in your Bukkit plugin.
 
 ### BungeeCord Plugin
 
@@ -127,29 +127,29 @@ Server API run as a separate plugin.
     ```yaml
     depend: [LabyModServerAPI]
     ```
-5. You're now ready to use the LabyMod 4 Server API in your BungeeCord plugin.
+5. You're now ready to use the Laby Client Server API in your BungeeCord plugin.
 
 #### Shading the Server API into Your Plugin
 
 1. Add the `server-bungeecord` dependency to your project's dependencies as described above.
 2. Configure shadow in your project's `build.gradle` or `pom.xml` to shade the `server-bungeecord` dependency into your plugin.
-3. Initialize the LabyMod 4 Server API in your plugin's `onEnable` method:
+3. Initialize the Laby Client Server API in your plugin's `onEnable` method:
     ```java
     @Override
     public void onEnable() {
         LabyModProtocolService.initialize(this);
     }
     ```
-4. You're now ready to use the LabyMod 4 Server API in your BungeeCord plugin.
+4. You're now ready to use the Laby Client Server API in your BungeeCord plugin.
 
 ### Minestom Library
 
 1. Add the `server-minestom` dependency to your project's dependencies as described above.
-2. Initialize the LabyMod 4 Server API before you call `MinecraftServer#start`:
+2. Initialize the Laby Client Server API before you call `MinecraftServer#start`:
     ```java
     LabyModProtocolService.initialize();
     ```
-3. You're now ready to use the LabyMod 4 Server API in your Minestom server.
+3. You're now ready to use the Laby Client Server API in your Minestom server.
 
 ### Velocity Plugin
 
@@ -164,20 +164,20 @@ Server API run as a separate plugin.
         @Dependency(id = "labymod-server-api")
     }
     ```
-5. You're now ready to use the LabyMod 4 Server API in your BungeeCord plugin.
+5. You're now ready to use the Laby Client Server API in your BungeeCord plugin.
 
 #### Shading the Server API into Your Plugin
 
 1. Add the `server-velocity` dependency to your project's dependencies as described above.
 2. Configure shadow in your project's `build.gradle` or `pom.xml` to shade the `server-velocity` dependency into your plugin.
-3. Initialize the LabyMod 4 Server API in your plugin's `ProxyInitializeEvent` listener:
+3. Initialize the Laby Client Server API in your plugin's `ProxyInitializeEvent` listener:
     ```java
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
         LabyModProtocolService.initialize(this, this.server, this.logger);
     }
     ```
-4. You're now ready to use the LabyMod 4 Server API in your Velocity plugin. 
+4. You're now ready to use the Laby Client Server API in your Velocity plugin. 
 
 
 
