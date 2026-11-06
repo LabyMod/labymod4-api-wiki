@@ -33,6 +33,7 @@ Before you can submit an addon to our addon store, make sure you are following t
         distributionSha256Sum=<sha256 of the distribution zip>
         ```
         The matching checksum for your `distributionUrl` can be found on the <a href="https://gradle.org/release-checksums/" target="_blank">Gradle release checksums page</a> (use the "Binary-only (-bin) ZIP Checksum"). You can also copy the full `gradle-wrapper.properties` from our <a href="https://github.com/LabyMod/addon-template/blob/master/gradle/wrapper/gradle-wrapper.properties" target="_blank">addon-template</a>.
+    3. Your addon must be built with LabyGradle 0.11.0 or newer.
 
 ## Why no streams?
 
