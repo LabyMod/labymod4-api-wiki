@@ -63,6 +63,7 @@ nav:
           - Use and Create Events: pages/addon/features/events.md
           - Create Commands: pages/addon/features/commands.md
           - Write Version Dependent Code: pages/addon/features/version-dependent.md
+          - Share Code Across Versions: pages/addon/features/shared-version-code.md
           - Hud Widgets: pages/addon/features/hud-widgets.md
           - Server Features: pages/addon/features/server-features.md
           - Launcher Clips: pages/addon/features/clips.md
