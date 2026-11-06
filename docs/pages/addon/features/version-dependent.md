@@ -10,6 +10,12 @@ result in the ability that you can control your version-dependent code from the 
 The more complex way would be SpongePowered's Mixin. While Mixin is comparatively easy to use, it can be a bit confusing
 at the beginning, as all new things are.
 
+???+ tip "Write It Once"
+
+    Both ways work in the shared source set too. Instead of one copy per version, you write the code once for all
+    versions from 1.16.5 on. See [Share Code Across Versions](shared-version-code.md). This feature is
+    experimental.
+
 ???+ warning "Important Note"
 
     Please keep in mind that the examples on this page are version dependent. We are showing the examples for Minecraft 1.21.5, so depending on the date you're reading this, recreating the examples might not be possible, we'll try to keep them updated, though, and if we do, we update the version in this note.
